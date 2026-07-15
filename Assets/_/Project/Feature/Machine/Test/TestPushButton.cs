@@ -1,57 +1,150 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
+[RequireComponent(typeof(XRBaseInteractable))]
 public class TestPushButton : MonoBehaviour
 {
+    #region Publics
+
+    [Header("Références")]
+    public Transform m_buttonVisual;
+
     [Header("Paramètres de pression")]
-    public Transform buttonVisual;
-    public float pressDistance = 0.015f;
-    public float speed = 10f;
-    
-    private Vector3 initialLocalPos;
-    private bool isPressed = false;
-    private XRBaseInteractable interactable;
+    [Min(0f)]
+    public float m_pressDistance = 0.015f;
 
-    void Awake()
+    [Min(0f)]
+    public float m_movementSpeed = 10f;
+
+    [Min(0.01f)]
+    public float m_pressDuration = 0.15f;
+
+    [Header("Événement")]
+    public UnityEvent m_onPressed;
+
+    #endregion
+
+    #region API Unity
+
+    private void Awake()
     {
-        interactable = GetComponent<XRBaseInteractable>();
-        if (buttonVisual != null)
+        _interactable = GetComponent<XRBaseInteractable>();
+
+        if (m_buttonVisual == null)
         {
-            initialLocalPos = buttonVisual.localPosition;
+            Debug.LogError(
+                "[TestPushButton] Aucun visuel de bouton n'est assigné.",
+                this);
+
+            enabled = false;
+            return;
         }
+
+        _initialLocalPosition = m_buttonVisual.localPosition;
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
-        interactable.hoverEntered.AddListener(StartPress);
-        interactable.hoverExited.AddListener(ReleasePress);
+        if (_interactable == null)
+            return;
+
+        _interactable.selectEntered.AddListener(HandleSelectEntered);
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
-        interactable.hoverEntered.RemoveListener(StartPress);
-        interactable.hoverExited.RemoveListener(ReleasePress);
+        if (_interactable != null)
+            _interactable.selectEntered.RemoveListener(HandleSelectEntered);
+
+        CancelInvoke(nameof(ReleaseButton));
+
+        _isPressed = false;
+        _canPress = true;
     }
 
-    private void StartPress(HoverEnterEventArgs args)
+    private void Update()
     {
-        isPressed = true;
-        Debug.Log("StartPress");
+        UpdateButtonVisual();
     }
 
-    private void ReleasePress(HoverExitEventArgs args)
+    #endregion
+
+    #region Utils (méthodes publics)
+
+    public void PressButton()
     {
-        isPressed = false;
-        Debug.Log("ReleasePress");
+        if (!_canPress)
+            return;
+
+        _canPress = false;
+        _isPressed = true;
+
+        Debug.Log("[TestPushButton] Bouton pressé.", this);
+
+        m_onPressed?.Invoke();
+
+        CancelInvoke(nameof(ReleaseButton));
+        Invoke(nameof(ReleaseButton), m_pressDuration);
     }
 
-    void Update()
+    public void ResetButton()
     {
-        if (buttonVisual)
-        {
-            Vector3 targetPos = isPressed ? initialLocalPos - new Vector3(0, pressDistance, 0) : initialLocalPos;
-            buttonVisual.localPosition = Vector3.Lerp(buttonVisual.localPosition, targetPos, Time.deltaTime * speed);
-        }
+        CancelInvoke(nameof(ReleaseButton));
+
+        _isPressed = false;
+        _canPress = true;
+
+        if (m_buttonVisual != null)
+            m_buttonVisual.localPosition = _initialLocalPosition;
     }
+
+    #endregion
+
+    #region Main Methods (méthodes private)
+
+    private void HandleSelectEntered(SelectEnterEventArgs args)
+    {
+        PressButton();
+    }
+
+    private void ReleaseButton()
+    {
+        _isPressed = false;
+        _canPress = true;
+
+        Debug.Log("[TestPushButton] Bouton relâché.", this);
+    }
+
+    private void UpdateButtonVisual()
+    {
+        if (!m_buttonVisual)
+            return;
+
+        Vector3 pressedPosition =
+            _initialLocalPosition + Vector3.down * m_pressDistance;
+
+        Vector3 targetPosition = _isPressed
+            ? pressedPosition
+            : _initialLocalPosition;
+
+        m_buttonVisual.localPosition = Vector3.Lerp(
+            m_buttonVisual.localPosition,
+            targetPosition,
+            Time.deltaTime * m_movementSpeed);
+    }
+
+    #endregion
+
+    #region Private and Protected
+
+    private Vector3 _initialLocalPosition;
+
+    private bool _isPressed;
+    private bool _canPress = true;
+
+    private XRBaseInteractable _interactable;
+
+    #endregion
 }
