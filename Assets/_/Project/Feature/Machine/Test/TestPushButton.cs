@@ -81,8 +81,6 @@ public class TestPushButton : MonoBehaviour
         _canPress = false;
         _isPressed = true;
 
-        Debug.Log("[TestPushButton] Bouton pressé.", this);
-
         m_onPressed?.Invoke();
 
         CancelInvoke(nameof(ReleaseButton));
@@ -113,8 +111,7 @@ public class TestPushButton : MonoBehaviour
     {
         _isPressed = false;
         _canPress = true;
-
-        Debug.Log("[TestPushButton] Bouton relâché.", this);
+        
     }
 
     private void UpdateButtonVisual()
