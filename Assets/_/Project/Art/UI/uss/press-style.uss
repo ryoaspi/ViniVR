@@ -1,0 +1,30 @@
+.btn-item {
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: #96FD08;
+    width: 100%;
+    height:100%;
+    font-size: 64px;
+    border-radius: 16px;
+}
+
+.btn-item .unity-image{
+    margin-left: 64px;
+}
+
+.btn-item:hover {
+    background-color: #BAFF5B;
+}
+
+.btn-item:active {
+    border-width: 10px;
+    width: 90%;
+    height:90%;
+    font-size: 58px;
+    margin:auto;
+}
+
+.btn-container {
+    background-color: black;
+    padding: 64px;
+}
