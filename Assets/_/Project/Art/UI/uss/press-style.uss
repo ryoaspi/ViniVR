@@ -12,10 +12,6 @@
     margin-left: 64px;
 }
 
-.btn-item:hover {
-    background-color: #BAFF5B;
-}
-
 .btn-item:active {
     border-width: 10px;
     width: 90%;
