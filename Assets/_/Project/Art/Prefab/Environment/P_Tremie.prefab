@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 3137123310066979093}
   - component: {fileID: 1965018020146881132}
   m_Layer: 0
-  m_Name: P_Ento
+  m_Name: P_Tremie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
