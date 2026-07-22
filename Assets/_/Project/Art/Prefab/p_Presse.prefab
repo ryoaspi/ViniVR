@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9121426870201772138}
-  - component: {fileID: 5201594656587015191}
   - component: {fileID: 5350494509658990377}
   m_Layer: 0
   m_Name: ColliderCuve
@@ -33,29 +32,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8459814512060921454}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!136 &5201594656587015191
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567362417294238354}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.4
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5350494509658990377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,9 +49,6 @@ MonoBehaviour:
   _debug: 0
   _warning: 0
   _error: 0
-  m_machineId: Press
-  m_cycleDuration: 5
-  _currentState: 1
   _layerMask:
     serializedVersion: 2
     m_Bits: 64

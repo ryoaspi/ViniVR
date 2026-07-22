@@ -10,15 +10,20 @@ namespace Machine.Runtime
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer(_layerMask.ToString()))
+            if (other.gameObject.layer == LayerMask.GetMask(_layerMask.ToString()))
             {
                 Info($"{other.gameObject.name} has been entered");
+                if (_destroyed)
+                {
+                    other.gameObject.SetActive(false);
+                    Info($"{other.gameObject.name} has been destroyed");
+                }
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer(_layerMask.ToString()))
+            if (other.gameObject.layer == LayerMask.GetMask(_layerMask.ToString()))
             {
                 Info($"{other.gameObject.name} has been exited");
             }
@@ -29,10 +34,14 @@ namespace Machine.Runtime
         
         #region Utils
 
-        public bool DestroyGrappe()
+        public void DestroyGrappe()
         {
             _destroyed = true;
-            return _destroyed;
+        }
+
+        public void RestartGrappe()
+        {
+            _destroyed = false;
         }
         
         #endregion
@@ -42,7 +51,7 @@ namespace Machine.Runtime
         
         [SerializeField] private LayerMask _layerMask;
         
-        private bool _destroyed = false;
+        private bool _destroyed;
         
         #endregion
     }
