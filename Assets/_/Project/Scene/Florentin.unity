@@ -3460,7 +3460,7 @@ PrefabInstance:
     - target: {fileID: 1101101003545112197, guid: 6c1c959c165b03342af61aad2f7918c2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 2100000, guid: 96770a84b15b387419f8bdbc9b584f12, type: 2}
     - target: {fileID: 2267206775327336622, guid: 6c1c959c165b03342af61aad2f7918c2, type: 3}
       propertyPath: m_Name
       value: p_Ground
@@ -3525,6 +3525,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1098203986}
   - component: {fileID: 1098203985}
+  - component: {fileID: 1098203987}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -3612,6 +3613,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1679956905}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1098203987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098203984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!1 &1099002985
 GameObject:
   m_ObjectHideFlags: 0
@@ -7711,22 +7741,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: InnerWall
       objectReference: {fileID: 0}
+    - target: {fileID: 1905434043554544693, guid: ba192e890b20f4c4fb31922d4b03e2ac, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 96770a84b15b387419f8bdbc9b584f12, type: 2}
     - target: {fileID: 2520731372909097359, guid: ba192e890b20f4c4fb31922d4b03e2ac, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 2100000, guid: 96770a84b15b387419f8bdbc9b584f12, type: 2}
     - target: {fileID: 3341099129998253122, guid: ba192e890b20f4c4fb31922d4b03e2ac, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 2100000, guid: 96770a84b15b387419f8bdbc9b584f12, type: 2}
+    - target: {fileID: 3579471399993896990, guid: ba192e890b20f4c4fb31922d4b03e2ac, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 96770a84b15b387419f8bdbc9b584f12, type: 2}
     - target: {fileID: 4019905335330424628, guid: ba192e890b20f4c4fb31922d4b03e2ac, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 2100000, guid: 96770a84b15b387419f8bdbc9b584f12, type: 2}
     - target: {fileID: 4088017545253206575, guid: ba192e890b20f4c4fb31922d4b03e2ac, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 2100000, guid: 96770a84b15b387419f8bdbc9b584f12, type: 2}
     - target: {fileID: 4207139534759378793, guid: ba192e890b20f4c4fb31922d4b03e2ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7770,7 +7808,7 @@ PrefabInstance:
     - target: {fileID: 4771883099392770232, guid: ba192e890b20f4c4fb31922d4b03e2ac, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 2100000, guid: 96770a84b15b387419f8bdbc9b584f12, type: 2}
     - target: {fileID: 6284848928512731920, guid: ba192e890b20f4c4fb31922d4b03e2ac, type: 3}
       propertyPath: m_Name
       value: RearWall_Hole
@@ -7782,11 +7820,11 @@ PrefabInstance:
     - target: {fileID: 7575909200381046856, guid: ba192e890b20f4c4fb31922d4b03e2ac, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 2100000, guid: 96770a84b15b387419f8bdbc9b584f12, type: 2}
     - target: {fileID: 8411899682997638639, guid: ba192e890b20f4c4fb31922d4b03e2ac, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 2100000, guid: 96770a84b15b387419f8bdbc9b584f12, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
