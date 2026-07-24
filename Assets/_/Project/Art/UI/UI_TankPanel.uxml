@@ -19,7 +19,7 @@
                 <ui:Slider name="wished-temperature-slider" label="" value="10" high-value="32" direction="Vertical" low-value="10" fill="true" show-input-field="false" focusable="true" class="slider"/>
                 <ui:Label text="10°C" class="slider_container-label"/>
             </ui:VisualElement>
-            <ui:Button text="Démarrer" class="button_apply"/>
+            <ui:Button text="Démarrer" focusable="true" class="button_apply"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
