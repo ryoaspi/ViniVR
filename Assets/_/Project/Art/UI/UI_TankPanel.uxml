@@ -8,12 +8,12 @@
             </ui:VisualElement>
             <ui:VisualElement name="container-actual_temperature" class="container-actual_temperature">
                 <ui:Label text="Température actuelle" name="Header" class="container_header"/>
-                <ui:Label text="18.5°C" name="Temperature_value" enable-rich-text="false" class="wished_value"/>
+                <ui:Label text="18.5°C" name="Temperature_value" enable-rich-text="false" class="wished_value actual_value"/>
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="container_wished" class="container_wished">
             <ui:Label text="Température souhaitée" name="Header" class="wished_temperature-header"/>
-            <ui:Label text="22.5°C" class="slider-realtime_temperature"/>
+            <ui:Label name="temperature-value-label" text="10°C" class="wished_value"/>
             <ui:VisualElement name="slider_container" class="slider_container" style="flex-grow: 1;">
                 <ui:Label text="32°C" class="slider_container-label"/>
                 <ui:Slider name="wished-temperature-slider" label="" value="10" high-value="32" direction="Vertical" low-value="10" fill="true" show-input-field="false" focusable="true" class="slider"/>

@@ -3,15 +3,21 @@ using UnityEngine.UIElements;
 
 public class ThermostatUI : MonoBehaviour
 {
-    private Label valueLabel;
+    [SerializeField] private Label valueLabel;
 
     private void OnEnable()
     {
         var uiDocument = GetComponent<UIDocument>();
         var root = uiDocument.rootVisualElement;
 
+        Debug.Log("Root est null ? " + (root == null));
+        Debug.Log("Nombre d'enfants du root : " + (root != null ? root.childCount.ToString() : "N/A"));
+
         var slider = root.Q<Slider>("wished-temperature-slider");
         valueLabel = root.Q<Label>("temperature-value-label");
+
+        Debug.Log("Slider trouvé ? " + (slider != null));
+        Debug.Log("Label trouvé ? " + (valueLabel != null));
 
         UpdateLabel(slider.value);
 

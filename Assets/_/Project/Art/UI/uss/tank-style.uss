@@ -130,6 +130,11 @@
 }
 
 .wished_value {
-    font-size: 110px;
+    font-size: 200px;
+    -unity-font-style: bold;
+}
+
+.actual_value {
+        font-size: 120px;
     -unity-font-style: bold;
 }
