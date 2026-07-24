@@ -175,7 +175,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 0.25
   m_LinearDamping: 1
-  m_AngularDamping: 3
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -248,7 +248,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 0.25
   m_LinearDamping: 1
-  m_AngularDamping: 3
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -666,7 +666,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 0.25
   m_LinearDamping: 1
-  m_AngularDamping: 3
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1456,7 +1456,7 @@ Transform:
   m_GameObject: {fileID: 209669241}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.0008077622, z: -0, w: 0.9999997}
-  m_LocalPosition: {x: 0, y: 10.105251, z: 0}
+  m_LocalPosition: {x: 0, y: 10.136, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1497,8 +1497,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.05
+  m_Height: 0.05
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &209669245
@@ -1713,7 +1713,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 0.25
   m_LinearDamping: 1
-  m_AngularDamping: 3
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -2403,7 +2403,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 0.25
   m_LinearDamping: 1
-  m_AngularDamping: 3
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -2512,7 +2512,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 0.25
   m_LinearDamping: 1
-  m_AngularDamping: 3
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -2585,7 +2585,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 0.25
   m_LinearDamping: 1
-  m_AngularDamping: 3
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -3011,7 +3011,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 0.25
   m_LinearDamping: 1
-  m_AngularDamping: 3
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -3156,7 +3156,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 0.25
   m_LinearDamping: 1
-  m_AngularDamping: 3
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -4526,7 +4526,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 0.25
   m_LinearDamping: 1
-  m_AngularDamping: 3
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -5078,7 +5078,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 0.25
   m_LinearDamping: 1
-  m_AngularDamping: 3
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -6064,7 +6064,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 1
   m_LinearDamping: 1.5
-  m_AngularDamping: 4
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -6558,7 +6558,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 0.25
   m_LinearDamping: 1
-  m_AngularDamping: 3
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -7048,7 +7048,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 0.25
   m_LinearDamping: 1
-  m_AngularDamping: 3
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -7316,7 +7316,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 0.25
   m_LinearDamping: 1
-  m_AngularDamping: 3
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -7412,7 +7412,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 0.25
   m_LinearDamping: 1
-  m_AngularDamping: 3
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -7711,7 +7711,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 0.25
   m_LinearDamping: 1
-  m_AngularDamping: 3
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -8291,7 +8291,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 0.25
   m_LinearDamping: 1
-  m_AngularDamping: 3
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -8396,7 +8396,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 0.25
   m_LinearDamping: 1
-  m_AngularDamping: 3
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -9211,7 +9211,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 0.25
   m_LinearDamping: 1
-  m_AngularDamping: 3
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -9284,7 +9284,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 0.25
   m_LinearDamping: 1
-  m_AngularDamping: 3
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -9311,7 +9311,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 0.25
   m_LinearDamping: 1
-  m_AngularDamping: 3
+  m_AngularDamping: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
