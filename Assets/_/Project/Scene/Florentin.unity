@@ -1747,7 +1747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3221930934022574771, guid: ed56f35e2bfb9a14793461d3c2c6c341, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.017091
+      value: -6.9170914
       objectReference: {fileID: 0}
     - target: {fileID: 3221930934022574771, guid: ed56f35e2bfb9a14793461d3c2c6c341, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3397,15 +3397,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2392105908861120781, guid: 2c39a5f7984d61a40902d57f11fffcf7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.435
+      value: -12.7
       objectReference: {fileID: 0}
     - target: {fileID: 2392105908861120781, guid: 2c39a5f7984d61a40902d57f11fffcf7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.038
+      value: 0.067999974
       objectReference: {fileID: 0}
     - target: {fileID: 2392105908861120781, guid: 2c39a5f7984d61a40902d57f11fffcf7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.065
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 2392105908861120781, guid: 2c39a5f7984d61a40902d57f11fffcf7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4078,11 +4078,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2881540364231133193, guid: ed56f35e2bfb9a14793461d3c2c6c341, type: 3}
       propertyPath: m_Name
-      value: p_StorageTank_VinReserve
+      value: p_StorageTank_Decoration
       objectReference: {fileID: 0}
     - target: {fileID: 3221930934022574771, guid: ed56f35e2bfb9a14793461d3c2c6c341, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.98
+      value: -6.88
       objectReference: {fileID: 0}
     - target: {fileID: 3221930934022574771, guid: ed56f35e2bfb9a14793461d3c2c6c341, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5414,11 +5414,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2881540364231133193, guid: ed56f35e2bfb9a14793461d3c2c6c341, type: 3}
       propertyPath: m_Name
-      value: p_StorageTank_Decoration
+      value: p_StorageTank_Assemblage
       objectReference: {fileID: 0}
     - target: {fileID: 3221930934022574771, guid: ed56f35e2bfb9a14793461d3c2c6c341, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.56
+      value: -5.1929092
       objectReference: {fileID: 0}
     - target: {fileID: 3221930934022574771, guid: ed56f35e2bfb9a14793461d3c2c6c341, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6098,11 +6098,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2881540364231133193, guid: ed56f35e2bfb9a14793461d3c2c6c341, type: 3}
       propertyPath: m_Name
-      value: p_StorageTank_Decoration
+      value: p_StorageTank_VinReserve
       objectReference: {fileID: 0}
     - target: {fileID: 3221930934022574771, guid: ed56f35e2bfb9a14793461d3c2c6c341, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.41
+      value: -8.62
       objectReference: {fileID: 0}
     - target: {fileID: 3221930934022574771, guid: ed56f35e2bfb9a14793461d3c2c6c341, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6311,11 +6311,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2881540364231133193, guid: ed56f35e2bfb9a14793461d3c2c6c341, type: 3}
       propertyPath: m_Name
-      value: p_StorageTank_Debourbage
+      value: p_StorageTank_Decoration
       objectReference: {fileID: 0}
     - target: {fileID: 3221930934022574771, guid: ed56f35e2bfb9a14793461d3c2c6c341, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.1870894
+      value: -3.58
       objectReference: {fileID: 0}
     - target: {fileID: 3221930934022574771, guid: ed56f35e2bfb9a14793461d3c2c6c341, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7201,7 +7201,7 @@ Transform:
   m_GameObject: {fileID: 1939457942}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.83, y: 0.03, z: 0.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7307,7 +7307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3221930934022574771, guid: ed56f35e2bfb9a14793461d3c2c6c341, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.15
+      value: -3.5429106
       objectReference: {fileID: 0}
     - target: {fileID: 3221930934022574771, guid: ed56f35e2bfb9a14793461d3c2c6c341, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7845,11 +7845,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2881540364231133193, guid: ed56f35e2bfb9a14793461d3c2c6c341, type: 3}
       propertyPath: m_Name
-      value: p_StorageTank_Assermblage
+      value: 'p_StorageTank_Decoration '
       objectReference: {fileID: 0}
     - target: {fileID: 3221930934022574771, guid: ed56f35e2bfb9a14793461d3c2c6c341, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.41
+      value: -8.62
       objectReference: {fileID: 0}
     - target: {fileID: 3221930934022574771, guid: ed56f35e2bfb9a14793461d3c2c6c341, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8103,7 +8103,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2881540364231133193, guid: ed56f35e2bfb9a14793461d3c2c6c341, type: 3}
       propertyPath: m_Name
-      value: p_StorageTank_Decoration
+      value: p_StorageTank_Debourbage
       objectReference: {fileID: 0}
     - target: {fileID: 3221930934022574771, guid: ed56f35e2bfb9a14793461d3c2c6c341, type: 3}
       propertyPath: m_LocalPosition.x

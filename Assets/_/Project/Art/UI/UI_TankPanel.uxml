@@ -11,11 +11,11 @@
                 <ui:Label text="18.5°C" name="Temperature_value" enable-rich-text="false" class="wished_value"/>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="container_wished" class="container_wished" style="flex-grow: 1;">
+        <ui:VisualElement name="container_wished" class="container_wished">
+            <ui:Label text="Température souhaitée" name="Header" class="wished_temperature-header"/>
             <ui:Label text="Label"/>
-            <ui:Label text="Label"/>
-            <ui:Slider label="Slider" value="42" high-value="100"/>
+            <ui:Slider label="" value="10" high-value="32" direction="Vertical" low-value="10" fill="true" show-input-field="false" focusable="true" class="slider"/>
+            <ui:Button text="Démarrer" class="button_apply"/>
         </ui:VisualElement>
-        <ui:Button text="Button"/>
     </ui:VisualElement>
 </ui:UXML>
