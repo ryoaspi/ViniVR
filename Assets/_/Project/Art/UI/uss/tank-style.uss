@@ -1,0 +1,63 @@
+:root {
+}
+
+.container_main {
+    padding: 32px;
+    background-color: #000000;
+}
+
+.container_actual {
+    background-color: #252525;
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 32px;
+    height: 400px;
+    padding: 32px 100px;
+    margin-bottom: 32px;
+}
+
+.container_wished {
+    border-width: 1px;
+    border-color: red;
+    border-radius: 32px;
+}
+
+.container_icon {
+    border-right-width: 1px;
+    border-color: #ffffff;
+    display: flex;
+    align-items: center;
+        padding-right: 85px;
+}
+
+.container-actual_temperature {
+}
+
+.icon {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 16px;
+}
+
+.unity-image {
+}
+
+.desc {
+    font-size: 32px;
+}
+
+.container_header {
+    font-size: 24px;
+    -unity-font-style: uppercase;
+}
+
+.wished_value {
+    font-size: 140px;
+    -unity-font-style: bold;
+    
+}
+
+
