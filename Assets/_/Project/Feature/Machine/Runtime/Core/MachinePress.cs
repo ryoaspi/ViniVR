@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using TheFoundation.Runtime;
 using UnityEngine;
 
 namespace Machine.Runtime
 {
-    public class MachinePress : FBehaviour
+    public class MachinePress : MonoBehaviour
     {
         #region Publics
 
@@ -21,14 +20,12 @@ namespace Machine.Runtime
             }
 
             GameObject grapeObject = GetGrapeObject(other);
-
-            Info($"{grapeObject.name} has entered the machine press.");
+            
 
             if (_destroyed)
             {
                 grapeObject.SetActive(false);
-
-                Info($"{grapeObject.name} has been destroyed because the machine cycle is finished.");
+                
                 return;
             }
 
@@ -48,8 +45,7 @@ namespace Machine.Runtime
             GameObject grapeObject = GetGrapeObject(other);
 
             _grapeObjects.Remove(grapeObject);
-
-            Info($"{grapeObject.name} has exited the machine press.");
+            
         }
 
         #endregion
@@ -71,21 +67,18 @@ namespace Machine.Runtime
                 }
 
                 grapeObject.SetActive(false);
-
-                Info($"{grapeObject.name} has been destroyed.");
+                
             }
 
             _grapeObjects.Clear();
-
-            Info("All grape objects currently inside the machine press have been destroyed.");
+            
         }
 
         public void RestartGrappe()
         {
             _destroyed = false;
             _grapeObjects.Clear();
-
-            Info("The machine press is ready to receive new grape objects.");
+            
         }
 
         #endregion
