@@ -386,7 +386,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -546,7 +546,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -602,7 +602,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2018,7 +2018,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2759,7 +2759,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -3683,7 +3683,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -3976,7 +3976,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -3999,7 +3999,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -4094,7 +4094,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -4879,7 +4879,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -5127,7 +5127,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -5203,7 +5203,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -5226,7 +5226,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -7397,7 +7397,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -7493,7 +7493,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -7673,7 +7673,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -7696,7 +7696,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -9109,7 +9109,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -9132,7 +9132,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -9155,7 +9155,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -9178,7 +9178,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -9543,19 +9543,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.5906385
+      value: 0.67277324
       objectReference: {fileID: 0}
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.10227281
+      value: -0.2264883
       objectReference: {fileID: 0}
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.49109513
+      value: -0.18477905
       objectReference: {fileID: 0}
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.6320696
+      value: -0.67965865
       objectReference: {fileID: 0}
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9909,31 +9909,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0799
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.303
+      value: 0.1846
       objectReference: {fileID: 0}
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.4861
+      value: 0.486
       objectReference: {fileID: 0}
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9999992
+      value: 0.67559034
       objectReference: {fileID: 0}
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0010562896
+      value: -0.7372768
       objectReference: {fileID: 0}
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0006559713
+      value: 0.00064341846
       objectReference: {fileID: 0}
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000060273327
+      value: 0.00058959017
       objectReference: {fileID: 0}
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
