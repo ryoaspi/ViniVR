@@ -1,286 +1,230 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EmissiveLightSequence : MonoBehaviour
+namespace Machine.Runtime
 {
-    #region Publics
-
-    [Header("Événements")]
-    public UnityEvent m_onSequenceStarted;
-    public UnityEvent m_onOrangeBlinkFinished;
-    public UnityEvent m_onSequenceFinished;
-
-    #endregion
-
-
-    #region API Unity
-
-    private void Awake()
+    public class EmissiveLightSequence : MonoBehaviour
     {
-        _orangePropertyBlock = new MaterialPropertyBlock();
-        _greenPropertyBlock = new MaterialPropertyBlock();
+        #region Publics
 
-        TurnOffAllLights();
-    }
+        [Header("Renderers")]
+        [SerializeField] private Renderer _orangeRenderer;
+        [SerializeField] private Renderer _greenRenderer;
 
-    private void Update()
-    {
-        if (!_isRunning)
-            return;
+        [Header("Couleurs HDR")]
+        [ColorUsage(true, true)]
+        [SerializeField] private Color _orangeColor = new(1f, 0.25f, 0f, 1f);
 
-        _timer -= Time.deltaTime;
+        [ColorUsage(true, true)]
+        [SerializeField] private Color _greenColor = Color.green;
 
-        if (_timer > 0f)
-            return;
+        [Header("Intensités")]
+        [Min(0f)]
+        [SerializeField] private float _orangeIntensity = 5f;
 
-        switch (_currentState)
+        [Min(0f)]
+        [SerializeField] private float _greenIntensity = 5f;
+
+        [Header("Temporisation")]
+        [Min(0f)]
+        [SerializeField] private float _delayBeforeGreenLight = 1f;
+
+        [Header("Shader")]
+        [SerializeField] private string _emissionPropertyName = "_EmissionColor";
+
+        [Header("Événements")]
+        public UnityEvent m_onSequenceStarted;
+        public UnityEvent m_onOrangeLightActivated;
+        public UnityEvent m_onGreenLightActivated;
+        public UnityEvent m_onLightsReady;
+        public UnityEvent m_onLightsTurnedOff;
+
+        public bool m_areLightsReady => _currentState == LightSequenceState.Ready;
+
+        #endregion
+
+
+        #region API Unity
+
+        private void Awake()
         {
-            case SequenceState.OrangeOn:
-                StartOrangeOff();
-                break;
-
-            case SequenceState.OrangeOff:
-                CompleteOrangeOff();
-                break;
-
-            case SequenceState.GreenAndOrangeOn:
-                CompleteSequence();
-                break;
-        }
-    }
-
-    #endregion
-
-
-    #region Utils (méthodes publics)
-
-    /// <summary>
-    /// Lance la séquence complète :
-    /// orange clignotant, puis orange et vert fixes.
-    /// </summary>
-    public void StartSequence()
-    {
-        if (_isRunning)
-            return;
-
-        _isRunning = true;
-        _completedBlinks = 0;
-
-        SetGreenEmission(false);
-        StartOrangeOn();
-
-        m_onSequenceStarted?.Invoke();
-    }
-
-    /// <summary>
-    /// Arrête immédiatement la séquence et éteint les voyants.
-    /// </summary>
-    public void StopSequence()
-    {
-        _isRunning = false;
-        _currentState = SequenceState.Inactive;
-        _timer = 0f;
-        _completedBlinks = 0;
-
-        TurnOffAllLights();
-    }
-
-    /// <summary>
-    /// Redémarre la séquence depuis le début.
-    /// </summary>
-    public void RestartSequence()
-    {
-        StopSequence();
-        StartSequence();
-    }
-
-    /// <summary>
-    /// Active ou arrête la séquence selon son état actuel.
-    /// </summary>
-    public void ToggleSequence()
-    {
-        if (_isRunning)
-        {
-            StopSequence();
-            return;
+            InitializePropertyBlocks();
+            TurnOffLights();
         }
 
-        StartSequence();
-    }
-
-    #endregion
-
-
-    #region Main Methods (méthodes private)
-
-    private void StartOrangeOn()
-    {
-        _currentState = SequenceState.OrangeOn;
-        _timer = _orangeOnDuration;
-
-        SetOrangeEmission(true);
-    }
-
-    private void StartOrangeOff()
-    {
-        _currentState = SequenceState.OrangeOff;
-        _timer = _orangeOffDuration;
-
-        SetOrangeEmission(false);
-        _completedBlinks++;
-    }
-
-    private void CompleteOrangeOff()
-    {
-        if (_completedBlinks >= _orangeBlinkCount)
+        private void Update()
         {
-            m_onOrangeBlinkFinished?.Invoke();
-            StartGreenAndOrangeOn();
-            return;
+            UpdateSequence();
         }
 
-        StartOrangeOn();
+#if UNITY_EDITOR
+
+        private void OnValidate()
+        {
+            _orangeIntensity = Mathf.Max(0f, _orangeIntensity);
+            _greenIntensity = Mathf.Max(0f, _greenIntensity);
+            _delayBeforeGreenLight = Mathf.Max(0f, _delayBeforeGreenLight);
+        }
+
+#endif
+
+        #endregion
+
+
+        #region Utils
+
+        public void StartSequence()
+        {
+            if (_currentState != LightSequenceState.Off)
+            {
+                return;
+            }
+
+            _elapsedTime = 0f;
+            _hasLightsReadyEventBeenInvoked = false;
+            _currentState = LightSequenceState.WaitingForGreen;
+
+            SetOrangeLight(true);
+            SetGreenLight(false);
+
+            m_onSequenceStarted?.Invoke();
+            m_onOrangeLightActivated?.Invoke();
+
+            if (_delayBeforeGreenLight <= 0f)
+            {
+                ActivateGreenLight();
+            }
+        }
+
+        public void TurnOffLights()
+        {
+            _elapsedTime = 0f;
+            _hasLightsReadyEventBeenInvoked = false;
+            _currentState = LightSequenceState.Off;
+
+            SetOrangeLight(false);
+            SetGreenLight(false);
+
+            m_onLightsTurnedOff?.Invoke();
+        }
+
+        #endregion
+
+
+        #region Main Methods
+
+        private void UpdateSequence()
+        {
+            if (_currentState != LightSequenceState.WaitingForGreen)
+            {
+                return;
+            }
+
+            _elapsedTime += Time.deltaTime;
+
+            if (_elapsedTime < _delayBeforeGreenLight)
+            {
+                return;
+            }
+
+            ActivateGreenLight();
+        }
+
+        private void ActivateGreenLight()
+        {
+            SetGreenLight(true);
+
+            _currentState = LightSequenceState.Ready;
+
+            m_onGreenLightActivated?.Invoke();
+
+            NotifyLightsReady();
+        }
+
+        private void NotifyLightsReady()
+        {
+            if (_hasLightsReadyEventBeenInvoked)
+            {
+                return;
+            }
+
+            _hasLightsReadyEventBeenInvoked = true;
+
+            m_onLightsReady?.Invoke();
+        }
+
+        private void InitializePropertyBlocks()
+        {
+            _orangePropertyBlock = new MaterialPropertyBlock();
+            _greenPropertyBlock = new MaterialPropertyBlock();
+
+            _emissionPropertyId = Shader.PropertyToID(_emissionPropertyName);
+        }
+
+        private void SetOrangeLight(bool isActive)
+        {
+            SetEmission(
+                _orangeRenderer,
+                _orangePropertyBlock,
+                _orangeColor,
+                _orangeIntensity,
+                isActive);
+        }
+
+        private void SetGreenLight(bool isActive)
+        {
+            SetEmission(
+                _greenRenderer,
+                _greenPropertyBlock,
+                _greenColor,
+                _greenIntensity,
+                isActive);
+        }
+
+        private void SetEmission(
+            Renderer targetRenderer,
+            MaterialPropertyBlock propertyBlock,
+            Color emissionColor,
+            float intensity,
+            bool isActive)
+        {
+            if (targetRenderer == null || propertyBlock == null)
+            {
+                return;
+            }
+
+            targetRenderer.GetPropertyBlock(propertyBlock);
+
+            Color finalColor = isActive
+                ? emissionColor * intensity
+                : Color.black;
+
+            propertyBlock.SetColor(_emissionPropertyId, finalColor);
+
+            targetRenderer.SetPropertyBlock(propertyBlock);
+        }
+
+        #endregion
+
+
+        #region Private and Protected
+
+        private enum LightSequenceState
+        {
+            Off,
+            WaitingForGreen,
+            Ready
+        }
+
+        private LightSequenceState _currentState = LightSequenceState.Off;
+
+        private MaterialPropertyBlock _orangePropertyBlock;
+        private MaterialPropertyBlock _greenPropertyBlock;
+
+        private int _emissionPropertyId;
+        private float _elapsedTime;
+        private bool _hasLightsReadyEventBeenInvoked;
+
+        #endregion
     }
-
-    private void StartGreenAndOrangeOn()
-    {
-        _currentState = SequenceState.GreenAndOrangeOn;
-        _timer = _greenDuration;
-
-        // Les deux voyants restent allumés pendant la même durée.
-        SetOrangeEmission(true);
-        SetGreenEmission(true);
-
-        if (!_keepGreenOn)
-            return;
-
-        // Lorsque cette option est active, les deux voyants restent allumés.
-        _isRunning = false;
-        _currentState = SequenceState.Inactive;
-        _timer = 0f;
-
-        m_onSequenceFinished?.Invoke();
-    }
-
-    private void CompleteSequence()
-    {
-        SetOrangeEmission(false);
-        SetGreenEmission(false);
-
-        _isRunning = false;
-        _currentState = SequenceState.Inactive;
-        _timer = 0f;
-
-        m_onSequenceFinished?.Invoke();
-    }
-
-    private void TurnOffAllLights()
-    {
-        SetOrangeEmission(false);
-        SetGreenEmission(false);
-    }
-
-    private void SetOrangeEmission(bool isEnabled)
-    {
-        SetEmission(
-            _orangeRenderer,
-            _orangePropertyBlock,
-            _orangeColor,
-            _orangeIntensity,
-            isEnabled
-        );
-    }
-
-    private void SetGreenEmission(bool isEnabled)
-    {
-        SetEmission(
-            _greenRenderer,
-            _greenPropertyBlock,
-            _greenColor,
-            _greenIntensity,
-            isEnabled
-        );
-    }
-
-    private void SetEmission(
-        Renderer targetRenderer,
-        MaterialPropertyBlock propertyBlock,
-        Color emissionColor,
-        float intensity,
-        bool isEnabled)
-    {
-        if (!targetRenderer)
-            return;
-
-        targetRenderer.GetPropertyBlock(propertyBlock);
-
-        Color finalColor = isEnabled
-            ? emissionColor * intensity
-            : Color.black;
-
-        propertyBlock.SetColor(_emissionColorId, finalColor);
-        targetRenderer.SetPropertyBlock(propertyBlock);
-    }
-
-    #endregion
-
-
-    #region Private and Protected
-
-    private enum SequenceState
-    {
-        Inactive,
-        OrangeOn,
-        OrangeOff,
-        GreenAndOrangeOn
-    }
-
-    [Header("Voyants")]
-    [SerializeField] private Renderer _orangeRenderer;
-    [SerializeField] private Renderer _greenRenderer;
-
-    [Header("Couleurs")]
-    [ColorUsage(true, true)]
-    [SerializeField] private Color _orangeColor = new(1f, 0.25f, 0f);
-
-    [ColorUsage(true, true)]
-    [SerializeField] private Color _greenColor = Color.green;
-
-    [Header("Intensités")]
-    [Min(0f)]
-    [SerializeField] private float _orangeIntensity = 5f;
-
-    [Min(0f)]
-    [SerializeField] private float _greenIntensity = 5f;
-
-    [Header("Clignotement orange")]
-    [Min(1)]
-    [SerializeField] private int _orangeBlinkCount = 3;
-
-    [Min(0.01f)]
-    [SerializeField] private float _orangeOnDuration = 0.3f;
-
-    [Min(0.01f)]
-    [SerializeField] private float _orangeOffDuration = 0.3f;
-
-    [Header("Voyants orange et vert")]
-    [Min(0f)]
-    [SerializeField] private float _greenDuration = 2f;
-
-    [Tooltip("Les voyants orange et vert restent allumés après la séquence.")]
-    [SerializeField] private bool _keepGreenOn;
-
-    private static readonly int _emissionColorId =
-        Shader.PropertyToID("_EmissionColor");
-
-    private MaterialPropertyBlock _orangePropertyBlock;
-    private MaterialPropertyBlock _greenPropertyBlock;
-
-    private SequenceState _currentState = SequenceState.Inactive;
-
-    private float _timer;
-    private int _completedBlinks;
-    private bool _isRunning;
-
-    #endregion
 }
