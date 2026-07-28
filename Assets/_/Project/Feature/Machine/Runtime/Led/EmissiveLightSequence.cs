@@ -75,6 +75,10 @@ namespace Machine.Runtime
 
         public void StartSequence()
         {
+            Debug.Log(
+                $"[{nameof(EmissiveLightSequence)}] StartSequence appelé.",
+                this);
+            
             if (_currentState != LightSequenceState.Off)
             {
                 return;

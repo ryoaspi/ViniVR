@@ -93,6 +93,10 @@ namespace Machine.Runtime
         /// </summary>
         public void ToggleMachinePower()
         {
+            Debug.Log(
+                $"[{nameof(PressMachineController)}] ToggleMachinePower appelé.",
+                this);
+
             if (_isMachinePoweredOn)
             {
                 PowerOffMachine();
@@ -104,6 +108,11 @@ namespace Machine.Runtime
 
         public void PowerOnMachine()
         {
+            
+            Debug.Log(
+                $"[{nameof(PressMachineController)}] PowerOnMachine appelé.",
+                this);
+            
             if (_isMachinePoweredOn)
             {
                 return;

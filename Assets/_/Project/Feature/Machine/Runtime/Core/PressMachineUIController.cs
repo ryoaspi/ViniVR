@@ -8,11 +8,9 @@ namespace Machine.Runtime
     {
         #region Publics
 
-
-
         public bool m_isInterfaceVisible =>
             _interfaceContainer != null &&
-            _interfaceContainer.style.display == DisplayStyle.Flex;
+            _interfaceContainer.resolvedStyle.display == DisplayStyle.Flex;
 
         #endregion
 
@@ -42,7 +40,7 @@ namespace Machine.Runtime
             {
                 Debug.LogWarning(
                     $"[{nameof(PressMachineUIController)}] " +
-                    $"Le conteneur '{_interfaceContainerName}' est introuvable.",
+                    $"Le conteneur possédant la classe '{_interfaceContainerClass}' est introuvable.",
                     this);
 
                 return;
@@ -51,7 +49,6 @@ namespace Machine.Runtime
             _interfaceContainer.style.display = DisplayStyle.Flex;
 
             SetStartButtonEnabled(true);
-            SetStatusText(_readyText);
         }
 
         public void HideInterface()
@@ -88,16 +85,26 @@ namespace Machine.Runtime
                 return;
             }
 
-            VisualElement rootVisualElement = _uiDocument.rootVisualElement;
+            VisualElement rootVisualElement =
+                _uiDocument.rootVisualElement;
+
+            if (rootVisualElement == null)
+            {
+                Debug.LogError(
+                    $"[{nameof(PressMachineUIController)}] " +
+                    "Le Root Visual Element du UI Document est introuvable.",
+                    this);
+
+                return;
+            }
 
             _interfaceContainer =
-                rootVisualElement.Q<VisualElement>(className: "btn-container");
+                rootVisualElement.Q<VisualElement>(
+                    className: _interfaceContainerClass);
 
             _startButton =
-                rootVisualElement.Q<Button>(className: "btn-item");
-
-            _statusLabel =
-                rootVisualElement.Q<Label>(_statusLabelName);
+                rootVisualElement.Q<Button>(
+                    className: _startButtonClass);
 
             ValidateVisualElements();
         }
@@ -169,18 +176,7 @@ namespace Machine.Runtime
 
         private void OnCycleStarted()
         {
-            SetStatusText(_cycleRunningText);
             HideInterface();
-        }
-
-        private void SetStatusText(string text)
-        {
-            if (_statusLabel == null)
-            {
-                return;
-            }
-
-            _statusLabel.text = text;
         }
 
         private void ValidateVisualElements()
@@ -189,7 +185,8 @@ namespace Machine.Runtime
             {
                 Debug.LogError(
                     $"[{nameof(PressMachineUIController)}] " +
-                    $"Le conteneur '{_interfaceContainerName}' est introuvable dans le document UXML.",
+                    $"Aucun VisualElement possédant la classe " +
+                    $"'{_interfaceContainerClass}' n'a été trouvé dans le document UXML.",
                     this);
             }
 
@@ -197,15 +194,8 @@ namespace Machine.Runtime
             {
                 Debug.LogError(
                     $"[{nameof(PressMachineUIController)}] " +
-                    $"Le bouton '{_startButtonName}' est introuvable dans le document UXML.",
-                    this);
-            }
-
-            if (_statusLabel == null)
-            {
-                Debug.LogWarning(
-                    $"[{nameof(PressMachineUIController)}] " +
-                    $"Le Label facultatif '{_statusLabelName}' est introuvable.",
+                    $"Aucun Button possédant la classe " +
+                    $"'{_startButtonClass}' n'a été trouvé dans le document UXML.",
                     this);
             }
         }
@@ -214,24 +204,18 @@ namespace Machine.Runtime
 
 
         #region Private and Protected
-        
+
         [Header("Références")]
         [SerializeField] private PressMachineController _pressMachineController;
         [SerializeField] private EmissiveLightSequence _lightSequence;
 
-        [Header("Noms UI Toolkit")]
-        [SerializeField] private string _interfaceContainerName = "Container";
-        [SerializeField] private string _startButtonName = "start-button";
-        [SerializeField] private string _statusLabelName = "status-label";
-
-        [Header("Textes")]
-        [SerializeField] private string _readyText = "Machine prête";
-        [SerializeField] private string _cycleRunningText = "Cycle en cours";
+        [Header("Classes UI Toolkit")]
+        [SerializeField] private string _interfaceContainerClass = "btn-container";
+        [SerializeField] private string _startButtonClass = "btn-item";
 
         private UIDocument _uiDocument;
         private VisualElement _interfaceContainer;
         private Button _startButton;
-        private Label _statusLabel;
 
         #endregion
     }
