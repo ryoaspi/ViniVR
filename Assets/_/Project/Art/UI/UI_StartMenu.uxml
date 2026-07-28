@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_/Project/Art/UI/uss/start_menu-style.uss?fileID=7433441132597879392&amp;guid=6d56fc381b7f2824a800325f5c6b2c35&amp;type=3#start_menu-style"/>
+    <ui:VisualElement name="menu_container" class="menu_container">
+        <ui:Image source="project://database/Assets/_/Project/Art/UI/Images/viniVR_logo.png?fileID=2800000&amp;guid=5b6e43ddb5a81df4f80f67de5c8ee053&amp;type=3#viniVR_logo" scale-mode="ScaleToFit" name="logo" class="logo" style="height: 268px; width: 569px; margin-bottom: 0;"/>
+        <ui:Button text="Start Game" selectable="false" focusable="false" name="btn_start" class="unity-button menu_button menu_button-top"/>
+        <ui:Button text="Credits" name="btn_credits" class="unity-button menu_button menu_button-center"/>
+        <ui:Button text="Quit Game" name="btn_quit" class="unity-button menu_button"/>
+    </ui:VisualElement>
+</ui:UXML>
