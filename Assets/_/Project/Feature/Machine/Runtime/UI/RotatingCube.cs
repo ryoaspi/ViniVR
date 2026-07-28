@@ -5,18 +5,17 @@ namespace Machine.Runtime
 {
     public class RotatingCube : MonoBehaviour
     {
-        [SerializeField] private Transform objectReference;
-        [SerializeField] private UIDocument uiDocumentReference;
-        private Button startButton;
-        private bool isRotating = false;
-        [SerializeField] private float rotatedDegrees = 0f;
-        private Quaternion initialRotation;
-        [SerializeField] private float secondsPerRotation = 3f;
-        [SerializeField] private int numberOfRotations = 3;
-        [SerializeField] private float degreesPerRotation = 360f;
+        
+        #region Publics
+        #endregion
+        
+        #region Unity API
+        #endregion
+        
+        #region Main Methods
         void Start()
         {
-            startButton = uiDocumentReference.rootVisualElement.Q<Button>("start-button");
+            startButton = uiDocumentReference.rootVisualElement.Q<Button>("press-start-button");
             startButton.clicked += StartRotation;
         }
         
@@ -38,8 +37,9 @@ namespace Machine.Runtime
                 objectReference.localRotation = initialRotation;
             }
         }
+        #endregion
         
-        
+        #region Utils
         private void StartRotation()
         {
             if (isRotating)
@@ -50,5 +50,23 @@ namespace Machine.Runtime
             rotatedDegrees = 0f;
             isRotating = true;
         }
+        #endregion
+        
+        #region Private
+        [SerializeField] private Transform objectReference;
+        [SerializeField] private UIDocument uiDocumentReference;
+        private Button startButton;
+        private bool isRotating = false;
+        [SerializeField] private float rotatedDegrees = 0f;
+        private Quaternion initialRotation;
+        [SerializeField] private float secondsPerRotation = 3f;
+        [SerializeField] private int numberOfRotations = 3;
+        [SerializeField] private float degreesPerRotation = 360f;
+        #endregion
+       
+       
+        
+        
+     
     }
 }
