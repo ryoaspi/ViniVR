@@ -2236,6 +2236,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 336308814}
     m_Modifications:
+    - target: {fileID: 612793458455572617, guid: 758ef53b64ce86a4a9623741ce6faffc, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 2f31888250fa7554b8918f801057c039, type: 2}
     - target: {fileID: 2127586549794004101, guid: 758ef53b64ce86a4a9623741ce6faffc, type: 3}
       propertyPath: m_Name
       value: p_Presse_Left
@@ -2284,6 +2288,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.007
       objectReference: {fileID: 0}
+    - target: {fileID: 7382007084262207322, guid: 758ef53b64ce86a4a9623741ce6faffc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.423
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382007084262207322, guid: 758ef53b64ce86a4a9623741ce6faffc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.307
+      objectReference: {fileID: 0}
+    - target: {fileID: 7382007084262207322, guid: 758ef53b64ce86a4a9623741ce6faffc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.278
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2302,10 +2318,10 @@ PrefabInstance:
       addedObject: {fileID: 640156102}
     - targetCorrespondingSourceObject: {fileID: 265801578446011966, guid: 758ef53b64ce86a4a9623741ce6faffc, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 0}
+      addedObject: {fileID: 1670654240}
     - targetCorrespondingSourceObject: {fileID: 265801578446011966, guid: 758ef53b64ce86a4a9623741ce6faffc, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1670654240}
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 8860189187080124102, guid: 758ef53b64ce86a4a9623741ce6faffc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1465646481}
@@ -2579,19 +2595,7 @@ MonoBehaviour:
       m_Calls: []
   m_onDoorsClosed:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_onPressStarted:
     m_PersistentCalls:
       m_Calls: []
@@ -7512,6 +7516,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 487187936}
     m_Modifications:
+    - target: {fileID: 1856452371575119899, guid: 061df9a84533c8c4e8a10792f80cb19b, type: 3}
+      propertyPath: m_MovementType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4146634574262979921, guid: 061df9a84533c8c4e8a10792f80cb19b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.236709

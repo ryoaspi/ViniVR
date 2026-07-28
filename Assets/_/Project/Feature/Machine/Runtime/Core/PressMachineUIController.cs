@@ -8,18 +8,7 @@ namespace Machine.Runtime
     {
         #region Publics
 
-        [Header("Références")]
-        [SerializeField] private PressMachineController _pressMachineController;
-        [SerializeField] private EmissiveLightSequence _lightSequence;
 
-        [Header("Noms UI Toolkit")]
-        [SerializeField] private string _interfaceContainerName = "machine-interface";
-        [SerializeField] private string _startButtonName = "start-button";
-        [SerializeField] private string _statusLabelName = "status-label";
-
-        [Header("Textes")]
-        [SerializeField] private string _readyText = "Machine prête";
-        [SerializeField] private string _cycleRunningText = "Cycle en cours";
 
         public bool m_isInterfaceVisible =>
             _interfaceContainer != null &&
@@ -102,10 +91,10 @@ namespace Machine.Runtime
             VisualElement rootVisualElement = _uiDocument.rootVisualElement;
 
             _interfaceContainer =
-                rootVisualElement.Q<VisualElement>(_interfaceContainerName);
+                rootVisualElement.Q<VisualElement>(className: "btn-container");
 
             _startButton =
-                rootVisualElement.Q<Button>(_startButtonName);
+                rootVisualElement.Q<Button>(className: "btn-item");
 
             _statusLabel =
                 rootVisualElement.Q<Label>(_statusLabelName);
@@ -225,6 +214,19 @@ namespace Machine.Runtime
 
 
         #region Private and Protected
+        
+        [Header("Références")]
+        [SerializeField] private PressMachineController _pressMachineController;
+        [SerializeField] private EmissiveLightSequence _lightSequence;
+
+        [Header("Noms UI Toolkit")]
+        [SerializeField] private string _interfaceContainerName = "Container";
+        [SerializeField] private string _startButtonName = "start-button";
+        [SerializeField] private string _statusLabelName = "status-label";
+
+        [Header("Textes")]
+        [SerializeField] private string _readyText = "Machine prête";
+        [SerializeField] private string _cycleRunningText = "Cycle en cours";
 
         private UIDocument _uiDocument;
         private VisualElement _interfaceContainer;
