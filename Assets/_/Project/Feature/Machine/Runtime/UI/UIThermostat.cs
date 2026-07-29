@@ -46,7 +46,12 @@ public class UIThermostat : MonoBehaviour
         if (!isThermoregulating)
         {
             return;
-        }
+            }
+        
+        iconBlinkTimer += Time.deltaTime;
+        float blinkProgress = Mathf.PingPong(iconBlinkTimer * 2f, 1f);
+        float iconOpacity = Mathf.Lerp(1f, 0.1f, blinkProgress);
+        thermoregulationStatusIcon.style.opacity = iconOpacity;
         
         if (Time.time < nextTemperatureChangeTime)
         {
@@ -61,6 +66,8 @@ public class UIThermostat : MonoBehaviour
         if (currentTemperature == targetTemperature)
         {
             isThermoregulating = false;
+            thermoregulationStatusIcon.style.opacity = 1f;
+            
             tankStartButton.SetEnabled(true);
             wishedTemperatureSlider.SetEnabled(true);
         }
@@ -86,6 +93,7 @@ public class UIThermostat : MonoBehaviour
         UpdateThermoregulationStatus();
         
         isThermoregulating = true;
+        iconBlinkTimer = 0f;
         
         tankStartButton.SetEnabled(false);
         wishedTemperatureSlider.SetEnabled(false);
@@ -98,17 +106,17 @@ public class UIThermostat : MonoBehaviour
     {
         if (currentTemperature < targetTemperature)
         {
-            thermoregulationStatusText.text = "Heating";
+            thermoregulationStatusText.text = "Chauffe en cours...";
             thermoregulationStatusIcon.vectorImage = heatingIcon;
         } 
         else if (currentTemperature > targetTemperature)
         {
-            thermoregulationStatusText.text = "Cooling";
+            thermoregulationStatusText.text = "Refroidissement en cours...";
             thermoregulationStatusIcon.vectorImage = coolingIcon;
         }
         else
         {
-            thermoregulationStatusText.text = "Stable";
+            thermoregulationStatusText.text = "Température stable";
             thermoregulationStatusIcon.vectorImage = stableIcon;    
         }
     }
@@ -129,6 +137,7 @@ public class UIThermostat : MonoBehaviour
     private Label wishedTemperatureValue;
     private Button tankStartButton;
     private Label currentTemperatureValue;
+    private float iconBlinkTimer = 0f;
     
     #endregion
 }
