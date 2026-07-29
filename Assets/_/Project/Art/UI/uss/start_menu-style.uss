@@ -1,0 +1,40 @@
+:root {
+}
+
+.menu_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.logo {
+}
+
+.menu_button {
+    width: 400px;
+    height: auto;
+    font-size: 20px;
+    -unity-font-style: bold;
+    background-color: rgb(255, 255, 255);
+    padding: 24px;
+    border-radius: 8px;
+    border-width: 0px;
+}
+
+.menu_button-center {
+    margin: 32px 0;
+}
+
+.menu_button-top {
+    margin-top: 64px;
+}
+
+.menu_button:hover {
+    background-color: #ffc116;
+}
+
+.menu_button:active {
+    background-color: #ffce48;
+}

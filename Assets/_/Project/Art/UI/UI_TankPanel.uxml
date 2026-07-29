@@ -1,0 +1,25 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_/Project/Art/UI/uss/tank-style.uss?fileID=7433441132597879392&amp;guid=ebb3f065581629142a811929a81dde89&amp;type=3#tank-style"/>
+    <ui:VisualElement name="container_main" class="container_main" style="flex-grow: 1;">
+        <ui:VisualElement name="container_actual" class="container_actual">
+            <ui:VisualElement name="container-icon" class="container_icon">
+                <ui:Image source="project://database/Assets/_/Project/Art/UI/Icons/cooling.svg?fileID=7388822144124034973&amp;guid=9e07d203c93ad764f80412050e6ace21&amp;type=3#cooling" name="cooling_icon" class="icon"/>
+                <ui:Label text="Cooling" name="cooling_desc" class="desc"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="container-actual_temperature" class="container-actual_temperature">
+                <ui:Label text="Température actuelle" name="Header" class="container_header"/>
+                <ui:Label text="18.5°C" name="Temperature_value" enable-rich-text="false" class="wished_value actual_value"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="container_wished" class="container_wished">
+            <ui:Label text="Température souhaitée" name="Header" class="wished_temperature-header"/>
+            <ui:Label name="wished-temperature-value" text="10°C" class="wished_value"/>
+            <ui:VisualElement name="slider_container" class="slider_container" style="flex-grow: 1;">
+                <ui:Label text="32°C" class="slider_container-label"/>
+                <ui:Slider name="wished-temperature-slider" label="" value="10" high-value="32" direction="Vertical" low-value="10" fill="true" show-input-field="false" focusable="true" class="slider"/>
+                <ui:Label text="10°C" class="slider_container-label"/>
+            </ui:VisualElement>
+            <ui:Button text="Démarrer" focusable="true" name="tank-start-button" class="button_apply"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
