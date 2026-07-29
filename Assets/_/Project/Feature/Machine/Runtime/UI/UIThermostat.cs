@@ -14,20 +14,30 @@ public class UIThermostat : MonoBehaviour
     void Start()
     {
         wishedTemperatureSlider = uiDocumentReference.rootVisualElement.Q<Slider>("wished-temperature-slider");
-        wishedTemperatureSlider.lowValue = 10f;
-        
+
         wishedTemperatureValue = uiDocumentReference.rootVisualElement.Q<Label>("wished-temperature-value");
-        wishedTemperatureSlider.highValue = 32f;
-        
+
         tankStartButton = uiDocumentReference.rootVisualElement.Q<Button>("tank-start-button");
-        tankStartButton.clicked += StartThermoregulation;
-        
+
         currentTemperatureValue = uiDocumentReference.rootVisualElement.Q<Label>("Temperature_value");
-        currentTemperatureValue.text = $"{currentTemperature:0.#}°C";
-        
+
+        thermoregulationStatusIcon = uiDocumentReference.rootVisualElement.Q<Image>("thermoregulation-status-icon");
+
+        thermoregulationStatusText = uiDocumentReference.rootVisualElement.Q<Label>("thermoregulation-status-text");
+
+        wishedTemperatureSlider.lowValue = 10f;
+        wishedTemperatureSlider.highValue = 32f;
+
         wishedTemperatureSlider.SetValueWithoutNotify(18f);
         wishedTemperatureValue.text = "18°C";
-        
+
+        currentTemperatureValue.text = $"{currentTemperature:0.#}°C";
+
+        targetTemperature = currentTemperature;
+        UpdateThermoregulationStatus();
+
+        tankStartButton.clicked += StartThermoregulation;
+
         wishedTemperatureSlider.RegisterValueChangedCallback(OnWishedTemperatureChanged);
     }
 
@@ -45,6 +55,7 @@ public class UIThermostat : MonoBehaviour
         
         currentTemperature = Mathf.MoveTowards(currentTemperature, targetTemperature, 0.5f);
         currentTemperatureValue.text = $"{currentTemperature:0.#}°C";
+        UpdateThermoregulationStatus();
         nextTemperatureChangeTime = Time.time + Random.Range(2f, 5f);
         
         if (currentTemperature == targetTemperature)
@@ -72,18 +83,45 @@ public class UIThermostat : MonoBehaviour
             return;
         }
         targetTemperature = wishedTemperatureSlider.value;
+        UpdateThermoregulationStatus();
+        
         isThermoregulating = true;
+        
         tankStartButton.SetEnabled(false);
         wishedTemperatureSlider.SetEnabled(false);
         
         //Randomize between 2 and 4 seconds each 0.5° step
         nextTemperatureChangeTime = Time.time + Random.Range(2f, 5f);
     }
+    
+    private void UpdateThermoregulationStatus()
+    {
+        if (currentTemperature < targetTemperature)
+        {
+            thermoregulationStatusText.text = "Heating";
+            thermoregulationStatusIcon.vectorImage = heatingIcon;
+        } 
+        else if (currentTemperature > targetTemperature)
+        {
+            thermoregulationStatusText.text = "Cooling";
+            thermoregulationStatusIcon.vectorImage = coolingIcon;
+        }
+        else
+        {
+            thermoregulationStatusText.text = "Stable";
+            thermoregulationStatusIcon.vectorImage = stableIcon;    
+        }
+    }
     #endregion
     
     #region Private
     [SerializeField] private UIDocument uiDocumentReference;
     [SerializeField] private float currentTemperature = 18.5f;
+    private Image thermoregulationStatusIcon;
+    private Label thermoregulationStatusText;
+    [SerializeField] private VectorImage heatingIcon;
+    [SerializeField] private VectorImage coolingIcon;
+    [SerializeField] private VectorImage stableIcon;
     private float targetTemperature;
     private bool isThermoregulating = false;
     private float nextTemperatureChangeTime;

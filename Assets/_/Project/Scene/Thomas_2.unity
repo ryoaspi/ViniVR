@@ -4611,6 +4611,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Machine.Runtime::UIThermostat
   uiDocumentReference: {fileID: 493601075}
   currentTemperature: 18.5
+  heatingIcon: {fileID: 7388822144124034973, guid: 1b8c89b858468f5409bfbc0abc56392f, type: 3}
+  coolingIcon: {fileID: 7388822144124034973, guid: 9e07d203c93ad764f80412050e6ace21, type: 3}
+  stableIcon: {fileID: 7388822144124034973, guid: ea30eb4fe6854814a8389a2353f709be, type: 3}
 --- !u!1 &1430143635
 GameObject:
   m_ObjectHideFlags: 0
