@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7900784847499449725}
   - component: {fileID: 6328376322857649174}
   - component: {fileID: 1121951187461006869}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Geo_Start_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1384329487067842095}
   - component: {fileID: 7798562640179340065}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 3D_Pump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3521383602057198839}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_Pump_fix
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 2150158250282398416}
   - component: {fileID: 2022111395961389678}
   - component: {fileID: 5099204113103261144}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Geo_Pump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4011825587397842095}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Anchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3279650278180282190}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 7805302482365645606}
   - component: {fileID: 7976236653877873853}
   - component: {fileID: 4689671041309646698}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Geo_Start_Button_Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 3326030035099036233}
   - component: {fileID: 6820350145813675020}
   - component: {fileID: 590336568494367062}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Geo_Lever
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -712,6 +712,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_SnapZone_Pipe
       objectReference: {fileID: 0}
+    - target: {fileID: 6078451768074584684, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -777,6 +781,10 @@ PrefabInstance:
     - target: {fileID: 6078451768074584684, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_Name
       value: p_SnapZone_Pipe (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6078451768074584684, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

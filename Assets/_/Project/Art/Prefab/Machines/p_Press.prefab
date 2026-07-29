@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9121426870201772138}
   - component: {fileID: 5350494509658990377}
   - component: {fileID: 7124039652754653150}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ColliderCuve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   m_Component:
   - component: {fileID: 371973450030970282}
   - component: {fileID: 5141027859135941288}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ColliderLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4372133012960874447}
   - component: {fileID: 5091793837944242019}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ColliderFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7379674479585541479}
   - component: {fileID: 517851611335438189}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: p_Press
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3321282606765628751}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7586016449267562229}
   - component: {fileID: 3454970100307559309}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ColliderRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4919380967802945654}
   - component: {fileID: 4533169568212758906}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ColliderBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,7 +433,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8459814512060921454}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collides
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +471,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8997337691607966884}
   - component: {fileID: 4313847285237485872}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ColliderDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,6 +565,10 @@ PrefabInstance:
     - target: {fileID: 6078451768074584684, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_Name
       value: p_SnapZone_Pipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 6078451768074584684, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -704,6 +708,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_UIPressPannel
       objectReference: {fileID: 0}
+    - target: {fileID: 6497206755743773476, guid: 67d995af91aa6604eaa4275d78211d95, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -786,10 +794,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7204842393675782406, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -6382468548227027428, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -5756748690968042705, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -2872430314773853757, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: d04a9e045094a7345bd3ef95d25c9c47, type: 2}
+    - target: {fileID: -2790352349463924757, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -475022438738389729, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -797,6 +821,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
       propertyPath: m_Name
       value: 3D_Press
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2057026583350376279, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2232119920384332994, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -806,6 +838,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 2f31888250fa7554b8918f801057c039, type: 2}
+    - target: {fileID: 8742078958208972658, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1065,6 +1101,10 @@ PrefabInstance:
     - target: {fileID: 2830526892459668501, guid: ccb230e16c5b4034fae45c394d3d5d69, type: 3}
       propertyPath: m_Name
       value: p_SnapZones_Ento
+      objectReference: {fileID: 0}
+    - target: {fileID: 2830526892459668501, guid: ccb230e16c5b4034fae45c394d3d5d69, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7556882900628154500, guid: ccb230e16c5b4034fae45c394d3d5d69, type: 3}
       propertyPath: m_LocalScale.x
