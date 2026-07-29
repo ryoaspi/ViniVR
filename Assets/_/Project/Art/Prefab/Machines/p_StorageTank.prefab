@@ -72,9 +72,25 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: -5971962016011037589, guid: edfd81ab677886041a89907d2d25eeec, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: edfd81ab677886041a89907d2d25eeec, type: 3}
       propertyPath: m_Name
       value: p_StorageTank
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: edfd81ab677886041a89907d2d25eeec, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233244913160964998, guid: edfd81ab677886041a89907d2d25eeec, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7349410486875899640, guid: edfd81ab677886041a89907d2d25eeec, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7362152654652060993, guid: edfd81ab677886041a89907d2d25eeec, type: 3}
       propertyPath: m_LocalScale.x
