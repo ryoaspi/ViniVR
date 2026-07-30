@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6179323012252292365}
   - component: {fileID: 4421681910458770906}
   - component: {fileID: 7050458371316967939}
+  - component: {fileID: 7043941486411051204}
   m_Layer: 0
   m_Name: Saisie_End
   m_TagString: Untagged
@@ -230,6 +231,24 @@ FixedJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &7043941486411051204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307601473014338666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a04017cf94c0d45b54afd5dbb8e77d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.LiquidHoseEnd
+  m_onConnected:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onDisconnected:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1601562733122145499
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,6 +296,7 @@ GameObject:
   - component: {fileID: 8240205219483369060}
   - component: {fileID: 1861519232340045444}
   - component: {fileID: 2371635320625886373}
+  - component: {fileID: 8353198272646379270}
   m_Layer: 0
   m_Name: Saisie_Base
   m_TagString: Untagged
@@ -494,6 +514,24 @@ CapsuleCollider:
   m_Height: 0.05
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8353198272646379270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7242078101062942210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a04017cf94c0d45b54afd5dbb8e77d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.LiquidHoseEnd
+  m_onConnected:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onDisconnected:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8443186732375905269
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,6 +541,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7925407038577702371}
+  - component: {fileID: 1834349123327951037}
   m_Layer: 0
   m_Name: P_Hose
   m_TagString: Untagged
@@ -526,6 +565,20 @@ Transform:
   - {fileID: 672916824577876077}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
+--- !u!114 &1834349123327951037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8443186732375905269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64c447e1ef6c5be489d8b62d72cabf16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.LiquidHose
+  _endA: {fileID: 8353198272646379270}
+  _endB: {fileID: 7043941486411051204}
 --- !u!1001 &8989941692034162337
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,20 +7,6 @@ namespace Machine.Runtime
     {
         #region Publics
 
-        [Header("Références")]
-        [SerializeField] private Animator _animator;
-        [SerializeField] private PressSnapRequirement _funnelSocket;
-
-        [Header("Paramètres Animator")]
-        [SerializeField] private string _doorClosedParameter = "IsDoorClosed";
-        [SerializeField] private string _pressRotatingParameter = "IsPressRotating";
-
-        [Header("Cycle")]
-        [Min(1)]
-        [SerializeField] private int _requiredRotationCount = 3;
-
-        [SerializeField] private bool _waitForFunnelRemoval = true;
-
         [Header("Événements d'alimentation")]
         public UnityEvent m_onMachinePoweredOn;
         public UnityEvent m_onMachinePoweredOff;
@@ -269,6 +255,11 @@ namespace Machine.Runtime
             }
 
             _currentRotationCount++;
+            
+            Debug.Log(
+                $"[{nameof(PressMachineController)}] " +
+                $"Rotation {_currentRotationCount}/{_requiredRotationCount}.",
+                this);
 
             if (_currentRotationCount < _requiredRotationCount)
             {
@@ -445,6 +436,20 @@ namespace Machine.Runtime
 
 
         #region Private and Protected
+        
+        [Header("Références")]
+        [SerializeField] private Animator _animator;
+        [SerializeField] private PressSnapRequirement _funnelSocket;
+
+        [Header("Paramètres Animator")]
+        [SerializeField] private string _doorClosedParameter = "IsDoorClosed";
+        [SerializeField] private string _pressRotatingParameter = "IsPressRotating";
+
+        [Header("Cycle")]
+        [Min(1)]
+        [SerializeField] private int _requiredRotationCount = 3;
+
+        [SerializeField] private bool _waitForFunnelRemoval = true;
 
         private enum PressMachineState
         {

@@ -13,12 +13,17 @@ public class VRValveHandle : MonoBehaviour
     public UnityEvent m_onValveClosed;
     public UnityEvent<float> m_onValveValueChanged;
 
-    public bool m_isOpen => _currentAngle >= _openAngle - _stateTolerance;
+    public bool m_isOpen =>
+        _currentAngle >= _openAngle - _stateTolerance;
 
-    public bool m_isClosed => _currentAngle <= _closedAngle + _stateTolerance;
+    public bool m_isClosed =>
+        _currentAngle <= _closedAngle + _stateTolerance;
 
     public float m_normalizedValue =>
-        Mathf.InverseLerp(_closedAngle, _openAngle, _currentAngle);
+        Mathf.InverseLerp(
+            _closedAngle,
+            _openAngle,
+            _currentAngle);
 
     #endregion
 
@@ -29,14 +34,17 @@ public class VRValveHandle : MonoBehaviour
     {
         _interactable = GetComponent<XRSimpleInteractable>();
 
-        if (!_rotationPivot)
+        if (_rotationPivot == null)
+        {
             _rotationPivot = transform;
+        }
+
+        _initialLocalRotation = _rotationPivot.localRotation;
 
         _currentAngle = Mathf.Clamp(
             _startingAngle,
             _closedAngle,
-            _openAngle
-        );
+            _openAngle);
 
         ApplyRotation();
         UpdateValveState(true);
@@ -44,35 +52,63 @@ public class VRValveHandle : MonoBehaviour
 
     private void OnEnable()
     {
-        _interactable.selectEntered.AddListener(HandleSelectEntered);
-        _interactable.selectExited.AddListener(HandleSelectExited);
+        if (_interactable == null)
+        {
+            return;
+        }
+
+        _interactable.selectEntered.AddListener(
+            HandleSelectEntered);
+
+        _interactable.selectExited.AddListener(
+            HandleSelectExited);
     }
 
     private void OnDisable()
     {
-        _interactable.selectEntered.RemoveListener(HandleSelectEntered);
-        _interactable.selectExited.RemoveListener(HandleSelectExited);
+        if (_interactable == null)
+        {
+            return;
+        }
+
+        _interactable.selectEntered.RemoveListener(
+            HandleSelectEntered);
+
+        _interactable.selectExited.RemoveListener(
+            HandleSelectExited);
     }
 
     private void Update()
     {
-        if (!_isGrabbed || !_interactorTransform)
+        if (!_isGrabbed || _interactorTransform == null)
+        {
             return;
+        }
 
         UpdateValveRotation();
     }
 
+#if UNITY_EDITOR
+
     private void OnValidate()
     {
         if (_openAngle < _closedAngle)
+        {
             _openAngle = _closedAngle;
+        }
 
         _startingAngle = Mathf.Clamp(
             _startingAngle,
             _closedAngle,
-            _openAngle
-        );
+            _openAngle);
+
+        _stateTolerance = Mathf.Max(0f, _stateTolerance);
+        _minimumRotationDelta = Mathf.Max(
+            0f,
+            _minimumRotationDelta);
     }
+
+#endif
 
     #endregion
 
@@ -103,8 +139,7 @@ public class VRValveHandle : MonoBehaviour
         float targetAngle = Mathf.Lerp(
             _closedAngle,
             _openAngle,
-            Mathf.Clamp01(normalizedValue)
-        );
+            Mathf.Clamp01(normalizedValue));
 
         SetValveAngle(targetAngle);
     }
@@ -117,8 +152,7 @@ public class VRValveHandle : MonoBehaviour
         _currentAngle = Mathf.Clamp(
             angle,
             _closedAngle,
-            _openAngle
-        );
+            _openAngle);
 
         ApplyRotation();
         NotifyValueChanged();
@@ -130,34 +164,42 @@ public class VRValveHandle : MonoBehaviour
 
     #region Main Methods (méthodes private)
 
-    private void HandleSelectEntered(SelectEnterEventArgs eventArgs)
+    private void HandleSelectEntered(
+        SelectEnterEventArgs eventArgs)
     {
         _interactorTransform =
-            eventArgs.interactorObject.GetAttachTransform(_interactable);
+            eventArgs.interactorObject.GetAttachTransform(
+                _interactable);
 
-        if (!_interactorTransform)
+        if (_interactorTransform == null)
+        {
             return;
-
-        _isGrabbed = true;
+        }
 
         Vector3 rotationAxis = GetWorldRotationAxis();
+
         Vector3 directionToInteractor =
-            _interactorTransform.position - _rotationPivot.position;
+            _interactorTransform.position -
+            _rotationPivot.position;
 
         _previousInteractorDirection =
-            Vector3.ProjectOnPlane(directionToInteractor, rotationAxis);
+            Vector3.ProjectOnPlane(
+                directionToInteractor,
+                rotationAxis);
 
         if (_previousInteractorDirection.sqrMagnitude <= 0.0001f)
         {
-            _isGrabbed = false;
             _interactorTransform = null;
+            _isGrabbed = false;
             return;
         }
 
         _previousInteractorDirection.Normalize();
+        _isGrabbed = true;
     }
 
-    private void HandleSelectExited(SelectExitEventArgs eventArgs)
+    private void HandleSelectExited(
+        SelectExitEventArgs eventArgs)
     {
         _isGrabbed = false;
         _interactorTransform = null;
@@ -170,32 +212,38 @@ public class VRValveHandle : MonoBehaviour
         Vector3 rotationAxis = GetWorldRotationAxis();
 
         Vector3 directionToInteractor =
-            _interactorTransform.position - _rotationPivot.position;
+            _interactorTransform.position -
+            _rotationPivot.position;
 
         Vector3 currentInteractorDirection =
-            Vector3.ProjectOnPlane(directionToInteractor, rotationAxis);
+            Vector3.ProjectOnPlane(
+                directionToInteractor,
+                rotationAxis);
 
         if (currentInteractorDirection.sqrMagnitude <= 0.0001f)
+        {
             return;
+        }
 
         currentInteractorDirection.Normalize();
 
         float angleDelta = Vector3.SignedAngle(
             _previousInteractorDirection,
             currentInteractorDirection,
-            rotationAxis
-        );
+            rotationAxis);
 
         if (Mathf.Abs(angleDelta) < _minimumRotationDelta)
+        {
             return;
+        }
 
         _currentAngle = Mathf.Clamp(
             _currentAngle + angleDelta,
             _closedAngle,
-            _openAngle
-        );
+            _openAngle);
 
-        _previousInteractorDirection = currentInteractorDirection;
+        _previousInteractorDirection =
+            currentInteractorDirection;
 
         ApplyRotation();
         NotifyValueChanged();
@@ -204,25 +252,22 @@ public class VRValveHandle : MonoBehaviour
 
     private void ApplyRotation()
     {
-        Vector3 localEulerAngles = _initialLocalRotation.eulerAngles;
-
-        switch (_rotationAxis)
+        Quaternion angleRotation = _rotationAxis switch
         {
-            case RotationAxis.X:
-                localEulerAngles.x += _currentAngle;
-                break;
+            RotationAxis.X =>
+                Quaternion.AngleAxis(_currentAngle, Vector3.right),
 
-            case RotationAxis.Y:
-                localEulerAngles.y += _currentAngle;
-                break;
+            RotationAxis.Y =>
+                Quaternion.AngleAxis(_currentAngle, Vector3.up),
 
-            case RotationAxis.Z:
-                localEulerAngles.z += _currentAngle;
-                break;
-        }
+            RotationAxis.Z =>
+                Quaternion.AngleAxis(_currentAngle, Vector3.forward),
+
+            _ => Quaternion.identity
+        };
 
         _rotationPivot.localRotation =
-            Quaternion.Euler(localEulerAngles);
+            _initialLocalRotation * angleRotation;
     }
 
     private Vector3 GetWorldRotationAxis()
@@ -239,7 +284,9 @@ public class VRValveHandle : MonoBehaviour
     private void SnapToNearestStateIfNecessary()
     {
         if (!_snapOnRelease)
+        {
             return;
+        }
 
         float distanceFromClosed =
             Mathf.Abs(_currentAngle - _closedAngle);
@@ -266,17 +313,25 @@ public class VRValveHandle : MonoBehaviour
         ValveState newState = ValveState.Intermediate;
 
         if (m_isClosed)
+        {
             newState = ValveState.Closed;
+        }
         else if (m_isOpen)
+        {
             newState = ValveState.Open;
+        }
 
         if (newState == _currentState)
+        {
             return;
+        }
 
         _currentState = newState;
 
         if (initializeOnly)
+        {
             return;
+        }
 
         switch (_currentState)
         {
@@ -310,32 +365,41 @@ public class VRValveHandle : MonoBehaviour
     }
 
     [Header("Références")]
-    [Tooltip("Pivot placé exactement sur l'axe de rotation de la poignée.")]
+    [Tooltip(
+        "Pivot placé exactement sur l'axe de rotation de la poignée.")]
     [SerializeField] private Transform _rotationPivot;
 
     [Header("Rotation")]
-    [Tooltip("Axe local autour duquel la poignée doit tourner.")]
-    [SerializeField] private RotationAxis _rotationAxis = RotationAxis.Y;
+    [Tooltip(
+        "Axe local autour duquel la poignée doit tourner.")]
+    [SerializeField]
+    private RotationAxis _rotationAxis = RotationAxis.Y;
 
-    [Tooltip("Angle correspondant à la position fermée.")]
+    [Tooltip(
+        "Angle correspondant à la position fermée.")]
     [SerializeField] private float _closedAngle;
 
-    [Tooltip("Angle correspondant à la position ouverte.")]
+    [Tooltip(
+        "Angle correspondant à la position ouverte.")]
     [SerializeField] private float _openAngle = 90f;
 
-    [Tooltip("Position initiale de la vanne.")]
+    [Tooltip(
+        "Position initiale de la vanne.")]
     [SerializeField] private float _startingAngle;
 
     [Header("Comportement")]
-    [Tooltip("Replace la poignée sur ouverte ou fermée lorsqu'elle est lâchée.")]
+    [Tooltip(
+        "Replace la poignée sur ouverte ou fermée lorsqu'elle est lâchée.")]
     [SerializeField] private bool _snapOnRelease;
 
     [Min(0f)]
-    [Tooltip("Tolérance utilisée pour considérer la vanne ouverte ou fermée.")]
+    [Tooltip(
+        "Tolérance utilisée pour considérer la vanne ouverte ou fermée.")]
     [SerializeField] private float _stateTolerance = 2f;
 
     [Min(0f)]
-    [Tooltip("Ignore les mouvements trop faibles afin d'éviter les tremblements.")]
+    [Tooltip(
+        "Ignore les mouvements trop faibles afin d'éviter les tremblements.")]
     [SerializeField] private float _minimumRotationDelta = 0.05f;
 
     private XRSimpleInteractable _interactable;
@@ -344,7 +408,8 @@ public class VRValveHandle : MonoBehaviour
     private Vector3 _previousInteractorDirection;
     private Quaternion _initialLocalRotation;
 
-    private ValveState _currentState = ValveState.Intermediate;
+    private ValveState _currentState =
+        ValveState.Intermediate;
 
     private float _currentAngle;
     private bool _isGrabbed;
