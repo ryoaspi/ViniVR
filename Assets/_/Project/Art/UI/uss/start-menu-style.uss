@@ -1,0 +1,23 @@
+:root {
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.logo {
+    width: 260px;
+    height: 260px;
+    margin-bottom: 64px;
+}
+
+.start_menu-button {
+    font-size: 35px;
+    margin-bottom: 24px;
+    margin-top: 24px;
+    padding: 28px;
+    width: 450px;
+}
