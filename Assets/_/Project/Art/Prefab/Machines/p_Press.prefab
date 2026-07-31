@@ -321,7 +321,7 @@ MonoBehaviour:
   _funnelSocket: {fileID: 483548888546011626}
   _doorClosedParameter: IsDoorClosed
   _pressRotatingParameter: IsPressRotating
-  _requiredRotationCount: 3
+  _requiredRotationCount: 2
   _waitForFunnelRemoval: 1
 --- !u!1 &2152336333595262785
 GameObject:
@@ -1252,14 +1252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3060cacf449417f4fbe7eb75c9fc2577, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.EmissiveLightSequence
-  _orangeRenderer: {fileID: 8508760313611794225}
-  _greenRenderer: {fileID: 5096923211279658154}
-  _orangeColor: {r: 1, g: 0.25, b: 0, a: 1}
-  _greenColor: {r: 0, g: 1, b: 0, a: 1}
-  _orangeIntensity: 5
-  _greenIntensity: 5
-  _delayBeforeGreenLight: 1
-  _emissionPropertyName: _EmissionColor
   m_onSequenceStarted:
     m_PersistentCalls:
       m_Calls: []
@@ -1275,6 +1267,14 @@ MonoBehaviour:
   m_onLightsTurnedOff:
     m_PersistentCalls:
       m_Calls: []
+  _orangeRenderer: {fileID: 8508760313611794225}
+  _greenRenderer: {fileID: 5096923211279658154}
+  _orangeColor: {r: 1, g: 0.25, b: 0, a: 1}
+  _greenColor: {r: 0, g: 1, b: 0, a: 1}
+  _orangeIntensity: 5
+  _greenIntensity: 5
+  _delayBeforeGreenLight: 1
+  _emissionPropertyName: _EmissionColor
 --- !u!23 &8508760313611794225 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -5764975163042399703, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
