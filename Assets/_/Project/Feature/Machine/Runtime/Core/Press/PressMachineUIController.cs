@@ -48,7 +48,7 @@ namespace Machine.Runtime
 
             _interfaceContainer.style.display = DisplayStyle.Flex;
 
-            SetStartButtonEnabled(true);
+            RefreshStartButtonState();
         }
 
         public void HideInterface()
@@ -124,8 +124,9 @@ namespace Machine.Runtime
             if (_pressMachineController != null)
             {
                 _pressMachineController.m_onCycleStarted.AddListener(OnCycleStarted);
-                _pressMachineController.m_onMachinePoweredOff.AddListener(HideInterface);
-                _pressMachineController.m_onDoorsClosed.AddListener(HideInterface);
+                _pressMachineController.m_onDoorsOpened.AddListener(OnDoorsOpened);
+                // _pressMachineController.m_onMachinePoweredOff.AddListener(HideInterface);
+                // _pressMachineController.m_onDoorsClosed.AddListener(HideInterface);
             }
             
         }
@@ -145,9 +146,21 @@ namespace Machine.Runtime
             if (_pressMachineController != null)
             {
                 _pressMachineController.m_onCycleStarted.RemoveListener(OnCycleStarted);
-                _pressMachineController.m_onMachinePoweredOff.RemoveListener(HideInterface);
-                _pressMachineController.m_onDoorsClosed.RemoveListener(HideInterface);
+                _pressMachineController.m_onDoorsOpened.RemoveListener(OnDoorsOpened);
+                // _pressMachineController.m_onMachinePoweredOff.RemoveListener(HideInterface);
+                // _pressMachineController.m_onDoorsClosed.RemoveListener(HideInterface);
             }
+        }
+
+        private void OnDoorsOpened()
+        {
+            if (_pressMachineController == null)
+            {
+                SetStartButtonEnabled(false);
+                return;
+            }
+            
+            SetStartButtonEnabled(_pressMachineController.m_canStartCycle);
         }
 
         private void OnStartButtonClicked()
@@ -201,6 +214,17 @@ namespace Machine.Runtime
                     $"'{_startButtonClass}' n'a été trouvé dans le document UXML.",
                     this);
             }
+        }
+
+        private void RefreshStartButtonState()
+        {
+            if (_pressMachineController == null)
+            {
+                SetStartButtonEnabled(false);
+                return;
+            }
+            
+            SetStartButtonEnabled(_pressMachineController.m_canStartCycle);
         }
 
         #endregion
