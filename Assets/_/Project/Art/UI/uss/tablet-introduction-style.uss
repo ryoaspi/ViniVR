@@ -2,5 +2,12 @@
 }
 
 .main-container {
-    background-color: #1C030E;
+    background-color: rgb(28, 3, 14);
+}
+
+.container-content {
+    border-width: 2px;
+    border-color: rgba(218, 73, 93, 0.5);
+    border-radius: 32px;
+    margin:32px;
 }
