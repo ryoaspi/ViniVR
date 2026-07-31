@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3491507239184746279}
   - component: {fileID: 2755259228983314407}
+  - component: {fileID: 4072415241233153648}
   m_Layer: 0
   m_Name: p_UIStartMenu
   m_TagString: Untagged
@@ -55,3 +56,21 @@ MonoBehaviour:
   m_PivotReferenceSize: 0
   m_Pivot: 0
   m_WorldSpaceCollider: {fileID: 0}
+--- !u!114 &4072415241233153648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431834543927341546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 431cfa0d661350b4c8c6af9179f2c308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainMenuUIController
+  _gameSceneName: SC_MainScene
+  _startButtonName: start_menu-btn_start
+  _creditsButtonName: start_menu-btn_credits
+  _quitButtonName: start_menu-btn_quit
+  _creditsContainerName: CreditsPanel
+  _closeCreditsButtonName: CloseCreditsButton
