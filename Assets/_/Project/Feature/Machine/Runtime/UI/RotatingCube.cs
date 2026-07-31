@@ -63,10 +63,5 @@ namespace Machine.Runtime
         [SerializeField] private int numberOfRotations = 3;
         [SerializeField] private float degreesPerRotation = 360f;
         #endregion
-       
-       
-        
-        
-     
-    }
+       }
 }
