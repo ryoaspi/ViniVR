@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 666f085ab2c6efb4aa8f85621033308b
+guid: 004a82854d155f14e9ec7e425610b470
 ModelImporter:
   serializedVersion: 24400
   internalIDToNameTable: []
@@ -56,7 +56,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.9978166
+      - time: 0.96829975
         functionName: NotifyPressRotationCompleted
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -129,7 +129,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: ROOT
+    rootMotionBoneName: RIG_Press
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

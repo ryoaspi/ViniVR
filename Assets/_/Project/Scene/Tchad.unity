@@ -520,6 +520,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5163674633908746139, guid: 65c0df6019f018348b21c97dbeee50c2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5488c567d6eceb14f8a5d4cd3a127dbf, type: 2}
     - target: {fileID: 5405942115367088265, guid: 65c0df6019f018348b21c97dbeee50c2, type: 3}
       propertyPath: m_Name
       value: P_Tireuse (1)
