@@ -1,10 +1,7 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-namespace Machine.Runtime
-{
     [RequireComponent(typeof(UIDocument))]
     public class MainMenuUIController : MonoBehaviour
     {
@@ -74,7 +71,7 @@ namespace Machine.Runtime
         public void QuitGame()
         {
 #if UNITY_EDITOR
-            EditorApplication.isPlaying = false;
+            UnityEditor.EditorApplication.isPlaying = false;
 #else
             Application.Quit();
 #endif
@@ -163,4 +160,3 @@ namespace Machine.Runtime
 
         #endregion
     }
-}

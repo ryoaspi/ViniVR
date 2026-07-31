@@ -25,14 +25,15 @@ Material:
   m_Parent: {fileID: 2100000, guid: 5488c567d6eceb14f8a5d4cd3a127dbf, type: 2}
   m_ModifiedSerializedProperties: 18
   m_ValidKeywords:
+  - _ALPHATEST_ON
   - _EMISSION
   m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2450
   stringTagMap:
-    RenderType: Opaque
+    RenderType: TransparentCutout
   disabledShaderPasses:
   - MOTIONVECTORS
   m_LockedProperties: 

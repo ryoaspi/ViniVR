@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1331582167745363843}
   m_Layer: 0
-  m_Name: P_Tireuse
+  m_Name: P_Boucheuse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,15 +161,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5488c567d6eceb14f8a5d4cd3a127dbf, type: 2}
     - target: {fileID: -8679921383154817045, guid: b330f7c5e6a2e1a448655d8a000e28ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.0159943
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b330f7c5e6a2e1a448655d8a000e28ae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.000000018765043
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b330f7c5e6a2e1a448655d8a000e28ae, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.9923771
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b330f7c5e6a2e1a448655d8a000e28ae, type: 3}
       propertyPath: m_LocalRotation.w
