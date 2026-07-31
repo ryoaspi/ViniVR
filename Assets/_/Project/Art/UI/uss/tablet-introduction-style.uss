@@ -1,0 +1,6 @@
+:root {
+}
+
+.main-container {
+    background-color: #1C030E;
+}
