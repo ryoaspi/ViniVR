@@ -54,7 +54,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2756934f4412c2449b3f74bfe90807d5, type: 3}
       propertyPath: m_Name
-      value: 3D_Pump
+      value: p_Pump
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2756934f4412c2449b3f74bfe90807d5, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

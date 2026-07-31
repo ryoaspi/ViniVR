@@ -3,8 +3,8 @@
     <ui:VisualElement name="container_main" class="container_main" style="flex-grow: 1;">
         <ui:VisualElement name="container_actual" class="container_actual">
             <ui:VisualElement name="container-icon" class="container_icon">
-                <ui:Image source="project://database/Assets/_/Project/Art/UI/Icons/cooling.svg?fileID=7388822144124034973&amp;guid=9e07d203c93ad764f80412050e6ace21&amp;type=3#cooling" name="cooling_icon" class="icon"/>
-                <ui:Label text="Cooling" name="cooling_desc" class="desc"/>
+                <ui:Image source="project://database/Assets/_/Project/Art/UI/Icons/cooling.svg?fileID=7388822144124034973&amp;guid=9e07d203c93ad764f80412050e6ace21&amp;type=3#cooling" name="thermoregulation-status-icon" class="icon"/>
+                <ui:Label text="Cooling" name="thermoregulation-status-text" class="desc"/>
             </ui:VisualElement>
             <ui:VisualElement name="container-actual_temperature" class="container-actual_temperature">
                 <ui:Label text="Température actuelle" name="Header" class="container_header"/>
