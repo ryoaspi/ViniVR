@@ -6,7 +6,7 @@
     flex-direction: column;
     justify-content: center;
     height: 100%;
-    background-color: #1C030E;    
+    background-color: #1C030E;
 }
 
 .logo {
