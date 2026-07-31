@@ -7,31 +7,6 @@ namespace Machine.Runtime
     {
         #region Publics
 
-        [Header("Renderers")]
-        [SerializeField] private Renderer _orangeRenderer;
-        [SerializeField] private Renderer _greenRenderer;
-
-        [Header("Couleurs HDR")]
-        [ColorUsage(true, true)]
-        [SerializeField] private Color _orangeColor = new(1f, 0.25f, 0f, 1f);
-
-        [ColorUsage(true, true)]
-        [SerializeField] private Color _greenColor = Color.green;
-
-        [Header("Intensités")]
-        [Min(0f)]
-        [SerializeField] private float _orangeIntensity = 5f;
-
-        [Min(0f)]
-        [SerializeField] private float _greenIntensity = 5f;
-
-        [Header("Temporisation")]
-        [Min(0f)]
-        [SerializeField] private float _delayBeforeGreenLight = 1f;
-
-        [Header("Shader")]
-        [SerializeField] private string _emissionPropertyName = "_EmissionColor";
-
         [Header("Événements")]
         public UnityEvent m_onSequenceStarted;
         public UnityEvent m_onOrangeLightActivated;
@@ -219,6 +194,31 @@ namespace Machine.Runtime
             WaitingForGreen,
             Ready
         }
+        
+        [Header("Renderers")]
+        [SerializeField] private Renderer _orangeRenderer;
+        [SerializeField] private Renderer _greenRenderer;
+
+        [Header("Couleurs HDR")]
+        [ColorUsage(true, true)]
+        [SerializeField] private Color _orangeColor = new(1f, 0.25f, 0f, 1f);
+
+        [ColorUsage(true, true)]
+        [SerializeField] private Color _greenColor = Color.green;
+
+        [Header("Intensités")]
+        [Min(0f)]
+        [SerializeField] private float _orangeIntensity = 5f;
+
+        [Min(0f)]
+        [SerializeField] private float _greenIntensity = 5f;
+
+        [Header("Temporisation")]
+        [Min(0f)]
+        [SerializeField] private float _delayBeforeGreenLight = 1f;
+
+        [Header("Shader")]
+        [SerializeField] private string _emissionPropertyName = "_EmissionColor";
 
         private LightSequenceState _currentState = LightSequenceState.Off;
 
