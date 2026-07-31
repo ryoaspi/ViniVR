@@ -725,7 +725,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336308813}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 8.50544, y: 0.05, z: -4.17776}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -734,6 +734,7 @@ Transform:
   - {fileID: 6397222}
   - {fileID: 1173235987}
   - {fileID: 1138831980}
+  - {fileID: 1544022577}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &487187935
@@ -2748,6 +2749,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3849063555426445602, guid: 9fb3abdb73c3a1b4c8103d6ce70063cf, type: 3}
   m_PrefabInstance: {fileID: 1533544707}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1544022576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1544022577}
+  m_Layer: 0
+  m_Name: TabletsSupport
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1544022577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544022576}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1689841975}
+  m_Father: {fileID: 336308814}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1550530548 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1767192434, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
@@ -3116,6 +3149,68 @@ Transform:
   - {fileID: 574043662}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1689841974
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1544022577}
+    m_Modifications:
+    - target: {fileID: 3821247273889960588, guid: d526f7c33028e514595713e648a299ba, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.493
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821247273889960588, guid: d526f7c33028e514595713e648a299ba, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821247273889960588, guid: d526f7c33028e514595713e648a299ba, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.968
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821247273889960588, guid: d526f7c33028e514595713e648a299ba, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821247273889960588, guid: d526f7c33028e514595713e648a299ba, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821247273889960588, guid: d526f7c33028e514595713e648a299ba, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821247273889960588, guid: d526f7c33028e514595713e648a299ba, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821247273889960588, guid: d526f7c33028e514595713e648a299ba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821247273889960588, guid: d526f7c33028e514595713e648a299ba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821247273889960588, guid: d526f7c33028e514595713e648a299ba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003709301046319743, guid: d526f7c33028e514595713e648a299ba, type: 3}
+      propertyPath: m_Name
+      value: TabletSupport
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d526f7c33028e514595713e648a299ba, type: 3}
+--- !u!4 &1689841975 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3821247273889960588, guid: d526f7c33028e514595713e648a299ba, type: 3}
+  m_PrefabInstance: {fileID: 1689841974}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1699612521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4286,7 +4381,7 @@ SceneRoots:
   - {fileID: 118648087}
   - {fileID: 1679956905}
   - {fileID: 981049513}
-  - {fileID: 336308814}
   - {fileID: 664451321}
+  - {fileID: 336308814}
   - {fileID: 2091533042}
   - {fileID: 487187936}
