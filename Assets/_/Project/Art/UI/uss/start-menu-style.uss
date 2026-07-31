@@ -6,6 +6,7 @@
     flex-direction: column;
     justify-content: center;
     height: 100%;
+    background-color: #1C030E;    
 }
 
 .logo {
@@ -26,4 +27,9 @@
     padding: 28px;
     width: 450px;
     background-color: #1C030E;
+}
+
+.start_menu-button:active {
+    color: #1C030E;
+    background-color: #ffffff;
 }
