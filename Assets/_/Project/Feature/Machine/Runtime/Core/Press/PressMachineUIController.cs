@@ -125,7 +125,7 @@ namespace Machine.Runtime
             {
                 _pressMachineController.m_onCycleStarted.AddListener(OnCycleStarted);
                 _pressMachineController.m_onDoorsOpened.AddListener(OnDoorsOpened);
-                // _pressMachineController.m_onMachinePoweredOff.AddListener(HideInterface);
+                _pressMachineController.m_onMachinePoweredOff.AddListener(HideInterface);
                 // _pressMachineController.m_onDoorsClosed.AddListener(HideInterface);
             }
             
@@ -147,7 +147,7 @@ namespace Machine.Runtime
             {
                 _pressMachineController.m_onCycleStarted.RemoveListener(OnCycleStarted);
                 _pressMachineController.m_onDoorsOpened.RemoveListener(OnDoorsOpened);
-                // _pressMachineController.m_onMachinePoweredOff.RemoveListener(HideInterface);
+                _pressMachineController.m_onMachinePoweredOff.RemoveListener(HideInterface);
                 // _pressMachineController.m_onDoorsClosed.RemoveListener(HideInterface);
             }
         }
