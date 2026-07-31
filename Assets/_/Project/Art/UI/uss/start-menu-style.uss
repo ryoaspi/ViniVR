@@ -15,9 +15,15 @@
 }
 
 .start_menu-button {
-    font-size: 35px;
+    font-size: 28px;
+    color: #ffffff;
+    -unity-font-style: bold;
+    border-radius: 32px;
+    border-width: 6px;
+    border-color: #DA495D;
     margin-bottom: 24px;
     margin-top: 24px;
     padding: 28px;
     width: 450px;
+    background-color: #1C030E;
 }
