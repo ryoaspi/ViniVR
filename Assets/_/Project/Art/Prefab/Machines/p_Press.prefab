@@ -235,7 +235,7 @@ MonoBehaviour:
   m_onMachinePoweredOn:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5422835453996625503}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Machine.Runtime.EmissiveLightSequence, Machine.Runtime
         m_MethodName: StartSequence
         m_Mode: 1
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_onMachinePoweredOff:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5422835453996625503}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Machine.Runtime.EmissiveLightSequence, Machine.Runtime
         m_MethodName: TurnOffLights
         m_Mode: 1
@@ -730,7 +730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.PressMachineUIController
   _pressMachineController: {fileID: 517851611335438189}
-  _lightSequence: {fileID: 5422835453996625503}
+  _lightSequence: {fileID: 0}
   _interfaceContainerClass: btn-container
   _startButtonClass: btn-item
 --- !u!4 &7382007084262207322 stripped
@@ -786,14 +786,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5764975163042399703, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5488c567d6eceb14f8a5d4cd3a127dbf, type: 2}
     - target: {fileID: -2872430314773853757, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: d04a9e045094a7345bd3ef95d25c9c47, type: 2}
+    - target: {fileID: -706390743861898190, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5488c567d6eceb14f8a5d4cd3a127dbf, type: 2}
     - target: {fileID: -475022438738389729, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: b629caf7b9e4fc544b20597a56d0d2a8, type: 2}
+    - target: {fileID: 114489562455756907, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5488c567d6eceb14f8a5d4cd3a127dbf, type: 2}
     - target: {fileID: 919132149155446097, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
       propertyPath: m_Name
       value: 3D_Press
@@ -802,240 +814,35 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e4b515a540355d34282f63b479af1c0e, type: 2}
+    - target: {fileID: 2256419314345812402, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5488c567d6eceb14f8a5d4cd3a127dbf, type: 2}
+    - target: {fileID: 5843013136233719313, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5488c567d6eceb14f8a5d4cd3a127dbf, type: 2}
     - target: {fileID: 5866666021909216657, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 2f31888250fa7554b8918f801057c039, type: 2}
+    - target: {fileID: 8489621753817506096, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5488c567d6eceb14f8a5d4cd3a127dbf, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: -2790352349463924757, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5765125638674269340}
-    - targetCorrespondingSourceObject: {fileID: -2790352349463924757, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5422835453996625503}
-    - targetCorrespondingSourceObject: {fileID: -2790352349463924757, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8086860340252077981}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
---- !u!1 &48744223057076979 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -2790352349463924757, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
-  m_PrefabInstance: {fileID: 6479415213353192728}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5765125638674269340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 48744223057076979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable
-  m_InteractionManager: {fileID: 0}
-  m_Colliders: []
-  m_InteractionLayers:
-    m_Bits: 1
-  m_DistanceCalculationMode: 1
-  m_SelectMode: 0
-  m_FocusMode: 1
-  m_CustomReticle: {fileID: 0}
-  m_AllowGazeInteraction: 0
-  m_AllowGazeSelect: 0
-  m_OverrideGazeTimeToSelect: 0
-  m_GazeTimeToSelect: 0.5
-  m_OverrideTimeToAutoDeselectGaze: 0
-  m_TimeToAutoDeselectGaze: 3
-  m_AllowGazeAssistance: 0
-  m_FirstHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_LastHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_HoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_HoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FirstSelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_LastSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectEntered:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5422835453996625503}
-        m_TargetAssemblyTypeName: EmissiveLightSequence, Machine.Runtime
-        m_MethodName: StartSequence
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 517851611335438189}
-        m_TargetAssemblyTypeName: Machine.Runtime.PressMachineController, Machine.Runtime
-        m_MethodName: ToggleMachinePower
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_SelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FirstFocusEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_LastFocusExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FocusEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FocusExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Activated:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Deactivated:
-    m_PersistentCalls:
-      m_Calls: []
-  m_StartingHoverFilters: []
-  m_StartingSelectFilters: []
-  m_StartingInteractionStrengthFilters: []
-  m_AutoFindParentInteractableInHierarchy: 0
-  m_ParentInteractableObject: {fileID: 0}
---- !u!114 &5422835453996625503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 48744223057076979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3060cacf449417f4fbe7eb75c9fc2577, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Machine.Runtime::EmissiveLightSequence
-  _orangeRenderer: {fileID: 2342962888828082183}
-  _greenRenderer: {fileID: 128513214009476315}
-  _orangeColor: {r: 1, g: 0.25, b: 0, a: 1}
-  _greenColor: {r: 0, g: 1, b: 0, a: 1}
-  _orangeIntensity: 5
-  _greenIntensity: 5
-  _delayBeforeGreenLight: 1
-  _emissionPropertyName: _EmissionColor
-  m_onSequenceStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  m_onOrangeLightActivated:
-    m_PersistentCalls:
-      m_Calls: []
-  m_onGreenLightActivated:
-    m_PersistentCalls:
-      m_Calls: []
-  m_onLightsReady:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7867590349769207377}
-        m_TargetAssemblyTypeName: Machine.Runtime.PressMachineUIController, Machine.Runtime
-        m_MethodName: ShowInterface
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_onLightsTurnedOff:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &8086860340252077981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 48744223057076979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f21c855606ec6d741a07ec2aed4874cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TestPushButton
-  m_buttonVisual: {fileID: 7976916197593015171}
-  m_pressDistance: 0.015
-  m_movementSpeed: 10
-  m_pressDuration: 0.15
-  m_onPressed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8086860340252077981}
-        m_TargetAssemblyTypeName: TestPushButton, Assembly-CSharp
-        m_MethodName: PressButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 517851611335438189}
-        m_TargetAssemblyTypeName: Machine.Runtime.PressMachineController, Machine.Runtime
-        m_MethodName: ToggleMachinePower
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!23 &128513214009476315 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -2872430314773853757, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
-  m_PrefabInstance: {fileID: 6479415213353192728}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &612793458455572617 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
   m_PrefabInstance: {fileID: 6479415213353192728}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &2342962888828082183 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -475022438738389729, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
-  m_PrefabInstance: {fileID: 6479415213353192728}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6800779257490483955 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
-  m_PrefabInstance: {fileID: 6479415213353192728}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &7976916197593015171 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3987993313347808923, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
   m_PrefabInstance: {fileID: 6479415213353192728}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6754759701693809363
