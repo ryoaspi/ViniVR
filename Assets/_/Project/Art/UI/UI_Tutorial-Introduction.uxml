@@ -1,17 +1,64 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/_/Project/Art/UI/uss/tablet-introduction-style.uss?fileID=7433441132597879392&amp;guid=8fa38adf001aa1a44b3ee3a5d544cfc9&amp;type=3#tablet-introduction-style"/>
-    <ui:VisualElement name="main-container" class="main-container" style="flex-grow: 1;">
-        <ui:VisualElement name="container-content" class="container-content" style="flex-grow: 1;">
-            <ui:Image source="project://database/Assets/_/Project/Art/UI/Icons/vinirVR-logo.svg?fileID=7388822144124034973&amp;guid=56775031771b334429553ad90e2bbe94&amp;type=3#vinirVR-logo" name="logo" class="logo"/>
-            <ui:VisualElement name="container-title" class="container-title" style="align-self: center;">
-                <ui:Label text="1" name="1" class="title_1"/>
-                <ui:Label text="Introduction" name="intro" class="title_intro" style="-unity-text-align: upper-left;"/>
-            </ui:VisualElement>
-            <ui:Label text="Bienvenue dans Vini VR, l&apos;application qui fera de vous un apprenti vigneron !" data-source-path="desc" name="desc" class="desc"/>
-            <ui:Image name="separation_line" class="separation_line" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Images/separation_line.png?fileID=2800000&amp;guid=f971f82333425cf4bad5fc6570661032&amp;type=3#separation_line&quot;);"/>
-            <ui:VisualElement name="container-instructions" class="container-instruction" style="flex-grow: 1;">
-                <ui:VisualElement name="illustration" class="illustration" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Images/ViniVR-Tutorial-Introduction_Illustration.png?fileID=2800000&amp;guid=552e6f2973c7c464c95e179acf8c5f76&amp;type=3#ViniVR-Tutorial-Introduction_Illustration&quot;);"/>
+    <ui:ScrollView name="scrollview-container">
+        <ui:VisualElement name="main-container" class="main-container" style="flex-grow: 1;">
+            <ui:VisualElement name="container-content" class="container-content" style="flex-grow: 1;">
+                <ui:Image source="project://database/Assets/_/Project/Art/UI/Icons/vinirVR-logo.svg?fileID=7388822144124034973&amp;guid=56775031771b334429553ad90e2bbe94&amp;type=3#vinirVR-logo" name="logo" class="logo"/>
+                <ui:VisualElement name="container-title" class="container-title" style="align-self: center;">
+                    <ui:Label text="1" name="1" class="title_1"/>
+                    <ui:Label text="Introduction" name="intro" class="title_intro" style="-unity-text-align: upper-left;"/>
+                </ui:VisualElement>
+                <ui:Label text="Bienvenue dans Vini VR, l&apos;application qui fera de vous un apprenti vigneron !" data-source-path="desc" name="desc" class="desc"/>
+                <ui:Image name="separation_line" class="separation_line" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Images/separation_line.png?fileID=2800000&amp;guid=f971f82333425cf4bad5fc6570661032&amp;type=3#separation_line&quot;);"/>
+                <ui:VisualElement name="container-instructions" class="container-instruction">
+                    <ui:VisualElement name="illustration" class="illustration" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Images/ViniVR-Tutorial-Introduction_Illustration.png?fileID=2800000&amp;guid=552e6f2973c7c464c95e179acf8c5f76&amp;type=3#ViniVR-Tutorial-Introduction_Illustration&quot;);"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="container-mission" class="container-mission" style="flex-grow: 1;">
+                    <ui:Label text="Votre mission" name="mission-title" class="mission-title"/>
+                    <ui:Label text="Vinifiez un AOP Crémant de Wallonie 100% Chardonnay en utilisant les machines et outils à votre disposition et en suivant les instructions pas à pas sur les tablettes à chaque étape de la production." name="mission-text" class="mission-desc"/>
+                    <ui:Label text="Comment jouer ?" name="actions-title" class="mission-title">
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container action_list-container-first_child" style="flex-grow: 1;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="controls-list-item" class="actions_list-container controls_list-item" style="flex-grow: 1;">
+                            <ui:Image source="project://database/Assets/_/Project/Art/UI/Images/joystick-left.png?fileID=2800000&amp;guid=6b8ef3b49c26119449c9a851519b07e6&amp;type=3#joystick-left" class="control_img"/>
+                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="controls-list-item" class="actions_list-container controls_list-item" style="flex-grow: 1;">
+                            <ui:Image source="project://database/Assets/_/Project/Art/UI/Images/joystick-right.png?fileID=2800000&amp;guid=dd4c50c5f4870c842933ea2ef190ab89&amp;type=3#joystick-right" class="control_img"/>
+                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="controls-list-item" class="actions_list-container controls_list-item" style="flex-grow: 1;">
+                            <ui:Image source="project://database/Assets/_/Project/Art/UI/Images/grip-right.png?fileID=2800000&amp;guid=1bb3f9f06a8df82428e30af54dd81c0e&amp;type=3#grip-right" class="control_img"/>
+                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="controls-list-item" class="actions_list-container controls_list-item" style="flex-grow: 1;">
+                            <ui:Image source="project://database/Assets/_/Project/Art/UI/Images/trigger-right.png?fileID=2800000&amp;guid=8ff8decd7355c2a46a2728fe36144a9a&amp;type=3#trigger-right" class="control_img"/>
+                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
+                        </ui:VisualElement>
+                    </ui:Label>
+                    <ui:ListView/>
+                    <ui:Label text="Comment jouer ?" name="actions-title" class="mission-title">
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container action_list-container-first_child" style="flex-grow: 1;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container action_list-container-first_child" style="flex-grow: 1;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container action_list-container-first_child" style="flex-grow: 1;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container action_list-container-first_child" style="flex-grow: 1;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
+                        </ui:VisualElement>
+                    </ui:Label>
+                </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-    </ui:VisualElement>
+    </ui:ScrollView>
 </ui:UXML>

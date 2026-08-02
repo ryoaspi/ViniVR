@@ -60,36 +60,83 @@
     -unity-text-align: lower-center;
 }
 
+.separation_line {
+    width: 400px;
+    height: 30.5px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
 .illustration {
     width: 836px;
     height: 470px;
     border-radius: 32px;
-    border-width: 2px;
+    border-width: 1px;
     border-color: rgb(218, 73, 93);
-    display: flex;
-    flex-direction: column;
-    flex-grow: 0;
 }
 
 .container-instruction {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    flex-grow: 0;
 }
 
-.instruction-mission {
+.container-mission {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 0;
+    border-radius: 32px;
+    border-width: 1px;
+    border-color: rgb(218, 73, 93);
+    padding: 32px;
+    margin-top: 32px;
 }
 
 .mission-title {
+    font-size: 24px;
+    -unity-font-style: bold;
+    white-space: normal;
 }
 
 .mission-desc {
     white-space: normal;
+    font-size: 18px;
+    padding-bottom: 32px;
+    border-width: 1px;
+    border-bottom-color: rgba(218, 73, 93, 0.5);
+    margin-bottom: 32px;
 }
 
-.separation_line {
-    width: 400px;
-    height: 30.5px;
-    margin-top: 16px;
-    margin-bottom: 16px;
+.actions_list-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 32px;
+}
+
+.task-icon {
+    width: 24px;
+    height: 27px;
+}
+
+.task-desc {
+    margin-left: 16px;
+    font-size: 16px;
+    white-space: normal;
+    -unity-font-style: normal;
+}
+
+.action_list-container-first_child {
+    margin-top: 48px;
+}
+
+.controls_list-item {
+}
+
+.control_img {
+    width: 150px;
+    height: 150px;
 }
