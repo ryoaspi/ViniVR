@@ -124,7 +124,7 @@
 
 .task-desc {
     margin-left: 16px;
-    font-size: 18px;
+    font-size: 20px;
     white-space: normal;
     -unity-font-style: normal;
 }

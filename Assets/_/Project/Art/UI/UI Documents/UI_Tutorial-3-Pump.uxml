@@ -15,27 +15,23 @@
                 </ui:VisualElement>
                 <ui:VisualElement name="container-mission" class="container-mission" style="flex-grow: 1;">
                     <ui:Label text="C&apos;est quoi le débourbage ?" name="mission-title" class="mission-title"/>
-                    <ui:Label text="La machine que vous avez devant vous est un pressoir. Elle sert à extraire le jus des raisins, appelé le moût.&#10;&#10;Lors du pressurage, le moût est séparé des parties solides de la grappe : les peaux, les pépins et les rafles, c’est-à-dire les petites tiges qui relient les grains. Ces éléments peuvent apporter des arômes et de la structure, mais aussi de l’amertume s’ils sont pressés trop fortement.&#10;&#10;Pour produire un Crémant de Wallonie en Méthode Traditionnelle, le pressurage doit donc être lent, progressif et délicat. L’objectif est d’obtenir un jus clair, frais et équilibré, qui servira ensuite à produire le vin de base.&#10;&#10;La Méthode Traditionnelle repose sur une seconde fermentation en bouteille, selon le même principe que pour le Champagne. L’expression « méthode champenoise » est toutefois réservée aux vins bénéficiant de l’appellation Champagne, produits dans l’aire géographique délimitée de la Champagne." name="mission-text" class="mission-desc"/>
+                    <ui:Label text="Le jus obtenu après le pressurage est transféré vers une cuve en inox afin de commencer le débourbage, une étape de clarification du moût.&#10;&#10;Cette opération consiste à laisser reposer le jus pour que les particules solides encore présentes — fragments de peau, pépins, poussières et autres dépôts — descendent naturellement au fond de la cuve. Après plusieurs heures, le jus plus clair situé au-dessus est séparé des bourbes.&#10;&#10;L’inox est particulièrement adapté à cette étape : il est facile à nettoyer, ne transmet aucun goût au vin et permet de contrôler précisément la température. Un débourbage bien maîtrisé permet d’obtenir un moût plus propre, plus stable et mieux préparé pour la fermentation." name="mission-text" class="mission-desc" style="height: 419px;"/>
                     <ui:Label text="Tâches" name="actions-title" class="mission-title" style="white-space: pre; -unity-text-align: upper-left; align-self: flex-start; align-items: flex-start;">
                         <ui:VisualElement name="actions_list-container" class="actions_list-container action_list-container-first_child" style="flex-grow: 1;">
                             <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
-                            <ui:Label text="Pour commencer, allumez la machine en appuyant sur le bouton “START”." class="task-desc"/>
+                            <ui:Label text="Pour commencer le transfert, connectez le tuyau d’aspiration à la cuve de récupération de jus de presse." class="task-desc"/>
                         </ui:VisualElement>
                         <ui:VisualElement name="actions_list-container" class="actions_list-container" style="flex-grow: 1; align-self: flex-start;">
                             <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
-                            <ui:Label text="Une fois le pressoir allumé, les volets de remplissage s’ouvrent. Allez sur la plateforme et placer la trémie sur l’un des deux espaces de remplissage." enable-rich-text="false" class="task-desc" style="white-space: normal;"/>
+                            <ui:Label text="Connectez ensuite le tuyau de sortie au robinet de la cuve de débourbage." enable-rich-text="false" class="task-desc" style="white-space: normal;"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container" style="flex-grow: 1; align-self: flex-start;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Branchez les tuyaux à la pompe à clapet à côté de la presse." enable-rich-text="false" class="task-desc" style="white-space: normal;"/>
                         </ui:VisualElement>
                         <ui:VisualElement name="actions_list-container" class="actions_list-container" style="flex-grow: 1;">
                             <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
-                            <ui:Label text="Prenez les bacs de raisins et versez les dans la trémie." class="task-desc"/>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="actions_list-container" class="actions_list-container" style="flex-grow: 1;">
-                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
-                            <ui:Label text="Enlevez la trémie une fois le raisin versé." class="task-desc"/>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="actions_list-container" class="actions_list-container" style="flex-grow: 1;">
-                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
-                            <ui:Label text="Activez la presse en appuyant sur &quot;Démarrer&quot; sur le panneau de controle. La presse va tourner et le jus va couler dans le bac en-dessous de la presse." class="task-desc" style="height: 37px; width: 753px; -unity-text-align: middle-left;"/>
+                            <ui:Label text="Actionnez la vanne de la pompe et démarrez la. Vous verrez la jauge graduée de la cuve se remplir. C’est elle indique qui indique le taux de remplissage de la cuve. Une fois la cuve remplie, il va falloir attendre 48 heures pour que les levures commencent leur travail de vinification." class="task-desc"/>
                         </ui:VisualElement>
                     </ui:Label>
                 </ui:VisualElement>
