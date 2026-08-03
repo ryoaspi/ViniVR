@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: af3ccc0093d09664ab2294a4db63b577
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 307535
+  packageName: 50 Perlin Particle Textures Part 3
+  packageVersion: 0.1.0
+  assetPath: Assets/LuminaryLabs/PerlinTextures03/URP_Materials/PerlinParticle131_256x256URP_Lit_Additive.mat
+  uploadId: 723049

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 598a344c327cf9746bff5397c0f3e722
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 307535
+  packageName: 50 Perlin Particle Textures Part 3
+  packageVersion: 0.1.0
+  assetPath: Assets/LuminaryLabs/PerlinTextures03/URP_Assets/PerlinTextures03_URP_Asset_Renderer.asset
+  uploadId: 723049
