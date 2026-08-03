@@ -6,9 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/_/Project/Scene/SceneFinal/SC_MainMenu.unity
+    guid: aa299fdb416d963448fa23222b15654e
+  - enabled: 1
+    path: Assets/_/Project/Scene/SceneFinal/SC_MainScene.unity
+    guid: 8377f4e7c1b9d2e45a7a5c1d337741e1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: a9a8221c5fdb3ba45bf389d6164d1ff7, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: b017fbf3182ce1147ace6a6055be61c2, type: 2}
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: b38920ccba4070d42bd506c42287912e, type: 2}

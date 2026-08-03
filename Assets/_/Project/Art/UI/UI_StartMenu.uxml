@@ -1,0 +1,9 @@
+<UnityEngine.UIElements.UXML editor-extension-mode="False">
+    <Style src="project://database/Assets/_/Project/Art/UI/uss/start-menu-style.uss?fileID=7433441132597879392&amp;guid=d8750decf3ca1fe46bb62b884a5fe4fe&amp;type=3#start-menu-style"/>
+    <UnityEngine.UIElements.VisualElement name="start_menu-container" class="container" style="flex-grow: 0; align-items: center;">
+        <UnityEngine.UIElements.Image source="project://database/Assets/_/Project/Art/UI/Icons/vinirVR-logo.svg?fileID=7388822144124034973&amp;guid=56775031771b334429553ad90e2bbe94&amp;type=3#vinirVR-logo" name="start_menu-logo" scale-mode="ScaleToFit" class="logo"/>
+        <UnityEngine.UIElements.Button text="Start" name="start_menu-btn_start" class="start_menu-button"/>
+        <UnityEngine.UIElements.Button text="Credits" name="start_menu-btn_credits" class="start_menu-button"/>
+        <UnityEngine.UIElements.Button text="Quit" name="start_menu-btn_quit" class="start_menu-button"/>
+    </UnityEngine.UIElements.VisualElement>
+</UnityEngine.UIElements.UXML>
