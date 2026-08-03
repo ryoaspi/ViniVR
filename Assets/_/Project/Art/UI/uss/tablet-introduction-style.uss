@@ -102,7 +102,7 @@
 
 .mission-desc {
     white-space: normal;
-    font-size: 18px;
+    font-size: 24px;
     padding-bottom: 32px;
     border-width: 1px;
     border-bottom-color: rgba(218, 73, 93, 0.5);
@@ -124,7 +124,7 @@
 
 .task-desc {
     margin-left: 16px;
-    font-size: 16px;
+    font-size: 18px;
     white-space: normal;
     -unity-font-style: normal;
 }
@@ -140,3 +140,20 @@
     width: 150px;
     height: 150px;
 }
+
+.button_start-game {
+    width: 100%;
+    background-color: #96FD08;
+    color:#000000;
+    font-size: 28px;
+    -unity-font-style: bold;
+    border-radius: 16px;
+    margin-top: 64px;
+    padding: 32px;
+}
+
+.button_start-game:active {
+    background-color: #ffffff;
+    color: #000000;
+}
+

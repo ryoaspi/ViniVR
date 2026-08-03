@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3821247273889960588}
   m_Layer: 0
-  m_Name: P_TabletSupport
+  m_Name: p_TabletSupport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
