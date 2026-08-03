@@ -957,7 +957,7 @@ PrefabInstance:
     - target: {fileID: 114489562455756907, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5488c567d6eceb14f8a5d4cd3a127dbf, type: 2}
+      objectReference: {fileID: 2100000, guid: e9b6adf63f6fe164fac081bb7328723b, type: 2}
     - target: {fileID: 919132149155446097, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
       propertyPath: m_Name
       value: 3D_Press
@@ -1005,7 +1005,7 @@ PrefabInstance:
     - target: {fileID: 8489621753817506096, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5488c567d6eceb14f8a5d4cd3a127dbf, type: 2}
+      objectReference: {fileID: 2100000, guid: e9b6adf63f6fe164fac081bb7328723b, type: 2}
     - target: {fileID: 8742078958208972658, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
       propertyPath: m_Layer
       value: 7
