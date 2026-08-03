@@ -46,7 +46,7 @@ public class UIThermostat : MonoBehaviour
         if (!isThermoregulating)
         {
             return;
-            }
+        }
         
         iconBlinkTimer += Time.deltaTime;
         float blinkProgress = Mathf.PingPong(iconBlinkTimer * 2f, 1f);
