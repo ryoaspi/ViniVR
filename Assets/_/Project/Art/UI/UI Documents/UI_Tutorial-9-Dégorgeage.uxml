@@ -5,7 +5,7 @@
             <ui:VisualElement name="container-content" class="container-content" style="flex-grow: 1;">
                 <ui:Image source="project://database/Assets/_/Project/Art/UI/Icons/vinirVR-logo.svg?fileID=7388822144124034973&amp;guid=56775031771b334429553ad90e2bbe94&amp;type=3#vinirVR-logo" name="logo" class="logo"/>
                 <ui:VisualElement name="container-title" class="container-title" style="align-self: center;">
-                    <ui:Label text="2" name="1" class="title_1"/>
+                    <ui:Label text="1" name="1" class="title_1"/>
                     <ui:Label text="Pressurage" name="intro" class="title_intro" style="-unity-text-align: upper-left;"/>
                 </ui:VisualElement>
                 <ui:Label text="Le pressoir et la récolte du jus de presse" data-source-path="desc" name="desc" class="desc" style="height: 38px;"/>
