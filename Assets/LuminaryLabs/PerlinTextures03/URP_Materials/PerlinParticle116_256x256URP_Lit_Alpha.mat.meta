@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9cff65965b6d7c1458f3d54d4fa3ba9e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 307535
+  packageName: 50 Perlin Particle Textures Part 3
+  packageVersion: 0.1.0
+  assetPath: Assets/LuminaryLabs/PerlinTextures03/URP_Materials/PerlinParticle116_256x256URP_Lit_Alpha.mat
+  uploadId: 723049
