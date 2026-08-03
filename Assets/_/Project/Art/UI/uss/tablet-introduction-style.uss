@@ -45,6 +45,11 @@
     -unity-font-style: bold;
 }
 
+.title_1-more_than_9 {
+    padding: 9px 10px;
+}
+
+
 .title_intro {
     align-self: flex-start;
     padding: 8px;
@@ -143,8 +148,8 @@
 
 .button_start-game {
     width: 100%;
-    background-color: #96FD08;
-    color:#000000;
+    background-color: rgb(150, 253, 8);
+    color: rgb(0, 0, 0);
     font-size: 28px;
     -unity-font-style: bold;
     border-radius: 16px;
@@ -153,7 +158,7 @@
 }
 
 .button_start-game:active {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 
