@@ -51,7 +51,7 @@
                         </ui:VisualElement>
                     </ui:Label>
                 </ui:VisualElement>
-                <ui:Button text="Passer à l&apos;étape suivante" name="button_start-game" enable-rich-text="false" class="button_start-game"/>
+                <ui:Button text="Passer à l&apos;étape suivante" name="button_tirage" enable-rich-text="false" class="button_start-game"/>
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:ScrollView>
