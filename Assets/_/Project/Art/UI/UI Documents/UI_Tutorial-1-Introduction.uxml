@@ -1,6 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/_/Project/Art/UI/uss/tablet-introduction-style.uss?fileID=7433441132597879392&amp;guid=8fa38adf001aa1a44b3ee3a5d544cfc9&amp;type=3#tablet-introduction-style"/>
-    <ui:ScrollView name="scrollview-container" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden">
+    <ui:ScrollView name="scrollview-container" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden" touch-scroll-type="Elastic">
         <ui:VisualElement name="main-container" class="main-container" style="flex-grow: 1; align-items: center;">
             <ui:VisualElement name="container-content" class="container-content" style="flex-grow: 1;">
                 <ui:Image source="project://database/Assets/_/Project/Art/UI/Icons/vinirVR-logo.svg?fileID=7388822144124034973&amp;guid=56775031771b334429553ad90e2bbe94&amp;type=3#vinirVR-logo" name="logo" class="logo"/>
