@@ -46,23 +46,33 @@ namespace Machine.Runtime
             _bouchonnageButton = _bouchonnageUIDocument.rootVisualElement.Q<Button>("button_bouchonnage");
             _bouchonnageButton.clicked += GoToNextStep;
             
+            _uiTutorialButtons = new Button[]
+            {
+                _introductionButton,
+                _presseButton,
+                _transfertButton,
+                _debourbageButton,
+                _assemblageButton,
+                _fermentationButton,
+                _tirageButton,
+                _remuageButton,
+                _degorgementButton,
+                _bouchonnageButton
+            };
         }
         #endregion
         
         #region Main Methods
-        public void GoToNextStep()
+        private void GoToNextStep()
         {
-            _introductionButton.SetEnabled(false);
-            _presseButton.SetEnabled(false);
-            _transfertButton.SetEnabled(false);
-            _debourbageButton.SetEnabled(false);
-            _assemblageButton.SetEnabled(false);
-            _tirageButton.SetEnabled(false);
-            _remuageButton.SetEnabled(false);
-            _degorgementButton.SetEnabled(false);
-            _bouchonnageButton.SetEnabled(false);
-   
+            _uiTutorialButtons[_currentStepIndex].SetEnabled(false);
             _indicators[_currentStepIndex].SetActive(false);
+            
+            if (_currentStepIndex >= _indicators.Length - 1)
+            {
+                return;
+            }
+            
             _currentStepIndex++;
             _indicators[_currentStepIndex].SetActive(true);
         }
@@ -84,6 +94,7 @@ namespace Machine.Runtime
         [SerializeField] private UIDocument _degorgementUIDocument;
         [SerializeField] private UIDocument _bouchonnageUIDocument;
         private int _currentStepIndex = 0;
+        private Button[] _uiTutorialButtons;
         private Button _introductionButton;
         private Button _presseButton;
         private Button _transfertButton;
