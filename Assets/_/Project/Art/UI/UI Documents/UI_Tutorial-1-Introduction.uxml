@@ -19,19 +19,19 @@
                     <ui:Label text="Commandes" name="actions-title" class="mission-title">
                         <ui:VisualElement name="controls-list-item" class="actions_list-container controls_list-item action_list-container-first_child" style="flex-grow: 1;">
                             <ui:Image source="project://database/Assets/_/Project/Art/UI/Images/joystick-left.png?fileID=2800000&amp;guid=6b8ef3b49c26119449c9a851519b07e6&amp;type=3#joystick-left" class="control_img"/>
-                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
+                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." name="Label" class="controller-desc"/>
                         </ui:VisualElement>
                         <ui:VisualElement name="controls-list-item" class="actions_list-container controls_list-item" style="flex-grow: 1;">
                             <ui:Image source="project://database/Assets/_/Project/Art/UI/Images/joystick-right.png?fileID=2800000&amp;guid=dd4c50c5f4870c842933ea2ef190ab89&amp;type=3#joystick-right" class="control_img"/>
-                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
+                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="controller-desc"/>
                         </ui:VisualElement>
                         <ui:VisualElement name="controls-list-item" class="actions_list-container controls_list-item" style="flex-grow: 1;">
                             <ui:Image source="project://database/Assets/_/Project/Art/UI/Images/grip-right.png?fileID=2800000&amp;guid=1bb3f9f06a8df82428e30af54dd81c0e&amp;type=3#grip-right" class="control_img"/>
-                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
+                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="controller-desc"/>
                         </ui:VisualElement>
                         <ui:VisualElement name="controls-list-item" class="actions_list-container controls_list-item" style="flex-grow: 1;">
                             <ui:Image source="project://database/Assets/_/Project/Art/UI/Images/trigger-right.png?fileID=2800000&amp;guid=8ff8decd7355c2a46a2728fe36144a9a&amp;type=3#trigger-right" class="control_img"/>
-                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
+                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="controller-desc"/>
                         </ui:VisualElement>
                     </ui:Label>
                     <ui:Label text="Fonctionnement" name="actions-title" class="mission-title">
