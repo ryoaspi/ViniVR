@@ -1,0 +1,58 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_/Project/Art/UI/uss/tablet-introduction-style.uss?fileID=7433441132597879392&amp;guid=8fa38adf001aa1a44b3ee3a5d544cfc9&amp;type=3#tablet-introduction-style"/>
+    <ui:ScrollView name="scrollview-container" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden">
+        <ui:VisualElement name="main-container" class="main-container" style="flex-grow: 1; align-items: auto; align-self: center;">
+            <ui:VisualElement name="container-content" class="container-content" style="flex-grow: 1;">
+                <ui:Image source="project://database/Assets/_/Project/Art/UI/Icons/vinirVR-logo.svg?fileID=7388822144124034973&amp;guid=56775031771b334429553ad90e2bbe94&amp;type=3#vinirVR-logo" name="logo" class="logo"/>
+                <ui:VisualElement name="container-title" class="container-title" style="align-self: center;">
+                    <ui:Label text="7" name="1" enable-rich-text="true" class="title_1"/>
+                    <ui:Label text="Tirage" name="intro" class="title_intro" style="-unity-text-align: upper-left;"/>
+                </ui:VisualElement>
+                <ui:Label text="Le tirage et l&apos;encapsulage" data-source-path="desc" name="desc" class="desc" style="height: 38px;"/>
+                <ui:Image name="separation_line" class="separation_line" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Images/separation_line.png?fileID=2800000&amp;guid=f971f82333425cf4bad5fc6570661032&amp;type=3#separation_line&quot;);"/>
+                <ui:VisualElement name="container-instructions" class="container-instruction">
+                    <ui:VisualElement name="illustration" class="illustration" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Images/photo_tireuse.png?fileID=2800000&amp;guid=c83d3b388e97cd144b5c6a95cfde693c&amp;type=3#photo_tireuse&quot;);"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="container-mission" class="container-mission" style="flex-grow: 1;">
+                    <ui:Label text="C&apos;est quoi le tirage ?" name="mission-title" class="mission-title"/>
+                    <ui:Label text="Le tirage est l’étape qui prépare le vin à sa seconde fermentation en bouteille, essentielle à l’élaboration d’un Crémant de Wallonie en Méthode Traditionnelle.&#10;&#10;Le vin de base est mélangé à une liqueur de tirage, composée notamment de sucre et de levures. Une fois la bouteille fermée, les levures transforment ce sucre en alcool et en gaz carbonique. Comme le gaz reste emprisonné dans la bouteille, il se dissout progressivement dans le vin et forme les futures bulles.&#10;&#10;La tireuse remplit les bouteilles de manière régulière et précise. La bouteille vide est placée sur un socle mobile, qui la soulève jusqu’à la canne de remplissage. Le vin y est introduit en limitant les éclaboussures et le contact avec l’air.&#10;&#10;Après le remplissage, la bouteille est fermée provisoirement, généralement avec une capsule couronne. Elle pourra ensuite rester plusieurs mois sur lies afin que la prise de mousse et l’élevage développent la finesse des bulles et la complexité du crémant." name="mission-text" class="mission-desc"/>
+                    <ui:Label text="Tâches" name="actions-title" class="mission-title" style="white-space: pre; -unity-text-align: upper-left; align-self: flex-start; align-items: flex-start;">
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container action_list-container-first_child" style="flex-grow: 1;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Connectez le tuyau à la cuve d&apos;assemblage." class="task-desc"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container" style="flex-grow: 1; align-self: flex-start;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Connectez le tuyau à la tireuse." enable-rich-text="false" class="task-desc" style="white-space: normal;"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container" style="flex-grow: 1;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Démarer la tireuse." class="task-desc"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container" style="flex-grow: 1;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Prenez une bouteille vide sur la table." class="task-desc"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container" style="flex-grow: 1;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Posez la bouteille sur le socle et appuyez sur le bouton &quot;START&quot;." class="task-desc" style="height: 37px; width: 753px; -unity-text-align: middle-left;"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container" style="flex-grow: 1;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Retirer la bouteille et posez-la sur le second socle à droite." class="task-desc" style="height: 37px; width: 753px; -unity-text-align: middle-left;"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container" style="flex-grow: 1;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Appuez sur le bouton &quot;START&quot;." enable-rich-text="true" class="task-desc" style="height: 37px; width: 753px; -unity-text-align: middle-left;"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container" style="flex-grow: 1;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Retirer la bouteille, posez-la dans le bac de rangement et répétez l&apos;opération pour les autres bouteilles." enable-rich-text="true" class="task-desc" style="height: 37px; width: 753px; -unity-text-align: middle-left;"/>
+                        </ui:VisualElement>
+                    </ui:Label>
+                </ui:VisualElement>
+                <ui:Button text="Passer à l&apos;étape suivante" name="button_start-game" enable-rich-text="false" class="button_start-game"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:ScrollView>
+</ui:UXML>

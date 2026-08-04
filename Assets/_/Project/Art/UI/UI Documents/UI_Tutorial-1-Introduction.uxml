@@ -1,7 +1,7 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/_/Project/Art/UI/uss/tablet-introduction-style.uss?fileID=7433441132597879392&amp;guid=8fa38adf001aa1a44b3ee3a5d544cfc9&amp;type=3#tablet-introduction-style"/>
-    <ui:ScrollView name="scrollview-container">
-        <ui:VisualElement name="main-container" class="main-container" style="flex-grow: 1;">
+    <ui:ScrollView name="scrollview-container" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden">
+        <ui:VisualElement name="main-container" class="main-container" style="flex-grow: 1; align-items: center;">
             <ui:VisualElement name="container-content" class="container-content" style="flex-grow: 1;">
                 <ui:Image source="project://database/Assets/_/Project/Art/UI/Icons/vinirVR-logo.svg?fileID=7388822144124034973&amp;guid=56775031771b334429553ad90e2bbe94&amp;type=3#vinirVR-logo" name="logo" class="logo"/>
                 <ui:VisualElement name="container-title" class="container-title" style="align-self: center;">
@@ -16,12 +16,8 @@
                 <ui:VisualElement name="container-mission" class="container-mission" style="flex-grow: 1;">
                     <ui:Label text="Votre mission" name="mission-title" class="mission-title"/>
                     <ui:Label text="Vinifiez un AOP Crémant de Wallonie 100% Chardonnay en utilisant les machines et outils à votre disposition et en suivant les instructions pas à pas sur les tablettes à chaque étape de la production." name="mission-text" class="mission-desc"/>
-                    <ui:Label text="Comment jouer ?" name="actions-title" class="mission-title">
-                        <ui:VisualElement name="actions_list-container" class="actions_list-container action_list-container-first_child" style="flex-grow: 1;">
-                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
-                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="controls-list-item" class="actions_list-container controls_list-item" style="flex-grow: 1;">
+                    <ui:Label text="Commandes" name="actions-title" class="mission-title">
+                        <ui:VisualElement name="controls-list-item" class="actions_list-container controls_list-item action_list-container-first_child" style="flex-grow: 1;">
                             <ui:Image source="project://database/Assets/_/Project/Art/UI/Images/joystick-left.png?fileID=2800000&amp;guid=6b8ef3b49c26119449c9a851519b07e6&amp;type=3#joystick-left" class="control_img"/>
                             <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
                         </ui:VisualElement>
@@ -38,26 +34,22 @@
                             <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
                         </ui:VisualElement>
                     </ui:Label>
-                    <ui:ListView/>
-                    <ui:Label text="Comment jouer ?" name="actions-title" class="mission-title">
+                    <ui:Label text="Fonctionnement" name="actions-title" class="mission-title">
                         <ui:VisualElement name="actions_list-container" class="actions_list-container action_list-container-first_child" style="flex-grow: 1;">
                             <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
-                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
+                            <ui:Label text="Lisez les instructions disponibles sur les tablettes devant chaque poste." class="task-desc"/>
                         </ui:VisualElement>
                         <ui:VisualElement name="actions_list-container" class="actions_list-container action_list-container-first_child" style="flex-grow: 1;">
                             <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
-                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
+                            <ui:Label text="Réalisez les tâches dans l&apos;ordre." enable-rich-text="false" class="task-desc"/>
                         </ui:VisualElement>
                         <ui:VisualElement name="actions_list-container" class="actions_list-container action_list-container-first_child" style="flex-grow: 1;">
                             <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
-                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
-                        </ui:VisualElement>
-                        <ui:VisualElement name="actions_list-container" class="actions_list-container action_list-container-first_child" style="flex-grow: 1;">
-                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
-                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
+                            <ui:Label text="Dirigez-vous vers la tablette suivante une fois les tâches complétées." class="task-desc"/>
                         </ui:VisualElement>
                     </ui:Label>
                 </ui:VisualElement>
+                <ui:Button text="Commencer la production" name="button_start-game" class="button_start-game"/>
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:ScrollView>
