@@ -49,7 +49,7 @@
                         </ui:VisualElement>
                     </ui:Label>
                 </ui:VisualElement>
-                <ui:Button text="Commencer la production" name="button_start-game" class="button_start-game"/>
+                <ui:Button text="Commencer la production" name="button_introduction" class="button_start-game"/>
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:ScrollView>
