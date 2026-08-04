@@ -213,7 +213,6 @@ Transform:
   - {fileID: 5899839214643460396}
   - {fileID: 4183570728260685999}
   - {fileID: 4618180436251667346}
-  - {fileID: 627776918625179874}
   - {fileID: 960402294449953468}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -342,7 +341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1049050061698950948
 Transform:
   m_ObjectHideFlags: 0
@@ -478,6 +477,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1049050061698950948}
+  - {fileID: 627776918625179874}
   m_Father: {fileID: 7379674479585541479}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7475982759637861054
@@ -492,12 +492,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38f274db8689fcd4ca87c1938eb37c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.PressFillVisualizer
-  _fillVisual: {fileID: 1049050061698950948}
-  _fillDuration: 6
+  _fillVisual: {fileID: 627776918625179874}
+  _fillDuration: 50
   _drainDuration: 5
   _startFillProgress: 0
   _minimumHeight: 0.001
-  _maximumHeight: 0.5
+  _maximumHeight: 0.3
 --- !u!1 &2928518907691725074
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,13 +579,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3310711545094626967}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.001, y: 0.158, z: -0.0065}
-  m_LocalScale: {x: -1.0760065, y: 0, z: 0.947659}
+  m_LocalRotation: {x: -0, y: -0, z: 1.0231815e-12, w: 1}
+  m_LocalPosition: {x: 0.05900212, y: -0.17199989, z: -0.2524999}
+  m_LocalScale: {x: -1.0760067, y: 0, z: 0.947659}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4463081172263740232}
-  m_Father: {fileID: 7379674479585541479}
+  m_Father: {fileID: 4183570728260685999}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3822682770624468841
 MeshFilter:
@@ -5755,7 +5755,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &960402294449953468
 Transform:
   m_ObjectHideFlags: 0
@@ -11035,6 +11035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.PressAnimationEventRelay
   _pressMachineController: {fileID: 517851611335438189}
+  _particles: {fileID: 4834179527500413617}
 --- !u!114 &5312209637916685873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11292,15 +11293,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7556882900628154500, guid: ccb230e16c5b4034fae45c394d3d5d69, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.156
+      value: -0.146
       objectReference: {fileID: 0}
     - target: {fileID: 7556882900628154500, guid: ccb230e16c5b4034fae45c394d3d5d69, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.662
+      value: 1.645
       objectReference: {fileID: 0}
     - target: {fileID: 7556882900628154500, guid: ccb230e16c5b4034fae45c394d3d5d69, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.259
+      value: -0.282
       objectReference: {fileID: 0}
     - target: {fileID: 7556882900628154500, guid: ccb230e16c5b4034fae45c394d3d5d69, type: 3}
       propertyPath: m_LocalRotation.w

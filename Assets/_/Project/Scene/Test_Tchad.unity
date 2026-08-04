@@ -4087,6 +4087,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_UIStartMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 431834543927341546, guid: aa7411aba40f2d749b377f70e4b24086, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3491507239184746279, guid: aa7411aba40f2d749b377f70e4b24086, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4130,10 +4134,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 431834543927341546, guid: aa7411aba40f2d749b377f70e4b24086, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa7411aba40f2d749b377f70e4b24086, type: 3}
 --- !u!1001 &4551926480531008851
 PrefabInstance:
