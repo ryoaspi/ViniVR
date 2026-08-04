@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 4966022015705473244}
   - component: {fileID: 8574613000740564171}
   - component: {fileID: 1854137679884507534}
-  - component: {fileID: 7059083138961387127}
   m_Layer: 0
   m_Name: LiquidVisual
   m_TagString: Untagged
@@ -61,8 +60,8 @@ Transform:
   m_GameObject: {fileID: 7469258098357222351}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7606, y: 3.412, z: 0.9043}
-  m_LocalScale: {x: 0.03, y: 2.55, z: 0.03}
+  m_LocalPosition: {x: 0.759, y: 2.13725, z: 0.9043}
+  m_LocalScale: {x: 0.03, y: 1.27525, z: 0.03}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4801352813395803301}
@@ -124,29 +123,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7059083138961387127
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7469258098357222351}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &9207842568307193481
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +181,7 @@ MonoBehaviour:
   _containerType: 1
   _maximumVolume: 100
   _startingVolume: 0
-  _volumeTolerance: 0.001
+  _volumeTolerance: 1
 --- !u!1001 &1904818389785587154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -324,6 +300,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 3D_BG_StorageTank
       objectReference: {fileID: 0}
+    - target: {fileID: 3947942564414138140, guid: 0c352d432b51cf244a2720fa01f36d43, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 33a9aa718e6a7814cb4d852527c4f4b7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -404,7 +384,7 @@ MonoBehaviour:
   _liquidContainer: {fileID: 3292554892588599780}
   _liquidVisual: {fileID: 4966022015705473244}
   _minimumHeight: 0.001
-  _maximumHeight: 2.6
+  _maximumHeight: 5.1
   _hideWhenEmpty: 1
   _emptyVisibilityTolerance: 0.001
 --- !u!1001 &7137929736496267914
@@ -459,34 +439,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_SnapZone_Pipe
       objectReference: {fileID: 0}
+    - target: {fileID: 6784091180318460411, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
+      propertyPath: _liquidContainer
+      value: 
+      objectReference: {fileID: 3292554892588599780}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6078451768074584684, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5211518884709691809}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
 --- !u!4 &3341539458115683166 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
   m_PrefabInstance: {fileID: 7137929736496267914}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3987368934274793702 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6078451768074584684, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
-  m_PrefabInstance: {fileID: 7137929736496267914}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5211518884709691809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3987368934274793702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed2691c7b75f0bf4b9c08666cdc593b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.LiquidConnectionPoint
-  _liquidContainer: {fileID: 3292554892588599780}

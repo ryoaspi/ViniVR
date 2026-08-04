@@ -1,31 +1,26 @@
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 namespace Machine.Runtime
 {
-    [RequireComponent(typeof(UIDocument))]
-    public class MainMenuUIController : MonoBehaviour
+    public class LiquidPumpController : MonoBehaviour
     {
         #region Publics
 
-        public bool m_isInitialized => _root != null;
+        public bool m_isRunning => _isRunning;
 
         #endregion
 
 
         #region API Unity
 
-        private void OnEnable()
+        private void Update()
         {
-            InitializeUI();
-            RegisterEvents();
-        }
+            if (!_isRunning)
+            {
+                return;
+            }
 
-        private void OnDisable()
-        {
-            UnregisterEvents();
+            TransferLiquid();
         }
 
         #endregion
@@ -33,51 +28,14 @@ namespace Machine.Runtime
 
         #region Utils
 
-        public void StartGame()
+        public void StartPump()
         {
-            if (string.IsNullOrWhiteSpace(_gameSceneName))
-            {
-                Debug.LogError(
-                    $"[{nameof(MainMenuUIController)}] Aucun nom de scène n'est configuré.",
-                    this);
-
-                return;
-            }
-
-            SceneManager.LoadScene(_gameSceneName);
+            _isRunning = true;
         }
 
-        public void OpenCredits()
+        public void StopPump()
         {
-            if (_creditsContainer == null)
-            {
-                Debug.LogWarning(
-                    $"[{nameof(MainMenuUIController)}] Impossible d'ouvrir les crédits.",
-                    this);
-
-                return;
-            }
-
-            _creditsContainer.style.display = DisplayStyle.Flex;
-        }
-
-        public void CloseCredits()
-        {
-            if (_creditsContainer == null)
-            {
-                return;
-            }
-
-            _creditsContainer.style.display = DisplayStyle.None;
-        }
-
-        public void QuitGame()
-        {
-#if UNITY_EDITOR
-            EditorApplication.isPlaying = false;
-#else
-            Application.Quit();
-#endif
+            _isRunning = false;
         }
 
         #endregion
@@ -85,55 +43,62 @@ namespace Machine.Runtime
 
         #region Main Methods
 
-        private void InitializeUI()
+        private void TransferLiquid()
         {
-            _uiDocument = GetComponent<UIDocument>();
-            _root = _uiDocument.rootVisualElement;
+            if (_inputSocket == null ||
+                _outputSocket == null)
+            {
+                return;
+            }
 
-            _startButton = _root.Q<Button>(_startButtonName);
-            _creditsButton = _root.Q<Button>(_creditsButtonName);
-            _quitButton = _root.Q<Button>(_quitButtonName);
+            if (!_inputSocket.m_isConnected ||
+                !_outputSocket.m_isConnected)
+            {
+                return;
+            }
 
-            _creditsContainer = _root.Q<VisualElement>(_creditsContainerName);
-            _closeCreditsButton = _root.Q<Button>(_closeCreditsButtonName);
+            LiquidContainer source =
+                _inputSocket
+                    .m_connectedHoseEnd
+                    .m_connectedContainer;
 
-            CloseCredits();
-        }
+            LiquidContainer destination =
+                _outputSocket
+                    .m_connectedHoseEnd
+                    .m_connectedContainer;
 
-        private void RegisterEvents()
-        {
-            _startButton?.RegisterCallback<ClickEvent>(OnStartClicked);
-            _creditsButton?.RegisterCallback<ClickEvent>(OnCreditsClicked);
-            _quitButton?.RegisterCallback<ClickEvent>(OnQuitClicked);
-            _closeCreditsButton?.RegisterCallback<ClickEvent>(OnCloseCreditsClicked);
-        }
+            if (source == null ||
+                destination == null)
+            {
+                return;
+            }
 
-        private void UnregisterEvents()
-        {
-            _startButton?.UnregisterCallback<ClickEvent>(OnStartClicked);
-            _creditsButton?.UnregisterCallback<ClickEvent>(OnCreditsClicked);
-            _quitButton?.UnregisterCallback<ClickEvent>(OnQuitClicked);
-            _closeCreditsButton?.UnregisterCallback<ClickEvent>(OnCloseCreditsClicked);
-        }
+            float requestedAmount =
+                _flowRatePerSecond *
+                Time.deltaTime;
 
-        private void OnStartClicked(ClickEvent evt)
-        {
-            StartGame();
-        }
+            float removedAmount =
+                source.RemoveLiquid(
+                    requestedAmount);
 
-        private void OnCreditsClicked(ClickEvent evt)
-        {
-            OpenCredits();
-        }
+            if (removedAmount <= 0f)
+            {
+                return;
+            }
 
-        private void OnCloseCreditsClicked(ClickEvent evt)
-        {
-            CloseCredits();
-        }
+            float addedAmount =
+                destination.AddLiquid(
+                    removedAmount);
 
-        private void OnQuitClicked(ClickEvent evt)
-        {
-            QuitGame();
+            /*
+             * Si la destination est pleine,
+             * on remet le surplus dans la source.
+             */
+            if (addedAmount < removedAmount)
+            {
+                source.AddLiquid(
+                    removedAmount - addedAmount);
+            }
         }
 
         #endregion
@@ -141,25 +106,19 @@ namespace Machine.Runtime
 
         #region Private and Protected
 
-        [Header("Scene")]
-        [SerializeField] private string _gameSceneName = "Game";
+        [Header("Sockets")]
+        [SerializeField]
+        private PumpSocketConnection _inputSocket;
 
-        [Header("UI Names")]
-        [SerializeField] private string _startButtonName = "StartButton";
-        [SerializeField] private string _creditsButtonName = "CreditsButton";
-        [SerializeField] private string _quitButtonName = "QuitButton";
-        [SerializeField] private string _creditsContainerName = "CreditsPanel";
-        [SerializeField] private string _closeCreditsButtonName = "CloseCreditsButton";
+        [SerializeField]
+        private PumpSocketConnection _outputSocket;
 
-        private UIDocument _uiDocument;
-        private VisualElement _root;
+        [Header("Débit")]
+        [Min(0f)]
+        [SerializeField]
+        private float _flowRatePerSecond = 10f;
 
-        private Button _startButton;
-        private Button _creditsButton;
-        private Button _quitButton;
-        private Button _closeCreditsButton;
-
-        private VisualElement _creditsContainer;
+        private bool _isRunning;
 
         #endregion
     }

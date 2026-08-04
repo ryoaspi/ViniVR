@@ -6,7 +6,13 @@ namespace Machine.Runtime
     {
         #region Publics
 
-        public float m_currentLevel => _currentLevel;
+        public float m_normalizedLevel =>
+            _liquidContainer != null
+                ? _liquidContainer.m_normalizedVolume
+                : 0f;
+
+        public bool m_isFilling =>
+            _isFilling;
 
         #endregion
 
@@ -15,8 +21,7 @@ namespace Machine.Runtime
 
         private void Awake()
         {
-            ValidateReferences();
-            CacheInitialTransform();
+            InitializeVisual();
         }
 
         private void OnEnable()
@@ -26,12 +31,18 @@ namespace Machine.Runtime
 
         private void Start()
         {
-            RefreshFromContainer();
+            RefreshVisual();
+        }
+
+        private void Update()
+        {
+            UpdateFilling();
         }
 
         private void OnDisable()
         {
             UnregisterEvents();
+            _isFilling = false;
         }
 
 #if UNITY_EDITOR
@@ -39,18 +50,19 @@ namespace Machine.Runtime
         private void OnValidate()
         {
             _minimumHeight = Mathf.Max(
-                0.001f,
+                0.0001f,
                 _minimumHeight);
 
             _maximumHeight = Mathf.Max(
                 _minimumHeight,
                 _maximumHeight);
 
-            if (_liquidContainer == null)
-            {
-                _liquidContainer =
-                    GetComponentInParent<LiquidContainer>();
-            }
+            _fillRatePerSecond = Mathf.Max(
+                0f,
+                _fillRatePerSecond);
+
+            _emptyVisibilityTolerance = Mathf.Clamp01(
+                _emptyVisibilityTolerance);
         }
 
 #endif
@@ -60,40 +72,135 @@ namespace Machine.Runtime
 
         #region Utils (méthodes publics)
 
-        /// <summary>
-        /// Définit directement le niveau visuel avec une valeur normalisée
-        /// comprise entre 0 et 1.
-        /// </summary>
-        /// <param name="normalizedLevel">
-        /// Niveau normalisé :
-        /// 0 correspond à un conteneur vide ;
-        /// 1 correspond à un conteneur plein.
-        /// </param>
-        public void SetLevel(float normalizedLevel)
+        public void BeginFilling()
         {
-            ApplyLevel(
-                Mathf.Clamp01(normalizedLevel));
+            if (_liquidContainer == null)
+            {
+                Debug.LogWarning(
+                    $"[{nameof(LiquidLevelVisualizer)}] " +
+                    "Impossible de démarrer le remplissage : " +
+                    "aucun LiquidContainer n'est assigné.",
+                    this);
+
+                return;
+            }
+
+            if (_liquidContainer.m_isFull)
+            {
+                Debug.Log(
+                    $"[{nameof(LiquidLevelVisualizer)}] " +
+                    $"Le conteneur {_liquidContainer.m_containerName} " +
+                    "est déjà plein.",
+                    this);
+
+                return;
+            }
+
+            _isFilling = true;
+
+            Debug.Log(
+                $"[{nameof(LiquidLevelVisualizer)}] " +
+                $"Remplissage démarré pour " +
+                $"{_liquidContainer.m_containerName}.",
+                this);
         }
 
-        /// <summary>
-        /// Synchronise immédiatement le visuel avec le volume actuel
-        /// du LiquidContainer.
-        /// </summary>
-        public void RefreshFromContainer()
+        public void PauseLevel()
+        {
+            _isFilling = false;
+
+            Debug.Log(
+                $"[{nameof(LiquidLevelVisualizer)}] " +
+                "Remplissage arrêté.",
+                this);
+        }
+
+        public void RefreshVisual()
+        {
+            if (_liquidContainer == null)
+            {
+                Debug.LogWarning(
+                    $"[{nameof(LiquidLevelVisualizer)}] " +
+                    "Aucun LiquidContainer n'est assigné.",
+                    this);
+
+                return;
+            }
+
+            ApplyLiquidLevel(
+                _liquidContainer.m_normalizedVolume);
+        }
+
+        public void SetLevel(float normalizedLevel)
         {
             if (_liquidContainer == null)
             {
                 return;
             }
 
-            SetLevel(
-                _liquidContainer.m_normalizedVolume);
+            float targetVolume =
+                Mathf.Clamp01(normalizedLevel) *
+                _liquidContainer.m_maximumVolume;
+
+            _liquidContainer.SetVolume(targetVolume);
         }
 
         #endregion
 
 
         #region Main Methods (méthodes private)
+
+        private void InitializeVisual()
+        {
+            if (_liquidVisual == null)
+            {
+                Debug.LogError(
+                    $"[{nameof(LiquidLevelVisualizer)}] " +
+                    "Aucun Transform Liquid Visual n'est assigné.",
+                    this);
+
+                enabled = false;
+                return;
+            }
+
+            MeshFilter meshFilter =
+                _liquidVisual.GetComponent<MeshFilter>();
+
+            if (meshFilter == null ||
+                meshFilter.sharedMesh == null)
+            {
+                Debug.LogError(
+                    $"[{nameof(LiquidLevelVisualizer)}] " +
+                    "Le Liquid Visual doit posséder un MeshFilter.",
+                    _liquidVisual);
+
+                enabled = false;
+                return;
+            }
+
+            _meshHeight =
+                meshFilter.sharedMesh.bounds.size.y;
+
+            if (_meshHeight <= Mathf.Epsilon)
+            {
+                Debug.LogError(
+                    $"[{nameof(LiquidLevelVisualizer)}] " +
+                    "La hauteur du mesh est invalide.",
+                    _liquidVisual);
+
+                enabled = false;
+                return;
+            }
+
+            _originalLocalPosition =
+                _liquidVisual.localPosition;
+
+            _bottomLocalPositionY =
+                _originalLocalPosition.y -
+                (_maximumHeight * 0.5f);
+
+            _isInitialized = true;
+        }
 
         private void RegisterEvents()
         {
@@ -103,7 +210,10 @@ namespace Machine.Runtime
             }
 
             _liquidContainer.m_onVolumeChanged.AddListener(
-                SetLevel);
+                HandleVolumeChanged);
+
+            _liquidContainer.m_onContainerFull.AddListener(
+                HandleContainerFull);
         }
 
         private void UnregisterEvents()
@@ -114,100 +224,107 @@ namespace Machine.Runtime
             }
 
             _liquidContainer.m_onVolumeChanged.RemoveListener(
-                SetLevel);
+                HandleVolumeChanged);
+
+            _liquidContainer.m_onContainerFull.RemoveListener(
+                HandleContainerFull);
         }
 
-        private void ApplyLevel(float normalizedLevel)
+        private void UpdateFilling()
         {
-            if (_liquidVisual == null)
+            if (!_isFilling ||
+                _liquidContainer == null)
             {
                 return;
             }
 
-            _currentLevel = normalizedLevel;
+            if (_liquidContainer.m_isFull)
+            {
+                _isFilling = false;
+                return;
+            }
 
-            float currentHeight = Mathf.Lerp(
-                _minimumHeight,
-                _maximumHeight,
-                _currentLevel);
+            float amountToAdd =
+                _fillRatePerSecond *
+                Time.deltaTime;
 
-            Vector3 newScale = _initialLocalScale;
-            newScale.y = currentHeight;
-
-            _liquidVisual.localScale = newScale;
-
-            Vector3 newPosition = _initialLocalPosition;
-
-            newPosition.y =
-                _bottomLocalPosition +
-                currentHeight * 0.5f;
-
-            _liquidVisual.localPosition = newPosition;
-
-            UpdateVisualVisibility();
+            _liquidContainer.AddLiquid(
+                amountToAdd);
         }
 
-        private void UpdateVisualVisibility()
+        private void HandleVolumeChanged(
+            float normalizedVolume)
         {
-            if (!_hideWhenEmpty || _liquidVisual == null)
+            ApplyLiquidLevel(normalizedVolume);
+        }
+
+        private void HandleContainerFull()
+        {
+            _isFilling = false;
+
+            Debug.Log(
+                $"[{nameof(LiquidLevelVisualizer)}] " +
+                $"Le conteneur {_liquidContainer.m_containerName} " +
+                "est maintenant plein.",
+                this);
+        }
+
+        private void ApplyLiquidLevel(
+            float normalizedVolume)
+        {
+            if (!_isInitialized ||
+                _liquidVisual == null)
             {
+                return;
+            }
+
+            float clampedVolume =
+                Mathf.Clamp01(normalizedVolume);
+
+            float targetHeight = Mathf.Lerp(
+                _minimumHeight,
+                _maximumHeight,
+                clampedVolume);
+
+            float targetScaleY =
+                targetHeight / _meshHeight;
+
+            Vector3 targetScale =
+                _liquidVisual.localScale;
+
+            targetScale.y = targetScaleY;
+
+            _liquidVisual.localScale =
+                targetScale;
+
+            Vector3 targetPosition =
+                _originalLocalPosition;
+
+            targetPosition.y =
+                _bottomLocalPositionY +
+                (targetHeight * 0.5f);
+
+            _liquidVisual.localPosition =
+                targetPosition;
+
+            ApplyVisibility(clampedVolume);
+        }
+
+        private void ApplyVisibility(
+            float normalizedVolume)
+        {
+            if (!_hideWhenEmpty)
+            {
+                _liquidVisual.gameObject.SetActive(true);
                 return;
             }
 
             bool shouldBeVisible =
-                _currentLevel > _emptyVisibilityTolerance;
-
-            if (_liquidVisual.gameObject.activeSelf ==
-                shouldBeVisible)
-            {
-                return;
-            }
+                normalizedVolume >
+                _emptyVisibilityTolerance;
 
             _liquidVisual.gameObject.SetActive(
                 shouldBeVisible);
-        }
-
-        private void CacheInitialTransform()
-        {
-            if (_liquidVisual == null)
-            {
-                return;
-            }
-
-            _initialLocalScale =
-                _liquidVisual.localScale;
-
-            _initialLocalPosition =
-                _liquidVisual.localPosition;
-
-            _bottomLocalPosition =
-                _initialLocalPosition.y -
-                _initialLocalScale.y * 0.5f;
-        }
-
-        private void ValidateReferences()
-        {
-            if (_liquidContainer == null)
-            {
-                _liquidContainer =
-                    GetComponentInParent<LiquidContainer>();
-            }
-
-            if (_liquidContainer == null)
-            {
-                Debug.LogError(
-                    $"[{nameof(LiquidLevelVisualizer)}] " +
-                    $"Aucun {nameof(LiquidContainer)} n'est assigné.",
-                    this);
-            }
-
-            if (_liquidVisual == null)
-            {
-                Debug.LogError(
-                    $"[{nameof(LiquidLevelVisualizer)}] " +
-                    "Le Transform représentant le liquide est manquant.",
-                    this);
-            }
         }
 
         #endregion
@@ -216,46 +333,47 @@ namespace Machine.Runtime
         #region Private and Protected
 
         [Header("Références")]
-        [Tooltip(
-            "Conteneur dont le volume doit être représenté.")]
         [SerializeField]
         private LiquidContainer _liquidContainer;
 
-        [Tooltip(
-            "Objet visuel qui sera redimensionné verticalement.")]
         [SerializeField]
         private Transform _liquidVisual;
 
-        [Header("Dimensions")]
-        [Min(0.001f)]
+        [Header("Remplissage")]
         [Tooltip(
-            "Hauteur locale du visuel lorsque le conteneur est vide.")]
+            "Quantité de liquide ajoutée chaque seconde.")]
+        [Min(0f)]
+        [SerializeField]
+        private float _fillRatePerSecond = 10f;
+
+        [Header("Dimensions locales")]
+        [Tooltip(
+            "Hauteur visuelle minimale du liquide.")]
+        [Min(0.0001f)]
         [SerializeField]
         private float _minimumHeight = 0.001f;
 
-        [Min(0.001f)]
         [Tooltip(
-            "Hauteur locale du visuel lorsque le conteneur est plein.")]
+            "Hauteur visuelle du liquide lorsque la cuve est pleine.")]
+        [Min(0.0001f)]
         [SerializeField]
-        private float _maximumHeight = 1f;
+        private float _maximumHeight = 2.6f;
 
         [Header("Visibilité")]
-        [Tooltip(
-            "Masque complètement le visuel lorsque le conteneur est vide.")]
         [SerializeField]
         private bool _hideWhenEmpty = true;
 
-        [Range(0f, 0.1f)]
-        [Tooltip(
-            "Tolérance en dessous de laquelle le niveau est considéré vide.")]
+        [Range(0f, 1f)]
         [SerializeField]
         private float _emptyVisibilityTolerance = 0.001f;
 
-        private Vector3 _initialLocalScale;
-        private Vector3 _initialLocalPosition;
+        private Vector3 _originalLocalPosition;
 
-        private float _bottomLocalPosition;
-        private float _currentLevel;
+        private float _bottomLocalPositionY;
+        private float _meshHeight = 1f;
+
+        private bool _isInitialized;
+        private bool _isFilling;
 
         #endregion
     }
