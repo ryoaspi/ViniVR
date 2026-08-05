@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3491507239184746279}
   - component: {fileID: 2755259228983314407}
   - component: {fileID: 4072415241233153648}
+  - component: {fileID: 272167122773598269}
   m_Layer: 0
   m_Name: p_UIStartMenu
   m_TagString: Untagged
@@ -74,3 +75,24 @@ MonoBehaviour:
   _quitButtonName: start_menu-btn_quit
   _creditsContainerName: CreditsPanel
   _closeCreditsButtonName: CloseCreditsButton
+--- !u!65 &272167122773598269
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431834543927341546}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 19.2, y: 10.799999, z: 0.000000944166}
+  m_Center: {x: 0.0000009536743, y: 0, z: 0}

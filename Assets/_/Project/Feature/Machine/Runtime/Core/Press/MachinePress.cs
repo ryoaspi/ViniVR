@@ -28,7 +28,7 @@ namespace Machine.Runtime
                 
                 return;
             }
-
+            
             if (!_grapeObjects.Contains(grapeObject))
             {
                 _grapeObjects.Add(grapeObject);

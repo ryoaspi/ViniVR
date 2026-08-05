@@ -45,6 +45,19 @@ namespace Machine.Runtime
 
             _pressMachineController.NotifyDoorAnimationEndpoint();
         }
+        
+                
+        public void EnableParticles()
+        {
+            if (_particles != null)
+                _particles.SetActive(true);
+        }
+
+        public void DisableParticles()
+        {
+            if (_particles != null)
+                _particles.SetActive(false);
+        }
 
         #endregion
 
@@ -65,13 +78,14 @@ namespace Machine.Runtime
 
             return false;
         }
-
+        
         #endregion
 
 
         #region Private and Protected
 
         [SerializeField] private PressMachineController _pressMachineController;
+        [SerializeField] private GameObject _particles;
 
         #endregion
     }
