@@ -31,15 +31,15 @@
     height: 100%;
 }
 
+.container-actual_temperature {
+}
+
 .container_icon {
     border-right-width: 1px;
     border-color: rgb(255, 255, 255);
     display: flex;
     align-items: center;
     padding-right: 125px;
-}
-
-.container-actual_temperature {
 }
 
 .icon {
@@ -135,6 +135,56 @@
 }
 
 .actual_value {
-        font-size: 120px;
+    font-size: 120px;
     -unity-font-style: bold;
+}
+
+.filling_status-text {
+    font-size: 70px;
+    -unity-font-style: bold;
+    color: rgb(150, 253, 8);
+    margin-top: 64px;
+    margin-bottom: 16px;
+}
+
+.filling-status-wait {
+    font-size: 60px;
+    -unity-font-style: normal;
+    color: white;
+}
+
+.container-filling {
+    background-color: rgb(37, 37, 37);
+    border-radius: 32px;
+    color: rgb(255, 0, 195);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 32px;
+    height: 100%;
+}
+
+.filling-tank-icon {
+    height: 400px;
+}
+
+.filling-level-0 {
+    background-image: url("/Assets/_/Project/Art/UI/Icons/tank_filling_0.svg");
+}
+
+.filling-level-1 {
+    background-image: url("/Assets/_/Project/Art/UI/Icons/tank_filling_1.svg");
+}
+
+.filling-level-2 {
+    background-image: url("/Assets/_/Project/Art/UI/Icons/tank_filling_2.svg");
+}
+
+.filling-level-3 {
+    background-image: url("/Assets/_/Project/Art/UI/Icons/tank_filling_3.svg");
+}
+
+.filling-level-4 {
+    background-image: url("/Assets/_/Project/Art/UI/Icons/tank_filling_4.svg");
 }
