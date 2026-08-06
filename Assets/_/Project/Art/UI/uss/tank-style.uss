@@ -167,6 +167,7 @@
 
 .filling-tank-icon {
     height: 400px;
+    -unity-background-scale-mode: scale-to-fit;
 }
 
 .filling-level-0 {

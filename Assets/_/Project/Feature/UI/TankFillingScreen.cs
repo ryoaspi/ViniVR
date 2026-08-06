@@ -51,6 +51,9 @@ public class TankFillingIconAnimator : MonoBehaviour
     {
         _thermostatScreen.SetActive(false);
         _fillingScreen.SetActive(true);
+        
+        _fillingIcon = _uiDocument.rootVisualElement.Q<VisualElement>("filling-icon");
+        
         _isAnimating = true;
         _currentFillingLevel = 0; 
         
@@ -64,9 +67,27 @@ public class TankFillingIconAnimator : MonoBehaviour
         _nextIconChangeTime = Time.time + 1f;
     }
     
-    public void StopFillingAnimation()
+    public void StopUIFillingAnimation()
     {
         _isAnimating = false;
+    }
+    
+    public void OnValveValueChanged(float value)
+    {
+        Debug.Log("Valve value : " + value);
+        bool valveIsFullyOpen = value >= 0.99f;
+
+        if (valveIsFullyOpen)
+        {
+            if (!_isAnimating)
+            {
+                StartFillingUIAnimation();
+            }
+        }
+        else
+        {
+            StopUIFillingAnimation();
+        }
     }
     #endregion
     
