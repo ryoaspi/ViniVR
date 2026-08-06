@@ -12,6 +12,9 @@ namespace Machine.Runtime
         public UnityEvent m_onAssemblyCompleted;
         public UnityEvent m_onAssemblyInvalid;
 
+        public bool m_isRunning =>
+            _isRunning;
+
         public bool m_isDebourbageStepCompleted =>
             _currentStep == AssemblyStep.Reserve ||
             _currentStep == AssemblyStep.Completed;
@@ -41,10 +44,20 @@ namespace Machine.Runtime
         {
             RegisterEvents();
         }
-        
+
+        private void Update()
+        {
+            if (!_isRunning)
+            {
+                return;
+            }
+
+            UpdateLiquidTransfer();
+        }
 
         private void OnDisable()
         {
+            _isRunning = false;
             UnregisterEvents();
         }
 
@@ -58,6 +71,9 @@ namespace Machine.Runtime
             _reservePercentage =
                 Mathf.Clamp01(_reservePercentage);
 
+            _flowRatePerSecond =
+                Mathf.Max(0f, _flowRatePerSecond);
+
             _volumeTolerance =
                 Mathf.Max(0f, _volumeTolerance);
         }
@@ -70,23 +86,9 @@ namespace Machine.Runtime
         #region Utils (méthodes publics)
 
         /// <summary>
-        /// Réinitialise le suivi en utilisant les volumes actuellement
-        /// présents dans les trois cuves comme nouvelles valeurs de départ.
+        /// Initialise le suivi lorsque la cuve de débourbage
+        /// a terminé son remplissage.
         /// </summary>
-        public void ResetAssembly()
-        {
-            InitializeAssembly();
-        }
-
-        /// <summary>
-        /// Force une nouvelle vérification des volumes.
-        /// Utile pour les tests ou les événements Unity.
-        /// </summary>
-        public void RefreshAssemblyState()
-        {
-            EvaluateAssembly();
-        }
-        
         public void BeginAssemblyTracking()
         {
             if (_currentStep != AssemblyStep.NotInitialized)
@@ -100,6 +102,138 @@ namespace Machine.Runtime
             }
 
             InitializeAssembly();
+        }
+
+        /// <summary>
+        /// Démarre la pompe après vérification des branchements.
+        /// </summary>
+        public void StartPump()
+        {
+            if (_isRunning)
+            {
+                return;
+            }
+
+            if (_currentStep == AssemblyStep.NotInitialized)
+            {
+                Debug.LogWarning(
+                    $"[{nameof(WineAssemblyController)}] " +
+                    "Le suivi de l'assemblage n'est pas encore initialisé. " +
+                    "La cuve de débourbage doit d'abord être remplie.",
+                    this);
+
+                return;
+            }
+
+            if (_currentStep == AssemblyStep.Completed)
+            {
+                Debug.LogWarning(
+                    $"[{nameof(WineAssemblyController)}] " +
+                    "L'assemblage est déjà terminé.",
+                    this);
+
+                return;
+            }
+
+            if (_currentStep == AssemblyStep.Invalid)
+            {
+                Debug.LogWarning(
+                    $"[{nameof(WineAssemblyController)}] " +
+                    "L'assemblage est dans un état invalide.",
+                    this);
+
+                return;
+            }
+
+            if (!ValidateReferences())
+            {
+                return;
+            }
+
+            if (!TryResolveConnectedContainers(
+                    out LiquidContainer source,
+                    out LiquidContainer destination))
+            {
+                return;
+            }
+
+            if (!ValidateConnectedContainers(
+                    source,
+                    destination))
+            {
+                return;
+            }
+
+            _activeSource = source;
+            _isRunning = true;
+
+            Debug.Log(
+                $"[{nameof(WineAssemblyController)}] " +
+                $"Pompe démarrée. Source : " +
+                $"{_activeSource.m_containerName} | " +
+                $"Destination : {_assemblyContainer.m_containerName}.",
+                this);
+        }
+
+        /// <summary>
+        /// Arrête manuellement le transfert.
+        /// </summary>
+        public void StopPump()
+        {
+            if (!_isRunning)
+            {
+                return;
+            }
+
+            _isRunning = false;
+            _activeSource = null;
+
+            Debug.Log(
+                $"[{nameof(WineAssemblyController)}] " +
+                "Pompe arrêtée.",
+                this);
+        }
+
+        /// <summary>
+        /// Réinitialise le suivi à partir des volumes actuels.
+        /// </summary>
+        public void ResetAssembly()
+        {
+            _isRunning = false;
+            _activeSource = null;
+
+            _currentStep =
+                AssemblyStep.NotInitialized;
+
+            InitializeAssembly();
+        }
+
+        /// <summary>
+        /// Force une nouvelle vérification des volumes.
+        /// </summary>
+        public void RefreshAssemblyState()
+        {
+            EvaluateAssembly();
+        }
+
+        /// <summary>
+        /// Affiche les cuves actuellement détectées
+        /// à travers les deux tuyaux.
+        /// </summary>
+        public void LogCurrentConnections()
+        {
+            if (!TryResolveConnectedContainers(
+                    out LiquidContainer source,
+                    out LiquidContainer destination))
+            {
+                return;
+            }
+
+            Debug.Log(
+                $"[{nameof(WineAssemblyController)}] " +
+                $"Source connectée : {source.m_containerName} | " +
+                $"Destination connectée : {destination.m_containerName}.",
+                this);
         }
 
         #endregion
@@ -145,25 +279,340 @@ namespace Machine.Runtime
                     $"[{nameof(WineAssemblyController)}] " +
                     "La cuve d'assemblage ne possède pas une capacité " +
                     "suffisante pour recevoir les quantités demandées. " +
-                    $"Volume nécessaire : {_requiredFinalAssemblyVolume:F2}. " +
-                    $"Capacité : {_assemblyContainer.m_maximumVolume:F2}.",
+                    $"Volume nécessaire : " +
+                    $"{_requiredFinalAssemblyVolume:F2}. " +
+                    $"Capacité disponible : " +
+                    $"{_assemblyContainer.m_maximumVolume:F2}.",
                     this);
 
                 SetAssemblyInvalid();
                 return;
             }
 
-            _currentStep = AssemblyStep.Debourbage;
+            _currentStep =
+                AssemblyStep.Debourbage;
+
+            _activeSource = null;
+            _isRunning = false;
             _hasRaisedInvalidEvent = false;
 
             Debug.Log(
                 $"[{nameof(WineAssemblyController)}] " +
                 "Suivi de l'assemblage initialisé. " +
-                $"Débourbage attendu : {_requiredDebourbageAmount:F2}. " +
-                $"Réserve attendue : {_requiredReserveAmount:F2}.",
+                $"Débourbage initial : " +
+                $"{_initialDebourbageVolume:F2}. " +
+                $"Débourbage attendu : " +
+                $"{_requiredDebourbageAmount:F2}. " +
+                $"Réserve attendue : " +
+                $"{_requiredReserveAmount:F2}.",
                 this);
 
             EvaluateAssembly();
+        }
+
+        private void UpdateLiquidTransfer()
+        {
+            if (!TryResolveConnectedContainers(
+                    out LiquidContainer source,
+                    out LiquidContainer destination))
+            {
+                StopPump();
+                return;
+            }
+
+            if (source != _activeSource ||
+                destination != _assemblyContainer)
+            {
+                Debug.LogWarning(
+                    $"[{nameof(WineAssemblyController)}] " +
+                    "Les branchements ont changé pendant le transfert.",
+                    this);
+
+                StopPump();
+                return;
+            }
+
+            if (!ValidateConnectedContainers(
+                    source,
+                    destination))
+            {
+                StopPump();
+                return;
+            }
+
+            float remainingAmount =
+                GetRemainingAmountForCurrentStep();
+
+            if (remainingAmount <= _volumeTolerance)
+            {
+                StopPump();
+                EvaluateAssembly();
+                return;
+            }
+
+            if (source.m_isEmpty)
+            {
+                Debug.LogWarning(
+                    $"[{nameof(WineAssemblyController)}] " +
+                    $"La cuve source {source.m_containerName} est vide.",
+                    source);
+
+                StopPump();
+                return;
+            }
+
+            if (destination.m_isFull)
+            {
+                Debug.LogWarning(
+                    $"[{nameof(WineAssemblyController)}] " +
+                    "La cuve d'assemblage est pleine.",
+                    destination);
+
+                StopPump();
+                return;
+            }
+
+            float requestedAmount =
+                _flowRatePerSecond *
+                Time.deltaTime;
+
+            float destinationCapacity =
+                destination.m_maximumVolume -
+                destination.m_currentVolume;
+
+            float transferableAmount =
+                Mathf.Min(
+                    requestedAmount,
+                    remainingAmount,
+                    destinationCapacity);
+
+            if (transferableAmount <= 0f)
+            {
+                StopPump();
+                return;
+            }
+
+            float removedAmount =
+                source.RemoveLiquid(
+                    transferableAmount);
+
+            if (removedAmount <= 0f)
+            {
+                StopPump();
+                return;
+            }
+
+            float addedAmount =
+                destination.AddLiquid(
+                    removedAmount);
+
+            if (addedAmount < removedAmount)
+            {
+                float amountToReturn =
+                    removedAmount - addedAmount;
+
+                source.AddLiquid(
+                    amountToReturn);
+            }
+
+            if (GetRemainingAmountForCurrentStep() <=
+                _volumeTolerance)
+            {
+                _isRunning = false;
+                _activeSource = null;
+
+                EvaluateAssembly();
+            }
+        }
+
+        private bool TryResolveConnectedContainers(
+            out LiquidContainer source,
+            out LiquidContainer destination)
+        {
+            source = null;
+            destination = null;
+
+            if (_inputSocket == null ||
+                _outputSocket == null)
+            {
+                Debug.LogError(
+                    $"[{nameof(WineAssemblyController)}] " +
+                    "Les sockets IN et OUT ne sont pas assignés.",
+                    this);
+
+                return false;
+            }
+
+            if (!_inputSocket.m_isConnected ||
+                !_outputSocket.m_isConnected)
+            {
+                Debug.LogWarning(
+                    $"[{nameof(WineAssemblyController)}] " +
+                    "Les deux tuyaux doivent être branchés sur la pompe.",
+                    this);
+
+                return false;
+            }
+
+            LiquidHoseEnd inputTankEnd =
+                ResolveOppositeHoseEnd(
+                    _inputSocket.m_connectedHoseEnd,
+                    _inputHoseEndA,
+                    _inputHoseEndB);
+
+            LiquidHoseEnd outputTankEnd =
+                ResolveOppositeHoseEnd(
+                    _outputSocket.m_connectedHoseEnd,
+                    _outputHoseEndA,
+                    _outputHoseEndB);
+
+            if (inputTankEnd == null)
+            {
+                Debug.LogWarning(
+                    $"[{nameof(WineAssemblyController)}] " +
+                    "L'extrémité connectée au socket IN " +
+                    "ne correspond pas au tuyau d'entrée assigné.",
+                    this);
+
+                return false;
+            }
+
+            if (outputTankEnd == null)
+            {
+                Debug.LogWarning(
+                    $"[{nameof(WineAssemblyController)}] " +
+                    "L'extrémité connectée au socket OUT " +
+                    "ne correspond pas au tuyau de sortie assigné.",
+                    this);
+
+                return false;
+            }
+
+            source =
+                inputTankEnd.m_connectedContainer;
+
+            destination =
+                outputTankEnd.m_connectedContainer;
+
+            if (source == null)
+            {
+                Debug.LogWarning(
+                    $"[{nameof(WineAssemblyController)}] " +
+                    "L'autre extrémité du tuyau d'entrée " +
+                    "n'est branchée à aucune cuve.",
+                    this);
+
+                return false;
+            }
+
+            if (destination == null)
+            {
+                Debug.LogWarning(
+                    $"[{nameof(WineAssemblyController)}] " +
+                    "L'autre extrémité du tuyau de sortie " +
+                    "n'est branchée à aucune cuve.",
+                    this);
+
+                return false;
+            }
+
+            return true;
+        }
+
+        private LiquidHoseEnd ResolveOppositeHoseEnd(
+            LiquidHoseEnd connectedPumpEnd,
+            LiquidHoseEnd hoseEndA,
+            LiquidHoseEnd hoseEndB)
+        {
+            if (connectedPumpEnd == null ||
+                hoseEndA == null ||
+                hoseEndB == null)
+            {
+                return null;
+            }
+
+            if (connectedPumpEnd == hoseEndA)
+            {
+                return hoseEndB;
+            }
+
+            if (connectedPumpEnd == hoseEndB)
+            {
+                return hoseEndA;
+            }
+
+            return null;
+        }
+
+        private bool ValidateConnectedContainers(
+            LiquidContainer source,
+            LiquidContainer destination)
+        {
+            if (destination != _assemblyContainer)
+            {
+                Debug.LogWarning(
+                    $"[{nameof(WineAssemblyController)}] " +
+                    "Le tuyau branché sur OUT doit être relié " +
+                    "à la cuve d'assemblage.",
+                    this);
+
+                return false;
+            }
+
+            if (_currentStep == AssemblyStep.Debourbage)
+            {
+                if (source != _debourbageContainer)
+                {
+                    Debug.LogWarning(
+                        $"[{nameof(WineAssemblyController)}] " +
+                        "Pendant la première étape, le tuyau IN doit être " +
+                        "relié à la cuve de débourbage.",
+                        this);
+
+                    return false;
+                }
+
+                return true;
+            }
+
+            if (_currentStep == AssemblyStep.Reserve)
+            {
+                if (source != _reserveContainer)
+                {
+                    Debug.LogWarning(
+                        $"[{nameof(WineAssemblyController)}] " +
+                        "Pendant la seconde étape, le tuyau IN doit être " +
+                        "relié à la cuve de réserve.",
+                        this);
+
+                    return false;
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        private float GetRemainingAmountForCurrentStep()
+        {
+            if (_currentStep == AssemblyStep.Debourbage)
+            {
+                return Mathf.Max(
+                    0f,
+                    _requiredDebourbageAmount -
+                    m_debourbageTransferredAmount);
+            }
+
+            if (_currentStep == AssemblyStep.Reserve)
+            {
+                return Mathf.Max(
+                    0f,
+                    _requiredReserveAmount -
+                    m_reserveTransferredAmount);
+            }
+
+            return 0f;
         }
 
         private void RegisterEvents()
@@ -208,7 +657,8 @@ namespace Machine.Runtime
             }
         }
 
-        private void HandleVolumeChanged(float normalizedVolume)
+        private void HandleVolumeChanged(
+            float normalizedVolume)
         {
             EvaluateAssembly();
         }
@@ -271,14 +721,13 @@ namespace Machine.Runtime
             }
 
             if (debourbageTransferred >
-                _requiredDebourbageAmount + _volumeTolerance)
+                _requiredDebourbageAmount +
+                _volumeTolerance)
             {
                 Debug.LogWarning(
                     $"[{nameof(WineAssemblyController)}] " +
                     "La quantité de débourbage transférée dépasse " +
-                    $"la quantité demandée. Transféré : " +
-                    $"{debourbageTransferred:F2}. Attendu : " +
-                    $"{_requiredDebourbageAmount:F2}.",
+                    "la quantité demandée.",
                     this);
 
                 SetAssemblyInvalid();
@@ -301,12 +750,16 @@ namespace Machine.Runtime
                 return;
             }
 
-            _currentStep = AssemblyStep.Reserve;
+            _isRunning = false;
+            _activeSource = null;
+
+            _currentStep =
+                AssemblyStep.Reserve;
 
             Debug.Log(
                 $"[{nameof(WineAssemblyController)}] " +
                 "Étape de débourbage terminée. " +
-                "Le joueur peut maintenant transférer le vin de réserve.",
+                "Branche maintenant la cuve de réserve sur IN.",
                 this);
 
             m_onDebourbageStepCompleted?.Invoke();
@@ -318,7 +771,8 @@ namespace Machine.Runtime
             float assemblyReceived)
         {
             if (debourbageTransferred >
-                _requiredDebourbageAmount + _volumeTolerance)
+                _requiredDebourbageAmount +
+                _volumeTolerance)
             {
                 Debug.LogWarning(
                     $"[{nameof(WineAssemblyController)}] " +
@@ -331,14 +785,13 @@ namespace Machine.Runtime
             }
 
             if (reserveTransferred >
-                _requiredReserveAmount + _volumeTolerance)
+                _requiredReserveAmount +
+                _volumeTolerance)
             {
                 Debug.LogWarning(
                     $"[{nameof(WineAssemblyController)}] " +
-                    "La quantité de vin de réserve transférée dépasse " +
-                    $"la quantité demandée. Transféré : " +
-                    $"{reserveTransferred:F2}. Attendu : " +
-                    $"{_requiredReserveAmount:F2}.",
+                    "La quantité de réserve transférée dépasse " +
+                    "la quantité demandée.",
                     this);
 
                 SetAssemblyInvalid();
@@ -371,7 +824,11 @@ namespace Machine.Runtime
                 return;
             }
 
-            _currentStep = AssemblyStep.Completed;
+            _isRunning = false;
+            _activeSource = null;
+
+            _currentStep =
+                AssemblyStep.Completed;
 
             Debug.Log(
                 $"[{nameof(WineAssemblyController)}] " +
@@ -394,7 +851,8 @@ namespace Machine.Runtime
 
             return Mathf.Max(
                 0f,
-                initialVolume - container.m_currentVolume);
+                initialVolume -
+                container.m_currentVolume);
         }
 
         private bool IsAmountReached(
@@ -402,13 +860,18 @@ namespace Machine.Runtime
             float requiredAmount)
         {
             return Mathf.Abs(
-                currentAmount - requiredAmount) <=
+                currentAmount -
+                requiredAmount) <=
                 _volumeTolerance;
         }
 
         private void SetAssemblyInvalid()
         {
-            _currentStep = AssemblyStep.Invalid;
+            _isRunning = false;
+            _activeSource = null;
+
+            _currentStep =
+                AssemblyStep.Invalid;
 
             if (_hasRaisedInvalidEvent)
             {
@@ -416,6 +879,7 @@ namespace Machine.Runtime
             }
 
             _hasRaisedInvalidEvent = true;
+
             m_onAssemblyInvalid?.Invoke();
         }
 
@@ -423,31 +887,48 @@ namespace Machine.Runtime
         {
             bool isValid = true;
 
-            if (_debourbageContainer == null)
+            if (_inputSocket == null ||
+                _outputSocket == null)
             {
                 Debug.LogError(
                     $"[{nameof(WineAssemblyController)}] " +
-                    "La cuve de débourbage n'est pas assignée.",
+                    "Les sockets IN et OUT ne sont pas assignés.",
                     this);
 
                 isValid = false;
             }
 
-            if (_reserveContainer == null)
+            if (_inputHoseEndA == null ||
+                _inputHoseEndB == null)
             {
                 Debug.LogError(
                     $"[{nameof(WineAssemblyController)}] " +
-                    "La cuve de réserve n'est pas assignée.",
+                    "Les deux extrémités du tuyau d'entrée " +
+                    "ne sont pas assignées.",
                     this);
 
                 isValid = false;
             }
 
-            if (_assemblyContainer == null)
+            if (_outputHoseEndA == null ||
+                _outputHoseEndB == null)
             {
                 Debug.LogError(
                     $"[{nameof(WineAssemblyController)}] " +
-                    "La cuve d'assemblage n'est pas assignée.",
+                    "Les deux extrémités du tuyau de sortie " +
+                    "ne sont pas assignées.",
+                    this);
+
+                isValid = false;
+            }
+
+            if (_debourbageContainer == null ||
+                _reserveContainer == null ||
+                _assemblyContainer == null)
+            {
+                Debug.LogError(
+                    $"[{nameof(WineAssemblyController)}] " +
+                    "Les trois cuves ne sont pas assignées.",
                     this);
 
                 isValid = false;
@@ -459,8 +940,8 @@ namespace Machine.Runtime
             {
                 Debug.LogError(
                     $"[{nameof(WineAssemblyController)}] " +
-                    "Les trois références doivent correspondre à " +
-                    "trois cuves différentes.",
+                    "Les trois références doivent correspondre " +
+                    "à trois cuves différentes.",
                     this);
 
                 isValid = false;
@@ -483,6 +964,35 @@ namespace Machine.Runtime
             Invalid
         }
 
+        [Header("Sockets de la pompe")]
+        [SerializeField]
+        private PumpSocketConnection _inputSocket;
+
+        [SerializeField]
+        private PumpSocketConnection _outputSocket;
+
+        [Header("Tuyau branché sur IN")]
+        [Tooltip(
+            "Première extrémité du tuyau utilisé sur l'entrée de la pompe.")]
+        [SerializeField]
+        private LiquidHoseEnd _inputHoseEndA;
+
+        [Tooltip(
+            "Seconde extrémité du tuyau utilisé sur l'entrée de la pompe.")]
+        [SerializeField]
+        private LiquidHoseEnd _inputHoseEndB;
+
+        [Header("Tuyau branché sur OUT")]
+        [Tooltip(
+            "Première extrémité du tuyau utilisé sur la sortie de la pompe.")]
+        [SerializeField]
+        private LiquidHoseEnd _outputHoseEndA;
+
+        [Tooltip(
+            "Seconde extrémité du tuyau utilisé sur la sortie de la pompe.")]
+        [SerializeField]
+        private LiquidHoseEnd _outputHoseEndB;
+
         [Header("Cuves")]
         [SerializeField]
         private LiquidContainer _debourbageContainer;
@@ -502,15 +1012,23 @@ namespace Machine.Runtime
         [SerializeField]
         private float _reservePercentage = 0.30f;
 
-        [Header("Tolérance")]
-        [Tooltip(
-            "Écart accepté entre la quantité demandée et la quantité transférée.")]
+        [Header("Pompe")]
         [Min(0f)]
         [SerializeField]
-        private float _volumeTolerance = 1f;
+        private float _flowRatePerSecond = 10f;
+
+        [Header("Tolérance")]
+        [Tooltip(
+            "Écart accepté entre la quantité demandée " +
+            "et la quantité transférée.")]
+        [Min(0f)]
+        [SerializeField]
+        private float _volumeTolerance = 0.1f;
 
         private AssemblyStep _currentStep =
             AssemblyStep.NotInitialized;
+
+        private LiquidContainer _activeSource;
 
         private float _initialDebourbageVolume;
         private float _initialReserveVolume;
@@ -520,6 +1038,7 @@ namespace Machine.Runtime
         private float _requiredReserveAmount;
         private float _requiredFinalAssemblyVolume;
 
+        private bool _isRunning;
         private bool _hasRaisedInvalidEvent;
 
         #endregion
