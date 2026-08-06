@@ -31,7 +31,7 @@ namespace Machine.Runtime
         #endregion
         
         
-        #region Api Unity
+        #region API Unity
 
         protected virtual void Awake()
         {
@@ -53,8 +53,12 @@ namespace Machine.Runtime
 
         protected override void OnDisable()
         {
+            base.OnDisable();
+            
             _cycleTimer.ProgressChanged -= HandleCycleProgressChanged;
             _cycleTimer.CycleCompleted -= HandleCycleCompleted;
+            
+            _cycleTimer.Reset();
         }
 
         #endregion
@@ -193,7 +197,7 @@ namespace Machine.Runtime
         #endregion
         
         
-        #region Privates
+        #region Privates and Protected
         
         [SerializeField] private MachineState _currentState = MachineState.WaitingForInput;
         private MachineCycleTimer _cycleTimer;
