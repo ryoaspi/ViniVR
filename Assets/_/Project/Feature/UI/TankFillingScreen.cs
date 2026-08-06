@@ -46,7 +46,6 @@ public class TankFillingIconAnimator : MonoBehaviour
     #endregion
     
     #region Utils
-    [ContextMenu("Test Start Filling")]
     public void StartFillingUIAnimation()
     {
         _thermostatScreen.SetActive(false);
@@ -70,11 +69,12 @@ public class TankFillingIconAnimator : MonoBehaviour
     public void StopUIFillingAnimation()
     {
         _isAnimating = false;
+        _thermostatScreen.SetActive(true);
+        _fillingScreen.SetActive(false);
     }
     
     public void OnValveValueChanged(float value)
     {
-        Debug.Log("Valve value : " + value);
         bool valveIsFullyOpen = value >= 0.99f;
 
         if (valveIsFullyOpen)
