@@ -512,7 +512,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -6610,7 +6610,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729177427}
   serializedVersion: 8
-  lengthInSec: 0.2
+  lengthInSec: 0.64
   simulationSpeed: 0.15
   stopAction: 0
   cullingMode: 0
@@ -7234,10 +7234,10 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 27.35
+    angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 0.32
+    radiusThickness: 0.3
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 180, y: 0, z: 0}
@@ -7320,7 +7320,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.01
+      value: 0.003
       mode: 0
       spread: 0
       speed:
@@ -14297,7 +14297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 978622b6e6e69864db42b45953f2fa27, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.925056
+      value: 0.9237898
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 978622b6e6e69864db42b45953f2fa27, type: 3}
       propertyPath: m_LocalRotation.x
@@ -14309,7 +14309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 978622b6e6e69864db42b45953f2fa27, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.37983093
+      value: -0.3829
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 978622b6e6e69864db42b45953f2fa27, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -14321,7 +14321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 978622b6e6e69864db42b45953f2fa27, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -44.646
+      value: -45.027
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 978622b6e6e69864db42b45953f2fa27, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
