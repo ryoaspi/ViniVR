@@ -25,6 +25,12 @@ namespace Machine.Runtime
         public bool m_isAssemblyInvalid =>
             _currentStep == AssemblyStep.Invalid;
 
+        public bool m_arePumpSocketsConnected =>
+            _inputSocket != null &&
+            _outputSocket != null &&
+            _inputSocket.m_isConnected &&
+            _outputSocket.m_isConnected;
+
         public float m_debourbageTransferredAmount =>
             GetTransferredAmount(
                 _initialDebourbageVolume,
@@ -58,6 +64,8 @@ namespace Machine.Runtime
         private void OnDisable()
         {
             _isRunning = false;
+            _activeSource = null;
+
             UnregisterEvents();
         }
 
@@ -218,7 +226,7 @@ namespace Machine.Runtime
 
         /// <summary>
         /// Affiche les cuves actuellement détectées
-        /// à travers les deux tuyaux.
+        /// à travers les tuyaux connectés.
         /// </summary>
         public void LogCurrentConnections()
         {
@@ -245,7 +253,11 @@ namespace Machine.Runtime
         {
             if (!ValidateReferences())
             {
-                enabled = false;
+                Debug.LogError(
+                    $"[{nameof(WineAssemblyController)}] " +
+                    "Initialisation annulée en raison d'une configuration invalide.",
+                    this);
+
                 return;
             }
 
@@ -281,7 +293,7 @@ namespace Machine.Runtime
                     "suffisante pour recevoir les quantités demandées. " +
                     $"Volume nécessaire : " +
                     $"{_requiredFinalAssemblyVolume:F2}. " +
-                    $"Capacité disponible : " +
+                    $"Capacité maximale : " +
                     $"{_assemblyContainer.m_maximumVolume:F2}.",
                     this);
 
@@ -303,6 +315,8 @@ namespace Machine.Runtime
                 $"{_initialDebourbageVolume:F2}. " +
                 $"Débourbage attendu : " +
                 $"{_requiredDebourbageAmount:F2}. " +
+                $"Réserve initiale : " +
+                $"{_initialReserveVolume:F2}. " +
                 $"Réserve attendue : " +
                 $"{_requiredReserveAmount:F2}.",
                 this);
@@ -345,8 +359,7 @@ namespace Machine.Runtime
 
             if (remainingAmount <= _volumeTolerance)
             {
-                StopPump();
-                EvaluateAssembly();
+                CompleteCurrentTransfer();
                 return;
             }
 
@@ -418,11 +431,16 @@ namespace Machine.Runtime
             if (GetRemainingAmountForCurrentStep() <=
                 _volumeTolerance)
             {
-                _isRunning = false;
-                _activeSource = null;
-
-                EvaluateAssembly();
+                CompleteCurrentTransfer();
             }
+        }
+
+        private void CompleteCurrentTransfer()
+        {
+            _isRunning = false;
+            _activeSource = null;
+
+            EvaluateAssembly();
         }
 
         private bool TryResolveConnectedContainers(
@@ -454,24 +472,51 @@ namespace Machine.Runtime
                 return false;
             }
 
+            LiquidHoseEnd inputPumpEnd =
+                _inputSocket.m_connectedHoseEnd;
+
+            LiquidHoseEnd outputPumpEnd =
+                _outputSocket.m_connectedHoseEnd;
+
+            if (inputPumpEnd == null ||
+                outputPumpEnd == null)
+            {
+                Debug.LogWarning(
+                    $"[{nameof(WineAssemblyController)}] " +
+                    "Un socket indique une connexion, mais ne possède " +
+                    "aucune extrémité de tuyau associée.",
+                    this);
+
+                return false;
+            }
+
+            if (AreEndsFromSameHose(
+                    inputPumpEnd,
+                    outputPumpEnd))
+            {
+                Debug.LogWarning(
+                    $"[{nameof(WineAssemblyController)}] " +
+                    "Les sockets IN et OUT utilisent les deux extrémités " +
+                    "du même tuyau. Deux tuyaux différents sont nécessaires.",
+                    this);
+
+                return false;
+            }
+
             LiquidHoseEnd inputTankEnd =
                 ResolveOppositeHoseEnd(
-                    _inputSocket.m_connectedHoseEnd,
-                    _inputHoseEndA,
-                    _inputHoseEndB);
+                    inputPumpEnd);
 
             LiquidHoseEnd outputTankEnd =
                 ResolveOppositeHoseEnd(
-                    _outputSocket.m_connectedHoseEnd,
-                    _outputHoseEndA,
-                    _outputHoseEndB);
+                    outputPumpEnd);
 
             if (inputTankEnd == null)
             {
                 Debug.LogWarning(
                     $"[{nameof(WineAssemblyController)}] " +
-                    "L'extrémité connectée au socket IN " +
-                    "ne correspond pas au tuyau d'entrée assigné.",
+                    "Le tuyau branché sur IN n'est pas déclaré " +
+                    "dans la liste Available Hoses.",
                     this);
 
                 return false;
@@ -481,8 +526,8 @@ namespace Machine.Runtime
             {
                 Debug.LogWarning(
                     $"[{nameof(WineAssemblyController)}] " +
-                    "L'extrémité connectée au socket OUT " +
-                    "ne correspond pas au tuyau de sortie assigné.",
+                    "Le tuyau branché sur OUT n'est pas déclaré " +
+                    "dans la liste Available Hoses.",
                     this);
 
                 return false;
@@ -498,9 +543,9 @@ namespace Machine.Runtime
             {
                 Debug.LogWarning(
                     $"[{nameof(WineAssemblyController)}] " +
-                    "L'autre extrémité du tuyau d'entrée " +
-                    "n'est branchée à aucune cuve.",
-                    this);
+                    "L'autre extrémité du tuyau branché sur IN " +
+                    "n'est reliée à aucune cuve.",
+                    inputTankEnd);
 
                 return false;
             }
@@ -509,45 +554,122 @@ namespace Machine.Runtime
             {
                 Debug.LogWarning(
                     $"[{nameof(WineAssemblyController)}] " +
-                    "L'autre extrémité du tuyau de sortie " +
-                    "n'est branchée à aucune cuve.",
-                    this);
+                    "L'autre extrémité du tuyau branché sur OUT " +
+                    "n'est reliée à aucune cuve.",
+                    outputTankEnd);
 
                 return false;
             }
+
+            Debug.Log(
+                $"[{nameof(WineAssemblyController)}] " +
+                $"Branchements détectés : " +
+                $"IN → {source.m_containerName} | " +
+                $"OUT → {destination.m_containerName}.",
+                this);
 
             return true;
         }
 
         private LiquidHoseEnd ResolveOppositeHoseEnd(
-            LiquidHoseEnd connectedPumpEnd,
-            LiquidHoseEnd hoseEndA,
-            LiquidHoseEnd hoseEndB)
+            LiquidHoseEnd connectedPumpEnd)
         {
-            if (connectedPumpEnd == null ||
-                hoseEndA == null ||
-                hoseEndB == null)
+            if (connectedPumpEnd == null)
             {
                 return null;
             }
 
-            if (connectedPumpEnd == hoseEndA)
+            if (_availableHoses == null ||
+                _availableHoses.Length == 0)
             {
-                return hoseEndB;
+                Debug.LogWarning(
+                    $"[{nameof(WineAssemblyController)}] " +
+                    "Aucun tuyau n'est renseigné dans Available Hoses.",
+                    this);
+
+                return null;
             }
 
-            if (connectedPumpEnd == hoseEndB)
+            foreach (HoseEndPair hose in _availableHoses)
             {
-                return hoseEndA;
+                if (hose.m_endA == null ||
+                    hose.m_endB == null)
+                {
+                    continue;
+                }
+
+                if (connectedPumpEnd == hose.m_endA)
+                {
+                    return hose.m_endB;
+                }
+
+                if (connectedPumpEnd == hose.m_endB)
+                {
+                    return hose.m_endA;
+                }
             }
+
+            Debug.LogWarning(
+                $"[{nameof(WineAssemblyController)}] " +
+                $"L'extrémité {connectedPumpEnd.name} ne correspond " +
+                "à aucun tuyau déclaré dans Available Hoses.",
+                connectedPumpEnd);
 
             return null;
+        }
+
+        private bool AreEndsFromSameHose(
+            LiquidHoseEnd firstEnd,
+            LiquidHoseEnd secondEnd)
+        {
+            if (firstEnd == null ||
+                secondEnd == null ||
+                _availableHoses == null)
+            {
+                return false;
+            }
+
+            foreach (HoseEndPair hose in _availableHoses)
+            {
+                bool firstBelongsToHose =
+                    firstEnd == hose.m_endA ||
+                    firstEnd == hose.m_endB;
+
+                bool secondBelongsToHose =
+                    secondEnd == hose.m_endA ||
+                    secondEnd == hose.m_endB;
+
+                if (firstBelongsToHose &&
+                    secondBelongsToHose)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         private bool ValidateConnectedContainers(
             LiquidContainer source,
             LiquidContainer destination)
         {
+            if (source == null ||
+                destination == null)
+            {
+                return false;
+            }
+
+            if (source == destination)
+            {
+                Debug.LogWarning(
+                    $"[{nameof(WineAssemblyController)}] " +
+                    "La source et la destination correspondent " +
+                    "à la même cuve.",
+                    this);
+
+                return false;
+            }
+
             if (destination != _assemblyContainer)
             {
                 Debug.LogWarning(
@@ -897,29 +1019,77 @@ namespace Machine.Runtime
 
                 isValid = false;
             }
-
-            if (_inputHoseEndA == null ||
-                _inputHoseEndB == null)
+            else if (_inputSocket == _outputSocket)
             {
                 Debug.LogError(
                     $"[{nameof(WineAssemblyController)}] " +
-                    "Les deux extrémités du tuyau d'entrée " +
-                    "ne sont pas assignées.",
+                    "Input Socket et Output Socket ne peuvent pas " +
+                    "référencer le même composant.",
                     this);
 
                 isValid = false;
             }
 
-            if (_outputHoseEndA == null ||
-                _outputHoseEndB == null)
+            if (_availableHoses == null ||
+                _availableHoses.Length < 2)
             {
                 Debug.LogError(
                     $"[{nameof(WineAssemblyController)}] " +
-                    "Les deux extrémités du tuyau de sortie " +
-                    "ne sont pas assignées.",
+                    "Au moins deux tuyaux doivent être assignés " +
+                    "dans Available Hoses.",
                     this);
 
                 isValid = false;
+            }
+            else
+            {
+                for (int index = 0;
+                     index < _availableHoses.Length;
+                     index++)
+                {
+                    HoseEndPair hose =
+                        _availableHoses[index];
+
+                    if (hose.m_endA == null ||
+                        hose.m_endB == null)
+                    {
+                        Debug.LogError(
+                            $"[{nameof(WineAssemblyController)}] " +
+                            $"Le tuyau à l'index {index} possède une " +
+                            "extrémité non assignée.",
+                            this);
+
+                        isValid = false;
+                        continue;
+                    }
+
+                    if (hose.m_endA == hose.m_endB)
+                    {
+                        Debug.LogError(
+                            $"[{nameof(WineAssemblyController)}] " +
+                            $"Le tuyau à l'index {index} utilise deux fois " +
+                            "la même extrémité.",
+                            this);
+
+                        isValid = false;
+                    }
+
+                    if (IsHoseEndDeclaredMoreThanOnce(
+                            hose.m_endA,
+                            index) ||
+                        IsHoseEndDeclaredMoreThanOnce(
+                            hose.m_endB,
+                            index))
+                    {
+                        Debug.LogError(
+                            $"[{nameof(WineAssemblyController)}] " +
+                            $"Le tuyau à l'index {index} utilise une " +
+                            "extrémité déjà déclarée dans une autre paire.",
+                            this);
+
+                        isValid = false;
+                    }
+                }
             }
 
             if (_debourbageContainer == null ||
@@ -933,10 +1103,9 @@ namespace Machine.Runtime
 
                 isValid = false;
             }
-
-            if (_debourbageContainer == _reserveContainer ||
-                _debourbageContainer == _assemblyContainer ||
-                _reserveContainer == _assemblyContainer)
+            else if (_debourbageContainer == _reserveContainer ||
+                     _debourbageContainer == _assemblyContainer ||
+                     _reserveContainer == _assemblyContainer)
             {
                 Debug.LogError(
                     $"[{nameof(WineAssemblyController)}] " +
@@ -950,10 +1119,52 @@ namespace Machine.Runtime
             return isValid;
         }
 
+        private bool IsHoseEndDeclaredMoreThanOnce(
+            LiquidHoseEnd hoseEnd,
+            int currentPairIndex)
+        {
+            if (hoseEnd == null ||
+                _availableHoses == null)
+            {
+                return false;
+            }
+
+            for (int index = 0;
+                 index < _availableHoses.Length;
+                 index++)
+            {
+                if (index == currentPairIndex)
+                {
+                    continue;
+                }
+
+                HoseEndPair otherHose =
+                    _availableHoses[index];
+
+                if (hoseEnd == otherHose.m_endA ||
+                    hoseEnd == otherHose.m_endB)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         #endregion
 
 
         #region Private and Protected
+
+        [System.Serializable]
+        private struct HoseEndPair
+        {
+            [Tooltip("Première extrémité du tuyau.")]
+            public LiquidHoseEnd m_endA;
+
+            [Tooltip("Seconde extrémité du même tuyau.")]
+            public LiquidHoseEnd m_endB;
+        }
 
         private enum AssemblyStep
         {
@@ -971,27 +1182,12 @@ namespace Machine.Runtime
         [SerializeField]
         private PumpSocketConnection _outputSocket;
 
-        [Header("Tuyau branché sur IN")]
+        [Header("Tuyaux utilisables")]
         [Tooltip(
-            "Première extrémité du tuyau utilisé sur l'entrée de la pompe.")]
+            "Liste des tuyaux pouvant être branchés librement " +
+            "sur l'entrée ou la sortie de la pompe.")]
         [SerializeField]
-        private LiquidHoseEnd _inputHoseEndA;
-
-        [Tooltip(
-            "Seconde extrémité du tuyau utilisé sur l'entrée de la pompe.")]
-        [SerializeField]
-        private LiquidHoseEnd _inputHoseEndB;
-
-        [Header("Tuyau branché sur OUT")]
-        [Tooltip(
-            "Première extrémité du tuyau utilisé sur la sortie de la pompe.")]
-        [SerializeField]
-        private LiquidHoseEnd _outputHoseEndA;
-
-        [Tooltip(
-            "Seconde extrémité du tuyau utilisé sur la sortie de la pompe.")]
-        [SerializeField]
-        private LiquidHoseEnd _outputHoseEndB;
+        private HoseEndPair[] _availableHoses;
 
         [Header("Cuves")]
         [SerializeField]

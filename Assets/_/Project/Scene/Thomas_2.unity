@@ -4103,10 +4103,11 @@ MonoBehaviour:
       m_Calls: []
   _inputSocket: {fileID: 2126999190}
   _outputSocket: {fileID: 1109203496}
-  _inputHoseEndA: {fileID: 1045749576}
-  _inputHoseEndB: {fileID: 1440625185}
-  _outputHoseEndA: {fileID: 1392301812}
-  _outputHoseEndB: {fileID: 331577669}
+  _availableHoses:
+  - m_endA: {fileID: 1045749576}
+    m_endB: {fileID: 1440625185}
+  - m_endA: {fileID: 1392301812}
+    m_endB: {fileID: 331577669}
   _debourbageContainer: {fileID: 2104140532}
   _reserveContainer: {fileID: 1533544709}
   _assemblyContainer: {fileID: 4551926480531008853}
@@ -4125,6 +4126,10 @@ PrefabInstance:
     - target: {fileID: 2097672094330224069, guid: 90f07b2059fba084497f923e9c869f8a, type: 3}
       propertyPath: m_Name
       value: P_Pump_fix_PressToDebourbage
+      objectReference: {fileID: 0}
+    - target: {fileID: 3326030035099036233, guid: 90f07b2059fba084497f923e9c869f8a, type: 3}
+      propertyPath: _snapOnRelease
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3326030035099036233, guid: 90f07b2059fba084497f923e9c869f8a, type: 3}
       propertyPath: m_onValveValueChanged.m_PersistentCalls.m_Calls.Array.size

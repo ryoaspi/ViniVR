@@ -15,10 +15,10 @@ public class VRValveHandle : MonoBehaviour
     public UnityEvent<float> m_onValveValueChanged;
 
     public bool m_isOpen =>
-        _currentAngle >= _openAngle - _stateTolerance;
+        m_normalizedValue >= _openThreshold;
 
     public bool m_isClosed =>
-        _currentAngle <= _closedAngle + _stateTolerance;
+        !m_isOpen;
 
     public float m_normalizedValue =>
         Mathf.InverseLerp(
@@ -444,6 +444,11 @@ public class VRValveHandle : MonoBehaviour
         Closed,
         Open
     }
+    
+    [Header("État de la vanne")]
+    [Range(0f, 1f)]
+    [SerializeField]
+    private float _openThreshold = 0.5f;
 
     [Header("Références")]
     [Tooltip(
