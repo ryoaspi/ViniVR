@@ -1,3 +1,4 @@
+using Machine.Runtime;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -14,16 +15,25 @@ public class VRValveHandle : MonoBehaviour
     public UnityEvent<float> m_onValveValueChanged;
 
     public bool m_isOpen =>
-        _currentAngle >= _openAngle - _stateTolerance;
+        m_normalizedValue >= _openThreshold;
 
     public bool m_isClosed =>
-        _currentAngle <= _closedAngle + _stateTolerance;
+        !m_isOpen;
 
     public float m_normalizedValue =>
         Mathf.InverseLerp(
             _closedAngle,
             _openAngle,
             _currentAngle);
+    
+    [Header("Événements de sécurité")]
+    public UnityEvent m_onPumpConnectionMissing;
+
+    public bool m_arePumpSocketsConnected =>
+        _inputSocket != null &&
+        _outputSocket != null &&
+        _inputSocket.m_isConnected &&
+        _outputSocket.m_isConnected;
 
     #endregion
 
@@ -80,7 +90,10 @@ public class VRValveHandle : MonoBehaviour
 
     private void Update()
     {
-        if (!_isGrabbed || _interactorTransform == null)
+        MonitorPumpConnections();
+
+        if (!_isGrabbed ||
+            !_interactorTransform)
         {
             return;
         }
@@ -302,6 +315,70 @@ public class VRValveHandle : MonoBehaviour
 
         SetValveAngle(_openAngle);
     }
+    
+    private void TryOpenValveSystem()
+    {
+        if (_requirePumpConnections &&
+            !m_arePumpSocketsConnected)
+        {
+            _hasAuthorizedPumpStart =
+                false;
+
+            Debug.LogWarning(
+                $"[{nameof(VRValveHandle)}] " +
+                "La vanne est ouverte, mais la pompe ne peut pas démarrer. " +
+                "Les raccords IN et OUT doivent être connectés.",
+                this);
+
+            m_onPumpConnectionMissing?.Invoke();
+            return;
+        }
+
+        _hasAuthorizedPumpStart =
+            true;
+
+        Debug.Log(
+            $"[{nameof(VRValveHandle)}] " +
+            "Vanne ouverte et raccords de pompe validés.",
+            this);
+
+        m_onValveOpened?.Invoke();
+    }
+
+    private void CloseValveSystem()
+    {
+        _hasAuthorizedPumpStart =
+            false;
+
+        m_onValveClosed?.Invoke();
+    }
+
+    private void MonitorPumpConnections()
+    {
+        if (!_requirePumpConnections ||
+            !m_isOpen ||
+            !_hasAuthorizedPumpStart)
+        {
+            return;
+        }
+
+        if (m_arePumpSocketsConnected)
+        {
+            return;
+        }
+
+        _hasAuthorizedPumpStart =
+            false;
+
+        Debug.LogWarning(
+            $"[{nameof(VRValveHandle)}] " +
+            "Un raccord de pompe a été retiré pendant le transfert. " +
+            "La pompe est arrêtée automatiquement.",
+            this);
+
+        m_onValveClosed?.Invoke();
+        m_onPumpConnectionMissing?.Invoke();
+    }
 
     private void NotifyValueChanged()
     {
@@ -310,15 +387,18 @@ public class VRValveHandle : MonoBehaviour
 
     private void UpdateValveState(bool initializeOnly)
     {
-        ValveState newState = ValveState.Intermediate;
+        ValveState newState =
+            ValveState.Intermediate;
 
         if (m_isClosed)
         {
-            newState = ValveState.Closed;
+            newState =
+                ValveState.Closed;
         }
         else if (m_isOpen)
         {
-            newState = ValveState.Open;
+            newState =
+                ValveState.Open;
         }
 
         if (newState == _currentState)
@@ -326,7 +406,8 @@ public class VRValveHandle : MonoBehaviour
             return;
         }
 
-        _currentState = newState;
+        _currentState =
+            newState;
 
         if (initializeOnly)
         {
@@ -336,11 +417,11 @@ public class VRValveHandle : MonoBehaviour
         switch (_currentState)
         {
             case ValveState.Open:
-                m_onValveOpened?.Invoke();
+                TryOpenValveSystem();
                 break;
 
             case ValveState.Closed:
-                m_onValveClosed?.Invoke();
+                CloseValveSystem();
                 break;
         }
     }
@@ -363,6 +444,11 @@ public class VRValveHandle : MonoBehaviour
         Closed,
         Open
     }
+    
+    [Header("État de la vanne")]
+    [Range(0f, 1f)]
+    [SerializeField]
+    private float _openThreshold = 0.5f;
 
     [Header("Références")]
     [Tooltip(
@@ -401,6 +487,23 @@ public class VRValveHandle : MonoBehaviour
     [Tooltip(
         "Ignore les mouvements trop faibles afin d'éviter les tremblements.")]
     [SerializeField] private float _minimumRotationDelta = 0.05f;
+    
+    [Header("Sécurité de la pompe")]
+    [Tooltip(
+        "Empêche l'ouverture fonctionnelle de la vanne " +
+        "tant que les deux sockets de la pompe ne sont pas connectés.")]
+    [SerializeField]
+    private bool _requirePumpConnections = true;
+
+    [Tooltip("Socket correspondant à l'entrée de la pompe.")]
+    [SerializeField]
+    private PumpSocketConnection _inputSocket;
+
+    [Tooltip("Socket correspondant à la sortie de la pompe.")]
+    [SerializeField]
+    private PumpSocketConnection _outputSocket;
+
+    private bool _hasAuthorizedPumpStart;
 
     private XRSimpleInteractable _interactable;
     private Transform _interactorTransform;

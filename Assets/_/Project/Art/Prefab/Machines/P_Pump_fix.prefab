@@ -722,6 +722,9 @@ MonoBehaviour:
   m_onValveValueChanged:
     m_PersistentCalls:
       m_Calls: []
+  m_onPumpConnectionMissing:
+    m_PersistentCalls:
+      m_Calls: []
   _rotationPivot: {fileID: 4011825587397842095}
   _rotationAxis: 1
   _closedAngle: 0
@@ -730,6 +733,9 @@ MonoBehaviour:
   _snapOnRelease: 0
   _stateTolerance: 2
   _minimumRotationDelta: 0.05
+  _requirePumpConnections: 1
+  _inputSocket: {fileID: 3657814531106006548}
+  _outputSocket: {fileID: 4809801104097443328}
 --- !u!114 &6820350145813675020
 MonoBehaviour:
   m_ObjectHideFlags: 0
