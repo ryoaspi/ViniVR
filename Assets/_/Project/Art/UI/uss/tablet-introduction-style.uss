@@ -49,11 +49,10 @@
     padding: 9px 10px;
 }
 
-
 .title_intro {
     align-self: flex-start;
-    padding: 8px;
-    font-size: 16px;
+    padding: 6px;
+    font-size: 20px;
     -unity-font-style: bold;
 }
 
@@ -129,10 +128,15 @@
 
 .task-desc {
     margin-left: 16px;
-    font-size: 20px;
+    font-size: 24px;
     white-space: normal;
     -unity-font-style: normal;
 }
+
+.controller-desc {
+    font-size: 20px;
+}
+
 
 .action_list-container-first_child {
     margin-top: 48px;
@@ -161,4 +165,3 @@
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
 }
-
