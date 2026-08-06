@@ -1,0 +1,10 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_/Project/Art/UI/uss/tank-style.uss?fileID=7433441132597879392&amp;guid=ebb3f065581629142a811929a81dde89&amp;type=3#tank-style"/>
+    <ui:VisualElement name="container_main" class="container_main" style="flex-grow: 1;">
+        <ui:VisualElement name="container_fill" class="container-filling" style="justify-content: center; align-self: stretch; align-items: center;">
+            <ui:Image name="filling-icon" source="project://database/Assets/_/Project/Art/UI/Icons/tank_filling_0.svg?fileID=7388822144124034973&amp;guid=4df9c674f3abc3641966b730b466cc2a&amp;type=3#tank_filling_0" class="filling-tank-icon filling-level-0"/>
+            <ui:Label name="filling-status-text" text="Remplissage en cours..." class="filling_status-text" style="-unity-text-align: middle-left;"/>
+            <ui:Label name="filling-status-wait" text="Veuillez patienter" class="filling-status-wait" style="-unity-text-align: middle-left;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

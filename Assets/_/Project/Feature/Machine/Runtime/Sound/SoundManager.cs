@@ -25,9 +25,14 @@ namespace Machine.Runtime
 
         
         #region Utils
-        private void PlayButtonClick()
+        public void PlayButtonClick()
         {
             _audioSource.PlayOneShot(_buttonClickSound);
+        }
+        
+        public void PlayStartButtonPresseClick()
+        {
+            _audioSource.PlayOneShot(_startButtonPresseSound);
         }
         #endregion
 
@@ -35,6 +40,7 @@ namespace Machine.Runtime
         #region Private
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private AudioClip _buttonClickSound;
+        [SerializeField] private AudioClip _startButtonPresseSound;
         [SerializeField] private UIDocument[] _uiDocuments;
         #endregion
     }

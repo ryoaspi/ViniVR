@@ -21,6 +21,9 @@ namespace Machine.Runtime
 
         public bool m_isConnected =>
             _connectionPoint != null;
+        
+        public Vector3 m_socketRotation =>
+            _socketRotation;
 
         #endregion
 
@@ -80,6 +83,10 @@ namespace Machine.Runtime
         #region Private and Protected
 
         private LiquidConnectionPoint _connectionPoint;
+        
+        [Header("Orientation dans les sockets")]
+        [SerializeField]
+        private Vector3 _socketRotation;
 
         #endregion
     }
