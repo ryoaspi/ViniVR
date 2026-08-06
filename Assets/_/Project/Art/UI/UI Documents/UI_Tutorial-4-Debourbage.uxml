@@ -1,0 +1,50 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_/Project/Art/UI/uss/tablet-introduction-style.uss?fileID=7433441132597879392&amp;guid=8fa38adf001aa1a44b3ee3a5d544cfc9&amp;type=3#tablet-introduction-style"/>
+    <ui:ScrollView name="scrollview-container" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden">
+        <ui:VisualElement name="main-container" class="main-container" style="flex-grow: 1; align-items: auto; align-content: center; align-self: center;">
+            <ui:VisualElement name="container-content" class="container-content" style="flex-grow: 1;">
+                <ui:Image source="project://database/Assets/_/Project/Art/UI/Icons/vinirVR-logo.svg?fileID=7388822144124034973&amp;guid=56775031771b334429553ad90e2bbe94&amp;type=3#vinirVR-logo" name="logo" class="logo"/>
+                <ui:VisualElement name="container-title" class="container-title" style="align-self: center;">
+                    <ui:Label text="4" name="1" class="title_1"/>
+                    <ui:Label text="Débourbage" name="intro" class="title_intro" style="-unity-text-align: upper-left;"/>
+                </ui:VisualElement>
+                <ui:Label text="Le débourbage" data-source-path="desc" name="desc" class="desc" style="height: 38px;"/>
+                <ui:Image name="separation_line" class="separation_line" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Images/separation_line.png?fileID=2800000&amp;guid=f971f82333425cf4bad5fc6570661032&amp;type=3#separation_line&quot;);"/>
+                <ui:VisualElement name="container-instructions" class="container-instruction">
+                    <ui:VisualElement name="illustration" class="illustration" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Images/photo_debourbage.png?fileID=2800000&amp;guid=ee078a523702bf34dbd90946d94b6dc8&amp;type=3#photo_debourbage&quot;);"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="container-mission" class="container-mission" style="flex-grow: 1;">
+                    <ui:Label text="C&apos;est quoi le débourbage ?" name="mission-title" class="mission-title"/>
+                    <ui:Label text="La cuve en acier inoxydable que vous avez devant vous est une cuve dite de “débourbage” qui va servir à transformer le jus de raisons récolté en vin grâce au processus de fermentation et aux levures présentes naturellement dans les grappes. Selon un certain degré de sucre et de température, les levures vont se nourrir du sucre présent et le transformer en alcool. &#10;&#10;Une fois tout le sucre consommé, les levures finissent par mourir et descendre en bas de la cuve. L&apos;étape suivante sera de transféré le jus fermenté, le vin, dans une cuve d’assemblage en évitant soigneusement d’emporter les “bourbes” avec." name="mission-text" class="mission-desc"/>
+                    <ui:Label text="Tâches" name="actions-title" class="mission-title" style="white-space: pre; -unity-text-align: upper-left; align-self: flex-start; align-items: flex-start;">
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container action_list-container-first_child" style="flex-grow: 1;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Déconnectez le tuyau de la cuve de débourbage." enable-rich-text="false" class="task-desc"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container" style="flex-grow: 1; align-self: flex-start;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Connectez le tuyau inutilisé juste à côté de la cuve de débourbage à celle-ci. " enable-rich-text="false" class="task-desc" style="white-space: normal;"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container" style="flex-grow: 1;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Connectez l&apos;autre embout à la pompe de transfert." class="task-desc"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container" style="flex-grow: 1;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Connectez l&apos;autre tuyau à la pompe." class="task-desc"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container" style="flex-grow: 1;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Connectez l&apos;autre embout de ce tuyau à la cuve d&apos;assemblage." class="task-desc" style="height: 37px; width: 753px; -unity-text-align: middle-left;"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container" style="flex-grow: 1;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Tournez la vanne de la pompe et allumez-la. Vous verrez la jauge de remplissage de la cuve d&apos;assemblage. se remplir petit à petit." name="Label" class="task-desc" style="height: 37px; width: 753px; -unity-text-align: middle-left;"/>
+                        </ui:VisualElement>
+                    </ui:Label>
+                </ui:VisualElement>
+                <ui:Button text="Passer à l&apos;étape suivante" name="button_start-game" enable-rich-text="false" class="button_start-game"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:ScrollView>
+</ui:UXML>

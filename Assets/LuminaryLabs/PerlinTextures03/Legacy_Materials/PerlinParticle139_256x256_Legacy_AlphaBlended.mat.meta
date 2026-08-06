@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ded978db9597e1747b402cb21beed7ec
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 307535
+  packageName: 50 Perlin Particle Textures Part 3
+  packageVersion: 0.1.0
+  assetPath: Assets/LuminaryLabs/PerlinTextures03/Legacy_Materials/PerlinParticle139_256x256_Legacy_AlphaBlended.mat
+  uploadId: 723049

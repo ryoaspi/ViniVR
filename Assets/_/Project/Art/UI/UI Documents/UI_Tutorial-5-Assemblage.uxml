@@ -1,0 +1,42 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_/Project/Art/UI/uss/tablet-introduction-style.uss?fileID=7433441132597879392&amp;guid=8fa38adf001aa1a44b3ee3a5d544cfc9&amp;type=3#tablet-introduction-style"/>
+    <ui:ScrollView name="scrollview-container" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden">
+        <ui:VisualElement name="main-container" class="main-container" style="flex-grow: 1; align-items: auto;">
+            <ui:VisualElement name="container-content" class="container-content" style="flex-grow: 1; align-self: stretch;">
+                <ui:Image source="project://database/Assets/_/Project/Art/UI/Icons/vinirVR-logo.svg?fileID=7388822144124034973&amp;guid=56775031771b334429553ad90e2bbe94&amp;type=3#vinirVR-logo" name="logo" class="logo"/>
+                <ui:VisualElement name="container-title" class="container-title" style="align-self: center;">
+                    <ui:Label text="5" name="1" class="title_1"/>
+                    <ui:Label text="Assemblage" name="intro" enable-rich-text="false" class="title_intro" style="-unity-text-align: upper-left;"/>
+                </ui:VisualElement>
+                <ui:Label text="Assembler la cuvée avec du vin de réserve" data-source-path="desc" name="desc" class="desc" style="height: 38px;"/>
+                <ui:Image name="separation_line" class="separation_line" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Images/separation_line.png?fileID=2800000&amp;guid=f971f82333425cf4bad5fc6570661032&amp;type=3#separation_line&quot;);"/>
+                <ui:VisualElement name="container-instructions" class="container-instruction">
+                    <ui:VisualElement name="illustration" class="illustration" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Images/photo_vin_de_reserve.png?fileID=2800000&amp;guid=30e197328d518ec49a610d649c68200c&amp;type=3#photo_vin_de_reserve&quot;);"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="container-mission" class="container-mission" style="flex-grow: 1;">
+                    <ui:Label text="C&apos;est quoi le vin de réserve ?" name="mission-title" class="mission-title"/>
+                    <ui:Label text="Le vin de réserve est un vin tranquille issu d’une récolte précédente, conservé avant la prise de mousse. Dans la production d’un Crémant de Wallonie, il peut être assemblé au vin de base de l’année pour apporter davantage d’équilibre, de complexité et de régularité d’une cuvée à l’autre. Cette pratique n’est pas obligatoire et dépend du style recherché par le vigneron.&#10;&#10;Le vin de réserve permet notamment de compenser les différences naturelles entre les millésimes. Une année plus vive peut ainsi être équilibrée par un vin plus rond ou plus mûr conservé lors d’une récolte précédente.&#10;&#10;Après la première fermentation, les vins sélectionnés sont généralement stockés dans des cuves en inox, parfois dans des fûts ou d’autres contenants. L’inox protège le vin, facilite le contrôle de la température et préserve sa fraîcheur. Les cuves sont maintenues pleines et à l’abri de l’oxygène afin de limiter l’oxydation.&#10;&#10;Au moment de l’assemblage, une partie du vin de réserve est mélangée au vin de l’année. L’ensemble formera ensuite la cuvée destinée à être mise en bouteille pour la seconde fermentation en Méthode Traditionnelle." name="mission-text" class="mission-desc" style="height: 676px; -unity-text-align: middle-left;"/>
+                    <ui:Label text="Tâches" name="actions-title" class="mission-title" style="white-space: pre; -unity-text-align: upper-left; align-self: flex-start; align-items: flex-start;">
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container action_list-container-first_child" style="flex-grow: 1;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Déconnectez le tuyau de la cuve de débourbage." class="task-desc"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container" style="flex-grow: 1; align-self: flex-start;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Connectez cet embout à la cuve de vin de réserve." enable-rich-text="false" class="task-desc" style="white-space: normal;"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container" style="flex-grow: 1;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Réactivez la pompe en appuyant à nouveau sur le bouton &quot;START&quot;. Vous verrez la jauge de la cuve d&apos;assemblage se remplir jusqu&apos;à 100%." class="task-desc"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="actions_list-container" class="actions_list-container" style="flex-grow: 1;">
+                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
+                            <ui:Label text="Réactivez la pompe en appuyant à nouveau sur le bouton &quot;START&quot;. Vous verrez la jauge de la cuve d&apos;assemblage se remplir jusqu&apos;à 100%." class="task-desc"/>
+                        </ui:VisualElement>
+                    </ui:Label>
+                </ui:VisualElement>
+                <ui:Button text="Passer à l&apos;étape suivante" name="button_start-game" enable-rich-text="false" class="button_start-game"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:ScrollView>
+</ui:UXML>

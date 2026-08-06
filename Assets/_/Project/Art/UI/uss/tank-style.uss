@@ -1,0 +1,140 @@
+:root {
+}
+
+.container_main {
+    padding: 32px;
+    background-color: rgb(0, 0, 0);
+}
+
+.container_actual {
+    background-color: rgb(37, 37, 37);
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 32px;
+    height: 400px;
+    padding: 32px 100px;
+    margin-bottom: 32px;
+}
+
+.container_wished {
+    background-color: rgb(37, 37, 37);
+    border-radius: 32px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px;
+    height: 100%;
+}
+
+.container_icon {
+    border-right-width: 1px;
+    border-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    padding-right: 125px;
+}
+
+.container-actual_temperature {
+}
+
+.icon {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 16px;
+}
+
+.unity-image {
+}
+
+.desc {
+    font-size: 32px;
+}
+
+.container_header {
+    font-size: 24px;
+}
+
+.slider {
+    height: 600px;
+    padding: 0;
+    margin-left: -12px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.slider .unity-base-slider__label {
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+}
+
+.slider .unity-base-slider__fill {
+    background-color: rgb(150, 253, 8);
+}
+
+.slider .unity-base-slider__dragger {
+    background-color: rgb(255, 255, 255);
+    width: 100px;
+    height: 100px;
+    border-radius: 60px;
+    margin-left: -38px;
+    border-width: 0;
+}
+
+.slider .unity-base-slider__tracker {
+    background-color: rgb(119, 119, 119);
+    margin: 0;
+    width: 24px;
+    border-width: 0;
+}
+
+.button_apply {
+    width: 100%;
+    padding: 64px;
+    border-radius: 16px;
+    background-color: rgb(150, 253, 8);
+    color: rgb(37, 37, 37);
+    font-size: 64px;
+    -unity-font-style: bold;
+}
+
+.button_apply:active {
+    background-color: rgb(255, 255, 255);
+}
+
+.wished_temperature-header {
+    font-size: 32px;
+}
+
+.slider-realtime_temperature {
+    font-size: 200px;
+    -unity-font-style: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.slider_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider_container-label {
+    color: rgb(255, 255, 255);
+    font-size: 48px;
+}
+
+.wished_value {
+    font-size: 200px;
+    -unity-font-style: bold;
+}
+
+.actual_value {
+        font-size: 120px;
+    -unity-font-style: bold;
+}

@@ -2,7 +2,6 @@
     "name": "Machine.Runtime",
     "rootNamespace": "Machine.Runtime",
     "references": [
-        "GUID:476fe10ca481cda4c8fba72a0f7c4667",
         "GUID:fe685ec1767f73d42b749ea8045bfe43"
     ],
     "includePlatforms": [],

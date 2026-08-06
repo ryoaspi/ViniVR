@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b90e1a7cf0fe2f44984155a756ba1bd0
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 307535
+  packageName: 50 Perlin Particle Textures Part 3
+  packageVersion: 0.1.0
+  assetPath: Assets/LuminaryLabs/PerlinTextures03/Legacy_Materials/PerlinParticle139_128x128_Legacy_Additive.mat
+  uploadId: 723049

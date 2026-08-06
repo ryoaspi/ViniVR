@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a0a1a4fd8781d2a48b4e1f966674eaf2
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 307535
+  packageName: 50 Perlin Particle Textures Part 3
+  packageVersion: 0.1.0
+  assetPath: Assets/LuminaryLabs/PerlinTextures03/Mobile_Materials/PerlinParticle111_512x512_Mobile_Additive.mat
+  uploadId: 723049

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/_/Project/Art/Animation.meta
 guid: e05eedc1a8a646948a7a141ff70a5a1b
+========
+guid: fa8ca8566c9a63b46b4218a0ac2713dc
+>>>>>>>> origin/Flo:Assets/_/Project/Feature/Machine/Runtime/UI.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
