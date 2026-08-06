@@ -115,7 +115,7 @@ PrefabInstance:
     - target: {fileID: -7040133234395263664, guid: 29780d1cebb8f164c8e153d9e748132c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5488c567d6eceb14f8a5d4cd3a127dbf, type: 2}
+      objectReference: {fileID: 2100000, guid: e296324c9d0e84b4994fd07c9f8226d2, type: 2}
     - target: {fileID: 919132149155446097, guid: 29780d1cebb8f164c8e153d9e748132c, type: 3}
       propertyPath: m_Name
       value: 3D_Tireuse
