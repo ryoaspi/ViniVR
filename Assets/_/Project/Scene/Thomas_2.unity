@@ -1387,14 +1387,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5082094065333909181, guid: 29780d1cebb8f164c8e153d9e748132c, type: 3}
+      propertyPath: m_Name
+      value: Geo_Tireuse_Encaps_InactiveButton
+      objectReference: {fileID: 0}
+    - target: {fileID: -4155735695821608840, guid: 29780d1cebb8f164c8e153d9e748132c, type: 3}
+      propertyPath: m_Name
+      value: Geo_Tireuse_Encaps_PistonsFilling
+      objectReference: {fileID: 0}
+    - target: {fileID: -1944536432126146471, guid: 29780d1cebb8f164c8e153d9e748132c, type: 3}
+      propertyPath: m_Name
+      value: Geo_Tireuse_Encaps_FillingButton
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 29780d1cebb8f164c8e153d9e748132c, type: 3}
       propertyPath: m_Name
       value: 3D_Tireuse
+      objectReference: {fileID: 0}
+    - target: {fileID: 2771202447144242053, guid: 29780d1cebb8f164c8e153d9e748132c, type: 3}
+      propertyPath: m_Name
+      value: Geo_Tireuse_Encaps_StartButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560477528108074728, guid: 29780d1cebb8f164c8e153d9e748132c, type: 3}
+      propertyPath: m_Name
+      value: Geo_Tireuse_Encaps_CapsuleButton
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 29780d1cebb8f164c8e153d9e748132c, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d694c828b5c00644188098b6f8d7a937, type: 2}
+    - target: {fileID: 6384059665624212567, guid: 29780d1cebb8f164c8e153d9e748132c, type: 3}
+      propertyPath: m_Name
+      value: Geo_Tireuse_Encaps_PistonCapsule
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
