@@ -170,7 +170,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.LiquidContainer
   m_onVolumeChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3292554892588599780}
+        m_TargetAssemblyTypeName: Machine.Runtime.LiquidContainer, Machine.Runtime
+        m_MethodName: ChangedVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_onContainerEmpty:
     m_PersistentCalls:
       m_Calls: []
@@ -193,7 +205,7 @@ MonoBehaviour:
   _containerType: 1
   _maximumVolume: 100
   _startingVolume: 0
-  _volumeTolerance: 10
+  _volumeTolerance: 0.0001
 --- !u!1001 &1904818389785587154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -395,7 +407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.LiquidLevelVisualizer
   _liquidContainer: {fileID: 3292554892588599780}
   _liquidVisual: {fileID: 4966022015705473244}
-  _fillRatePerSecond: 1
+  _fillRatePerSecond: 5
   _minimumHeight: 0.001
   _maximumHeight: 5.1
   _hideWhenEmpty: 1
@@ -410,43 +422,43 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalScale.x
-      value: -0.1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.6063
+      value: -0.5936
       objectReference: {fileID: 0}
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8313
+      value: 0.8295
       objectReference: {fileID: 0}
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.0932
+      value: 1.0748
       objectReference: {fileID: 0}
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6502688
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.61751485
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.32088766
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.30472454
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 87.04
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -52.53
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z

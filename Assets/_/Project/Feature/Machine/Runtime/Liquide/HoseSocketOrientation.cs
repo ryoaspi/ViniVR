@@ -14,11 +14,16 @@ namespace Machine.Runtime
             _socketInteractor =
                 GetComponent<XRSocketInteractor>();
 
-            if (_attachTransform == null &&
-                _socketInteractor != null)
+            if (_attachTransform == null)
             {
                 _attachTransform =
                     _socketInteractor.attachTransform;
+            }
+
+            if (_attachTransform != null)
+            {
+                _initialLocalRotation =
+                    _attachTransform.localRotation;
             }
         }
 
@@ -31,6 +36,9 @@ namespace Machine.Runtime
 
             _socketInteractor.selectEntered.AddListener(
                 HandleSelectEntered);
+
+            _socketInteractor.selectExited.AddListener(
+                HandleSelectExited);
         }
 
         private void OnDisable()
@@ -42,6 +50,9 @@ namespace Machine.Runtime
 
             _socketInteractor.selectEntered.RemoveListener(
                 HandleSelectEntered);
+
+            _socketInteractor.selectExited.RemoveListener(
+                HandleSelectExited);
         }
 
         #endregion
@@ -62,8 +73,31 @@ namespace Machine.Runtime
                 return;
             }
 
-            _attachTransform.localEulerAngles =
-                hoseEnd.m_socketRotation;
+            Quaternion orientationOffset =
+                Quaternion.Euler(
+                    hoseEnd.m_socketRotation);
+
+            _attachTransform.localRotation =
+                _initialLocalRotation *
+                orientationOffset;
+
+            Debug.Log(
+                $"[{nameof(HoseSocketOrientation)}] " +
+                $"Orientation appliquée pour {hoseEnd.name} : " +
+                $"{hoseEnd.m_socketRotation}.",
+                this);
+        }
+
+        private void HandleSelectExited(
+            SelectExitEventArgs eventArgs)
+        {
+            if (_attachTransform == null)
+            {
+                return;
+            }
+
+            _attachTransform.localRotation =
+                _initialLocalRotation;
         }
 
         private LiquidHoseEnd FindHoseEnd(
@@ -74,11 +108,8 @@ namespace Machine.Runtime
                 return null;
             }
 
-            LiquidHoseEnd hoseEnd =
-                interactableTransform
-                    .GetComponent<LiquidHoseEnd>();
-
-            if (hoseEnd != null)
+            if (interactableTransform.TryGetComponent(
+                    out LiquidHoseEnd hoseEnd))
             {
                 return hoseEnd;
             }
@@ -93,7 +124,7 @@ namespace Machine.Runtime
             }
 
             return interactableTransform
-                .GetComponentInChildren<LiquidHoseEnd>();
+                .GetComponentInChildren<LiquidHoseEnd>(true);
         }
 
         #endregion
@@ -106,6 +137,7 @@ namespace Machine.Runtime
         private Transform _attachTransform;
 
         private XRSocketInteractor _socketInteractor;
+        private Quaternion _initialLocalRotation;
 
         #endregion
     }

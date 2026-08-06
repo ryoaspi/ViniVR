@@ -4123,6 +4123,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 254614217}
     m_Modifications:
+    - target: {fileID: 1980718763931326733, guid: 90f07b2059fba084497f923e9c869f8a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1028
+      objectReference: {fileID: 0}
+    - target: {fileID: 1980718763931326733, guid: 90f07b2059fba084497f923e9c869f8a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.4401
+      objectReference: {fileID: 0}
+    - target: {fileID: 1980718763931326733, guid: 90f07b2059fba084497f923e9c869f8a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.217
+      objectReference: {fileID: 0}
     - target: {fileID: 2097672094330224069, guid: 90f07b2059fba084497f923e9c869f8a, type: 3}
       propertyPath: m_Name
       value: P_Pump_fix_PressToDebourbage
