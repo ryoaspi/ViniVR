@@ -3,7 +3,17 @@ guid: f9f845bc94dc404418a3da45e20b4d8f
 ModelImporter:
   serializedVersion: 24400
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VITRE
+    second: {fileID: 2100000, guid: 33a9aa718e6a7814cb4d852527c4f4b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: standardSurface1
+    second: {fileID: 2100000, guid: e296324c9d0e84b4994fd07c9f8226d2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
