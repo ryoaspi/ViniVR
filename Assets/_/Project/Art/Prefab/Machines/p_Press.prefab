@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 567362417294238354}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.073, y: 1.237, z: 0.003}
+  m_LocalPosition: {x: 0.073, y: 1.192, z: 0.003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.MachinePress
   _layerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 65
 --- !u!136 &7124039652754653150
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -67,7 +67,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.55
   m_Height: 2.3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -187,7 +187,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7379674479585541479}
   - component: {fileID: 517851611335438189}
-  - component: {fileID: 5573425691730397679}
   m_Layer: 7
   m_Name: p_Press
   m_TagString: Untagged
@@ -295,6 +294,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5350494509658990377}
+        m_TargetAssemblyTypeName: Machine.Runtime.MachinePress, Machine.Runtime
+        m_MethodName: DestroyGrappe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_onPressFinished:
     m_PersistentCalls:
       m_Calls:
@@ -325,21 +336,6 @@ MonoBehaviour:
   _pressRotatingParameter: IsPressRotating
   _requiredRotationCount: 2
   _waitForFunnelRemoval: 1
---- !u!114 &5573425691730397679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2127586549794004101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b2f18aaefd3b284a82430475b211fc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.MachinePress
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &2152336333595262785
 GameObject:
   m_ObjectHideFlags: 0
@@ -10928,7 +10924,7 @@ PrefabInstance:
     - target: {fileID: -706390743861898190, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5488c567d6eceb14f8a5d4cd3a127dbf, type: 2}
+      objectReference: {fileID: 2100000, guid: e296324c9d0e84b4994fd07c9f8226d2, type: 2}
     - target: {fileID: -475022438738389729, guid: c33c4d5802e9720489a4b728f81a08d8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -11300,6 +11296,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.026039176
       objectReference: {fileID: 0}
+    - target: {fileID: 2516576140618771454, guid: ccb230e16c5b4034fae45c394d3d5d69, type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2830526892459668501, guid: ccb230e16c5b4034fae45c394d3d5d69, type: 3}
       propertyPath: m_Name
       value: p_SnapZones_Ento
@@ -11432,10 +11432,6 @@ PrefabInstance:
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 517851611335438189}
-    - target: {fileID: 3746621052135345074, guid: 67d995af91aa6604eaa4275d78211d95, type: 3}
-      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 5573425691730397679}
     - target: {fileID: 3746621052135345074, guid: 67d995af91aa6604eaa4275d78211d95, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2

@@ -139,6 +139,11 @@ namespace Machine.Runtime
             NotifyVolumeChanged();
         }
 
+        public void ChangedVolume()
+        {
+            Debug.Log($"volume: {_currentVolume}");
+        }
+
         #endregion
 
 

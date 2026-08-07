@@ -45,8 +45,8 @@ namespace Machine.Runtime
 
         private void TransferLiquid()
         {
-            if (_inputSocket == null ||
-                _outputSocket == null)
+            if (!_inputSocket ||
+                !_outputSocket)
             {
                 return;
             }
@@ -67,8 +67,8 @@ namespace Machine.Runtime
                     .m_connectedHoseEnd
                     .m_connectedContainer;
 
-            if (source == null ||
-                destination == null)
+            if (!source ||
+                !destination)
             {
                 return;
             }

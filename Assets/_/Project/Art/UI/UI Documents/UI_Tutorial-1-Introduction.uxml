@@ -1,8 +1,8 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/_/Project/Art/UI/uss/tablet-introduction-style.uss?fileID=7433441132597879392&amp;guid=8fa38adf001aa1a44b3ee3a5d544cfc9&amp;type=3#tablet-introduction-style"/>
-    <ui:ScrollView name="scrollview-container" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden">
+    <ui:ScrollView name="scrollview-container" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden" touch-scroll-type="Elastic">
         <ui:VisualElement name="main-container" class="main-container" style="flex-grow: 1; align-items: center;">
-            <ui:VisualElement name="container-content" class="container-content" style="flex-grow: 1;">
+            <ui:VisualElement name="container-content" class="container-content" style="flex-grow: 1; margin-left: 64px; margin-right: 64px;">
                 <ui:Image source="project://database/Assets/_/Project/Art/UI/Icons/vinirVR-logo.svg?fileID=7388822144124034973&amp;guid=56775031771b334429553ad90e2bbe94&amp;type=3#vinirVR-logo" name="logo" class="logo"/>
                 <ui:VisualElement name="container-title" class="container-title" style="align-self: center;">
                     <ui:Label text="1" name="1" class="title_1"/>
@@ -13,25 +13,25 @@
                 <ui:VisualElement name="container-instructions" class="container-instruction">
                     <ui:VisualElement name="illustration" class="illustration" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Images/ViniVR-Tutorial-Introduction_Illustration.png?fileID=2800000&amp;guid=552e6f2973c7c464c95e179acf8c5f76&amp;type=3#ViniVR-Tutorial-Introduction_Illustration&quot;);"/>
                 </ui:VisualElement>
-                <ui:VisualElement name="container-mission" class="container-mission" style="flex-grow: 1;">
+                <ui:VisualElement name="container-mission" class="container-mission" style="flex-grow: 1; margin-left: 64px; padding-right: 32px; margin-right: 64px;">
                     <ui:Label text="Votre mission" name="mission-title" class="mission-title"/>
                     <ui:Label text="Vinifiez un AOP Crémant de Wallonie 100% Chardonnay en utilisant les machines et outils à votre disposition et en suivant les instructions pas à pas sur les tablettes à chaque étape de la production." name="mission-text" class="mission-desc"/>
                     <ui:Label text="Commandes" name="actions-title" class="mission-title">
                         <ui:VisualElement name="controls-list-item" class="actions_list-container controls_list-item action_list-container-first_child" style="flex-grow: 1;">
                             <ui:Image source="project://database/Assets/_/Project/Art/UI/Images/joystick-left.png?fileID=2800000&amp;guid=6b8ef3b49c26119449c9a851519b07e6&amp;type=3#joystick-left" class="control_img"/>
-                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
+                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." name="Label" class="controller-desc"/>
                         </ui:VisualElement>
                         <ui:VisualElement name="controls-list-item" class="actions_list-container controls_list-item" style="flex-grow: 1;">
                             <ui:Image source="project://database/Assets/_/Project/Art/UI/Images/joystick-right.png?fileID=2800000&amp;guid=dd4c50c5f4870c842933ea2ef190ab89&amp;type=3#joystick-right" class="control_img"/>
-                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
+                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="controller-desc"/>
                         </ui:VisualElement>
                         <ui:VisualElement name="controls-list-item" class="actions_list-container controls_list-item" style="flex-grow: 1;">
                             <ui:Image source="project://database/Assets/_/Project/Art/UI/Images/grip-right.png?fileID=2800000&amp;guid=1bb3f9f06a8df82428e30af54dd81c0e&amp;type=3#grip-right" class="control_img"/>
-                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
+                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="controller-desc"/>
                         </ui:VisualElement>
                         <ui:VisualElement name="controls-list-item" class="actions_list-container controls_list-item" style="flex-grow: 1;">
                             <ui:Image source="project://database/Assets/_/Project/Art/UI/Images/trigger-right.png?fileID=2800000&amp;guid=8ff8decd7355c2a46a2728fe36144a9a&amp;type=3#trigger-right" class="control_img"/>
-                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="task-desc"/>
+                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="controller-desc"/>
                         </ui:VisualElement>
                     </ui:Label>
                     <ui:Label text="Fonctionnement" name="actions-title" class="mission-title">
@@ -49,7 +49,7 @@
                         </ui:VisualElement>
                     </ui:Label>
                 </ui:VisualElement>
-                <ui:Button text="Commencer la production" name="button_start-game" class="button_start-game"/>
+                <ui:Button text="Commencer la production" name="button_introduction" class="button_start-game"/>
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:ScrollView>
