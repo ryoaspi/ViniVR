@@ -572,6 +572,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: d8cc381593a2f1d418a21f50c275ef3a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 060a2a4428c80694e86aeb7746daed81, type: 2}
     - target: {fileID: 919132149155446097, guid: d8cc381593a2f1d418a21f50c275ef3a, type: 3}
       propertyPath: m_Name
       value: Cageot_LP
