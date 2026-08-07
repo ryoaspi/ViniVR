@@ -5420,6 +5420,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_Boucheuse
       objectReference: {fileID: 0}
+    - target: {fileID: 5637796044729379954, guid: 65c0df6019f018348b21c97dbeee50c2, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bb84a7462906248449a85d1a4698a1ad, type: 2}
+    - target: {fileID: 5637796044729379954, guid: 65c0df6019f018348b21c97dbeee50c2, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 33a9aa718e6a7814cb4d852527c4f4b7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
