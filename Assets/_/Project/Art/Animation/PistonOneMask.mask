@@ -46,11 +46,11 @@ AvatarMask:
   - m_Path: Geo_Tireuse_Encaps_StartButton
     m_Weight: 0
   - m_Path: RIG_Tireuse-Encapsuleuse
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: RIG_Tireuse-Encapsuleuse/ROOT
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: RIG_Tireuse-Encapsuleuse/ROOT/MAIN
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: RIG_Tireuse-Encapsuleuse/ROOT/MAIN/FILL_TUBE-1
     m_Weight: 0
   - m_Path: RIG_Tireuse-Encapsuleuse/ROOT/MAIN/FILL_TUBE-2
