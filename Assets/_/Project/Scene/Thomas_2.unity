@@ -688,11 +688,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6365418850455220590, guid: 39cfaf43412025b43b93e9b9ecdbde66, type: 3}
   m_PrefabInstance: {fileID: 8164956538814780790}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &183433280 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5989033327628463060, guid: 39cfaf43412025b43b93e9b9ecdbde66, type: 3}
-  m_PrefabInstance: {fileID: 8164956538814780790}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &222578694 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 696693738872261465, guid: 709ec0defe3e3c647997f73ec45eeb1a, type: 3}
@@ -4783,20 +4778,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21c855606ec6d741a07ec2aed4874cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestPushButton
-  m_buttonVisual: {fileID: 183433280}
+  m_buttonVisual: {fileID: 8164956538814780794}
   m_pressDistance: 0.015
   m_movementSpeed: 10
   m_pressDuration: 0.15
   m_onPressed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 183433278}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
+      - m_Target: {fileID: 8164956538814780793}
+        m_TargetAssemblyTypeName: Machine.Runtime.DegorgeuseTriggerButton, Machine.Runtime
+        m_MethodName: TriggerFilling
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4876,6 +4871,27 @@ MonoBehaviour:
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
   m_ParentInteractableObject: {fileID: 0}
+--- !u!65 &1769596751
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769596746}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0122855315, y: 0.022247825, z: 0.02115894}
+  m_Center: {x: -0.0000002644956, y: 0.0000020563602, z: 0.00000011920929}
 --- !u!1001 &1820806381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6720,16 +6736,45 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6365418850455220590, guid: 39cfaf43412025b43b93e9b9ecdbde66, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8164956538814780793}
     - targetCorrespondingSourceObject: {fileID: 5432948771606354459, guid: 39cfaf43412025b43b93e9b9ecdbde66, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1769596750}
     - targetCorrespondingSourceObject: {fileID: 5432948771606354459, guid: 39cfaf43412025b43b93e9b9ecdbde66, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1769596749}
+    - targetCorrespondingSourceObject: {fileID: 5432948771606354459, guid: 39cfaf43412025b43b93e9b9ecdbde66, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1769596751}
   m_SourcePrefab: {fileID: 100100000, guid: 39cfaf43412025b43b93e9b9ecdbde66, type: 3}
 --- !u!4 &8164956538814780791 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3446542510335316430, guid: 39cfaf43412025b43b93e9b9ecdbde66, type: 3}
+  m_PrefabInstance: {fileID: 8164956538814780790}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8164956538814780792 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 431640502601314734, guid: 39cfaf43412025b43b93e9b9ecdbde66, type: 3}
+  m_PrefabInstance: {fileID: 8164956538814780790}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8164956538814780793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183433278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f344340cbe6fa1a47a7e81518ba05f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.DegorgeuseTriggerButton
+  _animator: {fileID: 8164956538814780792}
+--- !u!4 &8164956538814780794 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5878791761210514429, guid: 39cfaf43412025b43b93e9b9ecdbde66, type: 3}
   m_PrefabInstance: {fileID: 8164956538814780790}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
