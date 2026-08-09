@@ -270,15 +270,134 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aa40e2756c3ed8548b76718fe1b0f153, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4773807418873114056}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aa40e2756c3ed8548b76718fe1b0f153, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1807412103505762054}
     - targetCorrespondingSourceObject: {fileID: -6921366913351838172, guid: aa40e2756c3ed8548b76718fe1b0f153, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2605038288075122662}
+    - targetCorrespondingSourceObject: {fileID: -6921366913351838172, guid: aa40e2756c3ed8548b76718fe1b0f153, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 877557727171632822}
+    - targetCorrespondingSourceObject: {fileID: -6921366913351838172, guid: aa40e2756c3ed8548b76718fe1b0f153, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3513635797162180040}
+    - targetCorrespondingSourceObject: {fileID: -7537976391802790162, guid: aa40e2756c3ed8548b76718fe1b0f153, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2110968267015231475}
   m_SourcePrefab: {fileID: 100100000, guid: aa40e2756c3ed8548b76718fe1b0f153, type: 3}
+--- !u!95 &431640502601314734 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: aa40e2756c3ed8548b76718fe1b0f153, type: 3}
+  m_PrefabInstance: {fileID: 6095599461033593919}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3168725689151865561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9182408976111046374, guid: aa40e2756c3ed8548b76718fe1b0f153, type: 3}
   m_PrefabInstance: {fileID: 6095599461033593919}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4896627760378155729 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7537976391802790162, guid: aa40e2756c3ed8548b76718fe1b0f153, type: 3}
+  m_PrefabInstance: {fileID: 6095599461033593919}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2110968267015231475
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4896627760378155729}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: ae3004769c66c274e90df148f6b13863, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5432948771606354459 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6921366913351838172, guid: aa40e2756c3ed8548b76718fe1b0f153, type: 3}
@@ -305,6 +424,116 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0122855315, y: 0.022247825, z: 0.02115894}
   m_Center: {x: -0.000000026077032, y: 0.00000014901161, z: 0.000000059604645}
+--- !u!114 &877557727171632822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5432948771606354459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRSimpleInteractable
+  m_InteractionManager: {fileID: 0}
+  m_Colliders: []
+  m_InteractionLayers:
+    m_Bits: 1
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_AutoFindParentInteractableInHierarchy: 0
+  m_ParentInteractableObject: {fileID: 0}
+--- !u!114 &3513635797162180040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5432948771606354459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21c855606ec6d741a07ec2aed4874cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TestPushButton
+  m_buttonVisual: {fileID: 5878791761210514429}
+  m_pressDistance: 0.015
+  m_movementSpeed: 10
+  m_pressDuration: 0.15
+  m_onPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1807412103505762054}
+        m_TargetAssemblyTypeName: Machine.Runtime.DegorgeuseTriggerButton, Machine.Runtime
+        m_MethodName: TriggerFilling
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &5878791761210514429 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 360924159477962690, guid: aa40e2756c3ed8548b76718fe1b0f153, type: 3}
+  m_PrefabInstance: {fileID: 6095599461033593919}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5989033327628463060 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aa40e2756c3ed8548b76718fe1b0f153, type: 3}
@@ -357,3 +586,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.60052824, y: 0.056440644, z: 0.9276943}
   m_Center: {x: -0.0005926788, y: 0.027263667, z: 0.13691092}
+--- !u!114 &1807412103505762054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6365418850455220590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f344340cbe6fa1a47a7e81518ba05f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.DegorgeuseTriggerButton
+  _animator: {fileID: 431640502601314734}
+  _pistonAudioSource: {fileID: 2110968267015231475}
