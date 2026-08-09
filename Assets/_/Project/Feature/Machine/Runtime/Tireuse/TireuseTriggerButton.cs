@@ -9,6 +9,16 @@ namespace Machine.Runtime
             _animator.SetTrigger("isFilling");
         }
 
+        public void TireuseDoorOpening()
+        {
+            _animator.SetTrigger("isDoorOpening");
+        }
+
+        public void TireuseCapsuling()
+        {
+            _animator.SetTrigger("isCapsuling");
+        }
+
         [SerializeField] private Animator _animator;
     }
 }
