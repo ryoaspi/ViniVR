@@ -20,7 +20,7 @@ Material:
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
-  m_LockedProperties: 
+  m_LockedProperties: _Fill
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -38,11 +38,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Fill: 0.57
+    - _Fill: 0
     - _QueueControl: 1
     - _QueueOffset: 0
     - _WobbleX: 0
     - _WobbleZ: 0
+    - _XRMotionVectorsPass: 1
     m_Colors:
     - _SideColor: {r: 0.20754719, g: 0.19459431, b: 0.08125668, a: 1}
     - _TopColor: {r: 0.48427665, g: 0.41485998, b: 0.047209255, a: 1}
