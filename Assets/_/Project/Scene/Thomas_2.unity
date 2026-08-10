@@ -683,11 +683,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
   m_PrefabInstance: {fileID: 180722046}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &183433278 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6365418850455220590, guid: 39cfaf43412025b43b93e9b9ecdbde66, type: 3}
-  m_PrefabInstance: {fileID: 8164956538814780790}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &222578694 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 696693738872261465, guid: 709ec0defe3e3c647997f73ec45eeb1a, type: 3}
@@ -3372,15 +3367,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 696693738872261465, guid: 709ec0defe3e3c647997f73ec45eeb1a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.643263
+      value: 13.529
       objectReference: {fileID: 0}
     - target: {fileID: 696693738872261465, guid: 709ec0defe3e3c647997f73ec45eeb1a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8709
+      value: -0.4158
       objectReference: {fileID: 0}
     - target: {fileID: 696693738872261465, guid: 709ec0defe3e3c647997f73ec45eeb1a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.7457848
+      value: 1.981
       objectReference: {fileID: 0}
     - target: {fileID: 696693738872261465, guid: 709ec0defe3e3c647997f73ec45eeb1a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4329,7 +4324,7 @@ MonoBehaviour:
   m_onPressed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8164956538814780793}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Machine.Runtime.DegorgeuseTriggerButton, Machine.Runtime
         m_MethodName: TriggerFilling
         m_Mode: 1
@@ -4512,15 +4507,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2163146322639016858, guid: 228157ab7ea43264ebf8ea1a6ef65f4f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.876919
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2163146322639016858, guid: 228157ab7ea43264ebf8ea1a6ef65f4f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.21184
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2163146322639016858, guid: 228157ab7ea43264ebf8ea1a6ef65f4f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.9745398
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2163146322639016858, guid: 228157ab7ea43264ebf8ea1a6ef65f4f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6287,9 +6282,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6365418850455220590, guid: 39cfaf43412025b43b93e9b9ecdbde66, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8164956538814780793}
     - targetCorrespondingSourceObject: {fileID: 5432948771606354459, guid: 39cfaf43412025b43b93e9b9ecdbde66, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1769596750}
@@ -6305,24 +6297,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3446542510335316430, guid: 39cfaf43412025b43b93e9b9ecdbde66, type: 3}
   m_PrefabInstance: {fileID: 8164956538814780790}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &8164956538814780792 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 431640502601314734, guid: 39cfaf43412025b43b93e9b9ecdbde66, type: 3}
-  m_PrefabInstance: {fileID: 8164956538814780790}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8164956538814780793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 183433278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f344340cbe6fa1a47a7e81518ba05f4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.DegorgeuseTriggerButton
-  _animator: {fileID: 8164956538814780792}
 --- !u!4 &8164956538814780794 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5878791761210514429, guid: 39cfaf43412025b43b93e9b9ecdbde66, type: 3}
