@@ -218,6 +218,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4566759316933559057, guid: aa40e2756c3ed8548b76718fe1b0f153, type: 3}
+      propertyPath: m_Name
+      value: Geo_Degorgeuse
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aa40e2756c3ed8548b76718fe1b0f153, type: 3}
       propertyPath: m_Name
       value: 3D_Degorgeuse
