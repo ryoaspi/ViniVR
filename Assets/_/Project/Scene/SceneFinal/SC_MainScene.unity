@@ -2191,6 +2191,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 108745276}
     m_Modifications:
+    - target: {fileID: 3292554892588599780, guid: 9fb3abdb73c3a1b4c8103d6ce70063cf, type: 3}
+      propertyPath: m_onContainerFull.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1133938524}
+    - target: {fileID: 3292554892588599780, guid: 9fb3abdb73c3a1b4c8103d6ce70063cf, type: 3}
+      propertyPath: m_onContainerFull.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RefreshAssemblyState
+      objectReference: {fileID: 0}
     - target: {fileID: 3849063555426445602, guid: 9fb3abdb73c3a1b4c8103d6ce70063cf, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -3623,13 +3631,52 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2097672094330224069, guid: 90f07b2059fba084497f923e9c869f8a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1133938524}
   m_SourcePrefab: {fileID: 100100000, guid: 90f07b2059fba084497f923e9c869f8a, type: 3}
 --- !u!4 &1133938522 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3521383602057198839, guid: 90f07b2059fba084497f923e9c869f8a, type: 3}
   m_PrefabInstance: {fileID: 1133938521}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1133938523 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2097672094330224069, guid: 90f07b2059fba084497f923e9c869f8a, type: 3}
+  m_PrefabInstance: {fileID: 1133938521}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1133938524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133938523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a38cc9852432de418a657df04713cdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.WineAssemblyController
+  m_onDebourbageStepCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onAssemblyCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  m_onAssemblyInvalid:
+    m_PersistentCalls:
+      m_Calls: []
+  _inputSocket: {fileID: 0}
+  _outputSocket: {fileID: 0}
+  _availableHoses: []
+  _debourbageContainer: {fileID: 0}
+  _reserveContainer: {fileID: 0}
+  _assemblyContainer: {fileID: 0}
+  _debourbagePercentage: 0.7
+  _reservePercentage: 0.3
+  _flowRatePerSecond: 10
+  _volumeTolerance: 0.1
 --- !u!1001 &1160329110
 PrefabInstance:
   m_ObjectHideFlags: 0

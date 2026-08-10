@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PistonOneMask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Geo_Tireuse_Encaps
+    m_Weight: 0
+  - m_Path: Geo_Tireuse_Encaps_Bottle_Thing
+    m_Weight: 0
+  - m_Path: Geo_Tireuse_Encaps_ButtonOne
+    m_Weight: 0
+  - m_Path: Geo_Tireuse_Encaps_ButtonThree
+    m_Weight: 0
+  - m_Path: Geo_Tireuse_Encaps_ButtonTwo
+    m_Weight: 0
+  - m_Path: Geo_Tireuse_Encaps_capsule.04
+    m_Weight: 0
+  - m_Path: Geo_Tireuse_Encaps_capsule.05
+    m_Weight: 0
+  - m_Path: Geo_Tireuse_Encaps_capsule.06
+    m_Weight: 0
+  - m_Path: Geo_Tireuse_Encaps_capsule.07
+    m_Weight: 0
+  - m_Path: Geo_Tireuse_Encaps_capsule.08
+    m_Weight: 0
+  - m_Path: Geo_Tireuse_Encaps_capsule.09
+    m_Weight: 0
+  - m_Path: Geo_Tireuse_Encaps_capsule.10
+    m_Weight: 0
+  - m_Path: Geo_Tireuse_Encaps_capsule.11
+    m_Weight: 0
+  - m_Path: Geo_Tireuse_Encaps_Glass
+    m_Weight: 0
+  - m_Path: Geo_Tireuse_Encaps_Piston.000
+    m_Weight: 0
+  - m_Path: Geo_Tireuse_Encaps_Piston.001
+    m_Weight: 0
+  - m_Path: Geo_Tireuse_Encaps_StartButton
+    m_Weight: 0
+  - m_Path: RIG_Tireuse-Encapsuleuse
+    m_Weight: 0
+  - m_Path: RIG_Tireuse-Encapsuleuse/ROOT
+    m_Weight: 0
+  - m_Path: RIG_Tireuse-Encapsuleuse/ROOT/MAIN
+    m_Weight: 0
+  - m_Path: RIG_Tireuse-Encapsuleuse/ROOT/MAIN/FILL_TUBE-1
+    m_Weight: 0
+  - m_Path: RIG_Tireuse-Encapsuleuse/ROOT/MAIN/FILL_TUBE-2
+    m_Weight: 0
+  - m_Path: RIG_Tireuse-Encapsuleuse/ROOT/MAIN/FILL_TUBE-3
+    m_Weight: 0
+  - m_Path: RIG_Tireuse-Encapsuleuse/ROOT/MAIN/GLASS-DOOR
+    m_Weight: 0
+  - m_Path: RIG_Tireuse-Encapsuleuse/ROOT/MAIN/PISTON-1
+    m_Weight: 1
+  - m_Path: RIG_Tireuse-Encapsuleuse/ROOT/MAIN/PISTON-1/PISTON-TOP-1
+    m_Weight: 1
+  - m_Path: RIG_Tireuse-Encapsuleuse/ROOT/MAIN/PISTON-1/PISTON-TOP-1/PISTON-SCKT-1
+    m_Weight: 1
+  - m_Path: RIG_Tireuse-Encapsuleuse/ROOT/MAIN/PISTON-2
+    m_Weight: 0
+  - m_Path: RIG_Tireuse-Encapsuleuse/ROOT/MAIN/PISTON-2/PISTON-TOP-2
+    m_Weight: 0
+  - m_Path: RIG_Tireuse-Encapsuleuse/ROOT/MAIN/PISTON-2/PISTON-TOP-2/PISTON-SCKT-2
+    m_Weight: 0
+  - m_Path: RIG_Tireuse-Encapsuleuse/ROOT/MAIN/PISTON-3
+    m_Weight: 0
+  - m_Path: RIG_Tireuse-Encapsuleuse/ROOT/MAIN/PISTON-3/PISTON-TOP-3
+    m_Weight: 0
+  - m_Path: RIG_Tireuse-Encapsuleuse/ROOT/MAIN/PISTON-3/PISTON-TOP-3/PISTON-SCKT-3
+    m_Weight: 0
+  - m_Path: RIG_Tireuse-Encapsuleuse/ROOT/MAIN/PISTON-4
+    m_Weight: 0
+  - m_Path: RIG_Tireuse-Encapsuleuse/ROOT/MAIN/PISTON-4/PISTON-TOP-4
+    m_Weight: 0
+  - m_Path: RIG_Tireuse-Encapsuleuse/ROOT/MAIN/PISTON-4/PISTON-TOP-4/PISTON-SCKT-4
+    m_Weight: 0
