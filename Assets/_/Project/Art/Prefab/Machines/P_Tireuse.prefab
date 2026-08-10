@@ -626,10 +626,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.257
       objectReference: {fileID: 0}
+    - target: {fileID: 350924836674879564, guid: 29780d1cebb8f164c8e153d9e748132c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e296324c9d0e84b4994fd07c9f8226d2, type: 2}
     - target: {fileID: 919132149155446097, guid: 29780d1cebb8f164c8e153d9e748132c, type: 3}
       propertyPath: m_Name
       value: 3D_Tireuse
       objectReference: {fileID: 0}
+    - target: {fileID: 1716472261601753569, guid: 29780d1cebb8f164c8e153d9e748132c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e296324c9d0e84b4994fd07c9f8226d2, type: 2}
+    - target: {fileID: 2207737125408398257, guid: 29780d1cebb8f164c8e153d9e748132c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e296324c9d0e84b4994fd07c9f8226d2, type: 2}
     - target: {fileID: 5866666021909216657, guid: 29780d1cebb8f164c8e153d9e748132c, type: 3}
       propertyPath: m_Controller
       value: 
