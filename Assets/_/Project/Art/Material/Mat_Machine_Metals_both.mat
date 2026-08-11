@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_Machine_both
+  m_Name: Mat_Machine_Metals_both
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_Parent: {fileID: 2100000, guid: 5488c567d6eceb14f8a5d4cd3a127dbf, type: 2}
+  m_Parent: {fileID: 2100000, guid: e296324c9d0e84b4994fd07c9f8226d2, type: 2}
   m_ModifiedSerializedProperties: 24
   m_ValidKeywords:
   - _ALPHATEST_ON
