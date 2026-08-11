@@ -48,6 +48,7 @@ Material:
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Cull: 2
+    - _ReceiveShadows: 1
     - _Smoothness: 0
     m_Colors: []
   m_BuildTextureStacks: []
