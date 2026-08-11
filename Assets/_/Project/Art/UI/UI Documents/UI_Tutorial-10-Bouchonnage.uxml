@@ -8,13 +8,13 @@
                     <ui:Label text="10" name="1" class="title_1 title_1-more_than_9"/>
                     <ui:Label text="Bouchonnage et muselsage" name="intro" class="title_intro" style="-unity-text-align: upper-left;"/>
                 </ui:VisualElement>
-                <ui:Label text="La mise en bouteille définitive" data-source-path="desc" name="desc" class="desc" style="height: 38px;"/>
+                <ui:Label text="La mise en bouteille définitive" data-source-path="desc" name="desc" class="desc" style="height: 208px;"/>
                 <ui:Image name="separation_line" class="separation_line" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Images/separation_line.png?fileID=2800000&amp;guid=f971f82333425cf4bad5fc6570661032&amp;type=3#separation_line&quot;);"/>
                 <ui:VisualElement name="container-instructions" class="container-instruction">
                     <ui:VisualElement name="illustration" class="illustration" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Images/photo_bouchonnage.png?fileID=2800000&amp;guid=adb5793e6536e0c4f834b414bbf7cc6a&amp;type=3#photo_bouchonnage&quot;);"/>
                 </ui:VisualElement>
                 <ui:VisualElement name="container-mission" class="container-mission" style="flex-grow: 1;">
-                    <ui:Label text="C&apos;est quoi le bouchonnage et le muselage ?" name="mission-title" class="mission-title"/>
+                    <ui:Label text="C&apos;est quoi le bouchonnage et le muselage ?" name="mission-title" class="mission-title" style="height: 127px;"/>
                     <ui:Label text="Après le dégorgement et l’ajout de la liqueur d’expédition, la bouteille reçoit son bouchon définitif. La bouchonneuse comprime un bouchon de liège spécialement conçu pour résister à la pression du vin effervescent, puis l’enfonce dans le goulot.&#10;&#10;La museleuse place ensuite un muselet métallique autour du bouchon. Ce petit dispositif maintient solidement le bouchon en place malgré la pression présente dans la bouteille.&#10;&#10;Cette étape assure la fermeture définitive du crémant. La bouteille peut ensuite être habillée, étiquetée et conservée avant sa commercialisation." name="mission-text" class="mission-desc"/>
                     <ui:Label text="Tâches" name="actions-title" class="mission-title" style="white-space: pre; -unity-text-align: upper-left; align-self: flex-start; align-items: flex-start;">
                         <ui:VisualElement name="actions_list-container" class="actions_list-container action_list-container-first_child" style="flex-grow: 1;">

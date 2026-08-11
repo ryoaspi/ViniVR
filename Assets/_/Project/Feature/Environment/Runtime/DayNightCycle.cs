@@ -22,6 +22,15 @@ public class DayNightCycle : MonoBehaviour
     [Tooltip("Lance automatiquement le cycle au démarrage.")]
     public bool m_playOnStart = true;
 
+    [Header("Accélération temporaire")]
+    [Tooltip("Durée d'une journée complète pendant l'accélération, en secondes réelles.")]
+    [Min(0.1f)]
+    public float m_acceleratedDayDuration = 30f;
+
+    [Tooltip("Nombre de cycles complets pendant lesquels l'accélération reste active.")]
+    [Min(1)]
+    public int m_acceleratedCycleCount = 2;
+
     [Header("Orientation du soleil")]
     [Tooltip("Orientation horizontale de la trajectoire du soleil.")]
     [Range(0f, 360f)]
@@ -59,6 +68,15 @@ public class DayNightCycle : MonoBehaviour
 
     public bool m_isRunning => _isRunning;
 
+    public bool m_isTemporaryAccelerationActive =>
+        _isTemporaryAccelerationActive;
+
+    public int m_remainingAcceleratedCycles =>
+        _remainingAcceleratedCycles;
+
+    public float m_acceleratedCycleProgress =>
+        _temporaryCycleProgress;
+
     #endregion
 
 
@@ -75,7 +93,10 @@ public class DayNightCycle : MonoBehaviour
         RenderSettings.sun = m_sun;
         RenderSettings.ambientMode = AmbientMode.Flat;
 
-        _normalizedTime = Mathf.Repeat(m_startHour / 24f, 1f);
+        _normalizedTime = Mathf.Repeat(
+            m_startHour / 24f,
+            1f);
+
         _isRunning = m_playOnStart;
 
         ApplyEnvironment();
@@ -94,16 +115,39 @@ public class DayNightCycle : MonoBehaviour
             return;
 
         _visualUpdateTimer = 0f;
+
         ApplyEnvironment();
     }
 
     private void OnValidate()
     {
-        m_dayDuration = Mathf.Max(1f, m_dayDuration);
-        m_visualUpdateInterval = Mathf.Max(0.02f, m_visualUpdateInterval);
-        m_maxSunIntensity = Mathf.Max(0f, m_maxSunIntensity);
-        m_maxAmbientIntensity = Mathf.Max(0f, m_maxAmbientIntensity);
-        m_minAmbientIntensity = Mathf.Max(0f, m_minAmbientIntensity);
+        m_dayDuration = Mathf.Max(
+            1f,
+            m_dayDuration);
+
+        m_acceleratedDayDuration = Mathf.Max(
+            0.1f,
+            m_acceleratedDayDuration);
+
+        m_acceleratedCycleCount = Mathf.Max(
+            1,
+            m_acceleratedCycleCount);
+
+        m_visualUpdateInterval = Mathf.Max(
+            0.02f,
+            m_visualUpdateInterval);
+
+        m_maxSunIntensity = Mathf.Max(
+            0f,
+            m_maxSunIntensity);
+
+        m_maxAmbientIntensity = Mathf.Max(
+            0f,
+            m_maxAmbientIntensity);
+
+        m_minAmbientIntensity = Mathf.Max(
+            0f,
+            m_minAmbientIntensity);
     }
 
     #endregion
@@ -113,7 +157,10 @@ public class DayNightCycle : MonoBehaviour
 
     public void SetTime(float hour)
     {
-        _normalizedTime = Mathf.Repeat(hour / 24f, 1f);
+        _normalizedTime = Mathf.Repeat(
+            hour / 24f,
+            1f);
+
         ApplyEnvironment();
     }
 
@@ -127,6 +174,70 @@ public class DayNightCycle : MonoBehaviour
         _isRunning = !_isRunning;
     }
 
+    /// <summary>
+    /// Lance l'accélération temporaire avec les valeurs configurées
+    /// dans l'Inspector.
+    ///
+    /// Cette méthode est pratique pour un UnityEvent.
+    /// </summary>
+    public void StartTemporaryAcceleration()
+    {
+        StartTemporaryAcceleration(
+            m_acceleratedDayDuration,
+            m_acceleratedCycleCount);
+    }
+
+    /// <summary>
+    /// Lance une accélération temporaire personnalisée.
+    /// </summary>
+    public void StartTemporaryAcceleration(
+        float acceleratedDayDuration,
+        int cycleCount)
+    {
+        if (acceleratedDayDuration <= 0f)
+        {
+            Debug.LogWarning(
+                "[DayNightCycle] La durée accélérée doit être supérieure à 0.",
+                this);
+
+            return;
+        }
+
+        if (cycleCount <= 0)
+        {
+            Debug.LogWarning(
+                "[DayNightCycle] Le nombre de cycles doit être supérieur à 0.",
+                this);
+
+            return;
+        }
+
+        _temporaryDayDuration = acceleratedDayDuration;
+        _remainingAcceleratedCycles = cycleCount;
+        _temporaryCycleProgress = 0f;
+        _isTemporaryAccelerationActive = true;
+
+        Debug.Log(
+            $"[DayNightCycle] Accélération activée pour {cycleCount} cycle(s). " +
+            $"Durée d'un cycle : {acceleratedDayDuration:F1} seconde(s).",
+            this);
+    }
+
+    public void StopTemporaryAcceleration()
+    {
+        if (!_isTemporaryAccelerationActive)
+            return;
+
+        _isTemporaryAccelerationActive = false;
+        _remainingAcceleratedCycles = 0;
+        _temporaryCycleProgress = 0f;
+        _temporaryDayDuration = 0f;
+
+        Debug.Log(
+            "[DayNightCycle] Accélération terminée. Retour au cycle normal.",
+            this);
+    }
+
     #endregion
 
 
@@ -134,10 +245,52 @@ public class DayNightCycle : MonoBehaviour
 
     private void UpdateTime()
     {
-        float normalizedSpeed = 1f / m_dayDuration;
+        float activeDayDuration = GetActiveDayDuration();
 
-        _normalizedTime += Time.deltaTime * normalizedSpeed;
-        _normalizedTime = Mathf.Repeat(_normalizedTime, 1f);
+        float normalizedDelta =
+            Time.deltaTime / activeDayDuration;
+
+        _normalizedTime += normalizedDelta;
+
+        _normalizedTime = Mathf.Repeat(
+            _normalizedTime,
+            1f);
+
+        UpdateTemporaryAcceleration(
+            normalizedDelta);
+    }
+
+    private float GetActiveDayDuration()
+    {
+        if (_isTemporaryAccelerationActive)
+            return _temporaryDayDuration;
+
+        return m_dayDuration;
+    }
+
+    private void UpdateTemporaryAcceleration(
+        float normalizedDelta)
+    {
+        if (!_isTemporaryAccelerationActive)
+            return;
+
+        _temporaryCycleProgress += normalizedDelta;
+
+        while (_temporaryCycleProgress >= 1f &&
+               _remainingAcceleratedCycles > 0)
+        {
+            _temporaryCycleProgress -= 1f;
+
+            _remainingAcceleratedCycles--;
+
+            Debug.Log(
+                $"[DayNightCycle] Cycle accéléré terminé. " +
+                $"Cycles restants : {_remainingAcceleratedCycles}.",
+                this);
+        }
+
+        if (_remainingAcceleratedCycles <= 0)
+            StopTemporaryAcceleration();
     }
 
     private void ApplyEnvironment()
@@ -150,7 +303,8 @@ public class DayNightCycle : MonoBehaviour
 
     private void ApplySunRotation()
     {
-        float sunPitch = (_normalizedTime * 360f) - 90f;
+        float sunPitch =
+            (_normalizedTime * 360f) - 90f;
 
         m_sun.transform.rotation = Quaternion.Euler(
             sunPitch,
@@ -164,11 +318,19 @@ public class DayNightCycle : MonoBehaviour
             -m_sun.transform.forward,
             Vector3.up);
 
-        float daylightFactor = Mathf.Clamp01(sunHeight);
+        float daylightFactor =
+            Mathf.Clamp01(sunHeight);
 
-        m_sun.intensity = daylightFactor * m_maxSunIntensity;
-        m_sun.color = m_sunColor.Evaluate(_normalizedTime);
-        m_sun.enabled = daylightFactor > 0.001f;
+        m_sun.intensity =
+            daylightFactor *
+            m_maxSunIntensity;
+
+        m_sun.color =
+            m_sunColor.Evaluate(
+                _normalizedTime);
+
+        m_sun.enabled =
+            daylightFactor > 0.001f;
     }
 
     private void ApplyAmbientLighting()
@@ -177,15 +339,18 @@ public class DayNightCycle : MonoBehaviour
             -m_sun.transform.forward,
             Vector3.up);
 
-        float daylightFactor = Mathf.Clamp01(sunHeight);
+        float daylightFactor =
+            Mathf.Clamp01(sunHeight);
 
         RenderSettings.ambientLight =
-            m_ambientColor.Evaluate(_normalizedTime);
+            m_ambientColor.Evaluate(
+                _normalizedTime);
 
-        RenderSettings.ambientIntensity = Mathf.Lerp(
-            m_minAmbientIntensity,
-            m_maxAmbientIntensity,
-            daylightFactor);
+        RenderSettings.ambientIntensity =
+            Mathf.Lerp(
+                m_minAmbientIntensity,
+                m_maxAmbientIntensity,
+                daylightFactor);
     }
 
     private void ApplyFog()
@@ -194,7 +359,8 @@ public class DayNightCycle : MonoBehaviour
             return;
 
         RenderSettings.fogColor =
-            m_fogColor.Evaluate(_normalizedTime);
+            m_fogColor.Evaluate(
+                _normalizedTime);
     }
 
     private bool ValidateReferences()
@@ -227,7 +393,13 @@ public class DayNightCycle : MonoBehaviour
 
     private float _normalizedTime;
     private float _visualUpdateTimer;
+
     private bool _isRunning;
+
+    private bool _isTemporaryAccelerationActive;
+    private float _temporaryDayDuration;
+    private float _temporaryCycleProgress;
+    private int _remainingAcceleratedCycles;
 
     #endregion
 }

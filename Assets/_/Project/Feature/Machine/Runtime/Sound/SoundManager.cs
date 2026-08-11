@@ -9,18 +9,32 @@ namespace Machine.Runtime
         #endregion
         
         #region Unity API
+        private void Start()
+        {
+            foreach (UIDocument uiDocument in _uiDocuments)
+            {
+                if (uiDocument == null)
+                {
+                    continue;
+                }
+
+                VisualElement root = uiDocument.rootVisualElement;
+
+                if (root == null)
+                {
+                    Debug.LogWarning("SoundManager : rootVisualElement null pour " + uiDocument.name);
+                    continue;
+                }
+
+                root.Query<Button>().ForEach(button => button.clicked += PlayButtonClick);
+            }
+        }
         #endregion
 
         
         #region Main Methods
 
-        private void Start()
-        {
-            foreach (UIDocument uiDocument in _uiDocuments)
-            {
-                uiDocument.rootVisualElement.Query<Button>().ForEach(button => button.clicked += PlayButtonClick);
-            }
-        }
+        
         #endregion
 
         

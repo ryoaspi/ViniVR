@@ -13,39 +13,36 @@
                 <ui:VisualElement name="container-instructions" class="container-instruction">
                     <ui:VisualElement name="illustration" class="illustration" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Images/ViniVR-Tutorial-Introduction_Illustration.png?fileID=2800000&amp;guid=552e6f2973c7c464c95e179acf8c5f76&amp;type=3#ViniVR-Tutorial-Introduction_Illustration&quot;);"/>
                 </ui:VisualElement>
-                <ui:VisualElement name="container-mission" class="container-mission" style="flex-grow: 1; margin-left: 64px; padding-right: 32px; margin-right: 64px;">
+                <ui:VisualElement name="container-mission" class="container-mission" style="flex-grow: 1; margin-left: 0; padding-right: 64px; margin-right: 0; margin-top: 64px; padding-left: 64px; padding-top: 64px; padding-bottom: 64px;">
                     <ui:Label text="Votre mission" name="mission-title" class="mission-title"/>
                     <ui:Label text="Vinifiez un AOP Crémant de Wallonie 100% Chardonnay en utilisant les machines et outils à votre disposition et en suivant les instructions pas à pas sur les tablettes à chaque étape de la production." name="mission-text" class="mission-desc"/>
                     <ui:Label text="Commandes" name="actions-title" class="mission-title">
-                        <ui:VisualElement name="controls-list-item" class="actions_list-container controls_list-item action_list-container-first_child" style="flex-grow: 1;">
+                        <ui:VisualElement name="controls-list-item" class="actions_list-container controls_list-item action_list-container-first_child" style="flex-grow: 1; align-items: center; align-self: center;">
                             <ui:Image source="project://database/Assets/_/Project/Art/UI/Images/joystick-left.png?fileID=2800000&amp;guid=6b8ef3b49c26119449c9a851519b07e6&amp;type=3#joystick-left" class="control_img"/>
-                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." name="Label" class="controller-desc"/>
+                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." name="Label" class="controller-desc" style="white-space: normal; -unity-text-align: upper-center;"/>
                         </ui:VisualElement>
                         <ui:VisualElement name="controls-list-item" class="actions_list-container controls_list-item" style="flex-grow: 1;">
                             <ui:Image source="project://database/Assets/_/Project/Art/UI/Images/joystick-right.png?fileID=2800000&amp;guid=dd4c50c5f4870c842933ea2ef190ab89&amp;type=3#joystick-right" class="control_img"/>
-                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="controller-desc"/>
+                            <ui:Label text="Utilisez le joystick droit pour vous déplacer" class="controller-desc"/>
                         </ui:VisualElement>
                         <ui:VisualElement name="controls-list-item" class="actions_list-container controls_list-item" style="flex-grow: 1;">
                             <ui:Image source="project://database/Assets/_/Project/Art/UI/Images/grip-right.png?fileID=2800000&amp;guid=1bb3f9f06a8df82428e30af54dd81c0e&amp;type=3#grip-right" class="control_img"/>
-                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="controller-desc"/>
+                            <ui:Label text="Utilisez le trigger pour saisir des objets et actionner des boutons" class="controller-desc" style="-unity-text-align: upper-center;"/>
                         </ui:VisualElement>
                         <ui:VisualElement name="controls-list-item" class="actions_list-container controls_list-item" style="flex-grow: 1;">
                             <ui:Image source="project://database/Assets/_/Project/Art/UI/Images/trigger-right.png?fileID=2800000&amp;guid=8ff8decd7355c2a46a2728fe36144a9a&amp;type=3#trigger-right" class="control_img"/>
-                            <ui:Label text="Utilisez le joystick gauche pour tourner et regarder autour de vous." class="controller-desc"/>
+                            <ui:Label text="Utilisez le trigger pour utiliser les interfaces et panneaux de commande." class="controller-desc" style="-unity-text-align: upper-center;"/>
                         </ui:VisualElement>
                     </ui:Label>
-                    <ui:Label text="Fonctionnement" name="actions-title" class="mission-title">
+                    <ui:Label text="Fonctionnement" name="actions-title" class="mission-title actions-title" style="margin-bottom: -325px;">
                         <ui:VisualElement name="actions_list-container" class="actions_list-container action_list-container-first_child" style="flex-grow: 1;">
-                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
-                            <ui:Label text="Lisez les instructions disponibles sur les tablettes devant chaque poste." class="task-desc"/>
+                            <ui:Label text="• Lisez les instructions disponibles sur les tablettes devant chaque poste." class="task-desc"/>
                         </ui:VisualElement>
                         <ui:VisualElement name="actions_list-container" class="actions_list-container action_list-container-first_child" style="flex-grow: 1;">
-                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
-                            <ui:Label text="Réalisez les tâches dans l&apos;ordre." enable-rich-text="false" class="task-desc"/>
+                            <ui:Label text="• Réalisez les tâches dans l&apos;ordre." enable-rich-text="false" class="task-desc"/>
                         </ui:VisualElement>
                         <ui:VisualElement name="actions_list-container" class="actions_list-container action_list-container-first_child" style="flex-grow: 1;">
-                            <ui:Image class="task-icon" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Icons/task.svg?fileID=7388822144124034973&amp;guid=71d8f6c29fbbcbe48820a1fc58ca4bcb&amp;type=3#task&quot;);"/>
-                            <ui:Label text="Dirigez-vous vers la tablette suivante une fois les tâches complétées." class="task-desc"/>
+                            <ui:Label text="• Dirigez-vous vers la tablette suivante une fois les tâches complétées." class="task-desc"/>
                         </ui:VisualElement>
                     </ui:Label>
                 </ui:VisualElement>
