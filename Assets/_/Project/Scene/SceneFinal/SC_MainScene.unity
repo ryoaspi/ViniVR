@@ -1912,6 +1912,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 325139869}
     m_Modifications:
+    - target: {fileID: 2089618749948091885, guid: 228157ab7ea43264ebf8ea1a6ef65f4f, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2163146322639016858, guid: 228157ab7ea43264ebf8ea1a6ef65f4f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.7275305
@@ -2007,6 +2011,10 @@ PrefabInstance:
     - target: {fileID: 7642198505434006525, guid: 228157ab7ea43264ebf8ea1a6ef65f4f, type: 3}
       propertyPath: m_Name
       value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643744306861025335, guid: 228157ab7ea43264ebf8ea1a6ef65f4f, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2689,6 +2697,9 @@ PrefabInstance:
     - {fileID: 7691402093335168633, guid: 9fb3abdb73c3a1b4c8103d6ce70063cf, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9207842568307193481, guid: 9fb3abdb73c3a1b4c8103d6ce70063cf, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1241857080}
     - targetCorrespondingSourceObject: {fileID: 6149262794549430965, guid: 9fb3abdb73c3a1b4c8103d6ce70063cf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -2717,7 +2728,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3292554892588599780, guid: 9fb3abdb73c3a1b4c8103d6ce70063cf, type: 3}
   m_PrefabInstance: {fileID: 672123627}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1241857079}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cd9ff12dc6298f44922c4337a4eae44, type: 3}
@@ -4580,6 +4591,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3618637594330266855, guid: 22b000cf40fbea84b9d00e9fdae3f3e1, type: 3}
   m_PrefabInstance: {fileID: 1238288300}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1241857079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9207842568307193481, guid: 9fb3abdb73c3a1b4c8103d6ce70063cf, type: 3}
+  m_PrefabInstance: {fileID: 672123627}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1241857080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241857079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee3d7ebbeb682248ae98b464050a7b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TankFillingIconAnimator
+  _uiDocument: {fileID: 672123632}
+  _thermostatScreen: {fileID: 672123633}
+  _fillingScreen: {fileID: 672123631}
 --- !u!1001 &1248189605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4729,7 +4760,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1264394616}
   m_Layer: 0
-  m_Name: Tutorial
+  m_Name: Tutorials
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
