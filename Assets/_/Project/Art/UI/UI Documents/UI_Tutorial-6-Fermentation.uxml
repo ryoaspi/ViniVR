@@ -8,7 +8,7 @@
                     <ui:Label text="6" name="1" class="title_1"/>
                     <ui:Label text="Fermentation alcoolique" name="intro" class="title_intro" style="-unity-text-align: upper-left;"/>
                 </ui:VisualElement>
-                <ui:Label text="Fermentation alcoolique par thermorégulation" data-source-path="desc" name="desc" class="desc" style="height: 38px;"/>
+                <ui:Label text="Transformation en vin en cuve thermorégulée" data-source-path="desc" name="desc" class="desc" style="height: 306px;"/>
                 <ui:Image name="separation_line" class="separation_line" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Images/separation_line.png?fileID=2800000&amp;guid=f971f82333425cf4bad5fc6570661032&amp;type=3#separation_line&quot;);"/>
                 <ui:VisualElement name="container-instructions" class="container-instruction">
                     <ui:VisualElement name="illustration" class="illustration" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Images/photo_thermoregulation.png?fileID=2800000&amp;guid=a709ff4e18581bb4298dd8d091aa5270&amp;type=3#photo_thermoregulation&quot;);"/>

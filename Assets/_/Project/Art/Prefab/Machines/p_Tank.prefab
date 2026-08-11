@@ -29,9 +29,9 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 5355981712542595944}
   - {fileID: 4653314662873080014}
   - {fileID: 5554612412709590517}
-  - {fileID: 8286124216660695353}
   m_Father: {fileID: 3849063555426445602}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7469258098357222351
@@ -134,6 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3849063555426445602}
   - component: {fileID: 3292554892588599780}
+  - component: {fileID: 3961238254361103266}
   m_Layer: 0
   m_Name: p_Tank
   m_TagString: Untagged
@@ -151,7 +152,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.9027667, y: 0.10000015, z: -5.454649}
-  m_LocalScale: {x: 0.8, y: 0.8, z: -0.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4692843926906823887}
@@ -186,13 +187,10 @@ MonoBehaviour:
         m_CallState: 2
   m_onContainerEmpty:
     m_PersistentCalls:
-      m_Calls: []
-  m_onContainerFull:
-    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Machine.Runtime.WineAssemblyController, Machine.Runtime
-        m_MethodName: BeginAssemblyTracking
+      - m_Target: {fileID: 3961238254361103266}
+        m_TargetAssemblyTypeName: TankFillingIconAnimator, Assembly-CSharp
+        m_MethodName: ShowThermostatScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -202,11 +200,53 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_onContainerFull:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: TankFillingIconAnimator, Assembly-CSharp
+        m_MethodName: RefreshAssemblyState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DayNightCycle, Assembly-CSharp
+        m_MethodName: StartTemporaryAcceleration
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 10
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _containerName: Liquid Container
   _containerType: 1
   _maximumVolume: 100
   _startingVolume: 0
-  _volumeTolerance: 0.0001
+  _volumeTolerance: 4
+--- !u!114 &3961238254361103266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9207842568307193481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee3d7ebbeb682248ae98b464050a7b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TankFillingIconAnimator
+  _uiDocument: {fileID: 0}
+  _thermostatScreen: {fileID: 6149262794549430965}
+  _fillingScreen: {fileID: 0}
 --- !u!1001 &1904818389785587154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -225,7 +265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6303549317676988455, guid: c4bd4a95964ada344a615293c9a7a277, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.422
+      value: 2.505
       objectReference: {fileID: 0}
     - target: {fileID: 6303549317676988455, guid: c4bd4a95964ada344a615293c9a7a277, type: 3}
       propertyPath: m_LocalPosition.z
@@ -269,7 +309,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6303549317676988455, guid: c4bd4a95964ada344a615293c9a7a277, type: 3}
   m_PrefabInstance: {fileID: 1904818389785587154}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &2703442520793702686
+--- !u!1 &6149262794549430965 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5708831315976529767, guid: c4bd4a95964ada344a615293c9a7a277, type: 3}
+  m_PrefabInstance: {fileID: 1904818389785587154}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2102882274362786639
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -277,79 +322,71 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4692843926906823887}
     m_Modifications:
-    - target: {fileID: 5708831315976529767, guid: c4bd4a95964ada344a615293c9a7a277, type: 3}
+    - target: {fileID: 5708831315976529767, guid: 98a1d295c88f5934dbb65ece7ef357b3, type: 3}
       propertyPath: m_Name
       value: p_UIFillingTank
       objectReference: {fileID: 0}
-    - target: {fileID: 5708831315976529767, guid: c4bd4a95964ada344a615293c9a7a277, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6303549317676988455, guid: c4bd4a95964ada344a615293c9a7a277, type: 3}
+    - target: {fileID: 6303549317676988455, guid: 98a1d295c88f5934dbb65ece7ef357b3, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.02406355
+      value: 0.030079437
       objectReference: {fileID: 0}
-    - target: {fileID: 6303549317676988455, guid: c4bd4a95964ada344a615293c9a7a277, type: 3}
+    - target: {fileID: 6303549317676988455, guid: 98a1d295c88f5934dbb65ece7ef357b3, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.02406355
+      value: 0.030079437
       objectReference: {fileID: 0}
-    - target: {fileID: 6303549317676988455, guid: c4bd4a95964ada344a615293c9a7a277, type: 3}
+    - target: {fileID: 6303549317676988455, guid: 98a1d295c88f5934dbb65ece7ef357b3, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.02406355
+      value: 0.030079437
       objectReference: {fileID: 0}
-    - target: {fileID: 6303549317676988455, guid: c4bd4a95964ada344a615293c9a7a277, type: 3}
+    - target: {fileID: 6303549317676988455, guid: 98a1d295c88f5934dbb65ece7ef357b3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.017000198
+      value: -1.5217435
       objectReference: {fileID: 0}
-    - target: {fileID: 6303549317676988455, guid: c4bd4a95964ada344a615293c9a7a277, type: 3}
+    - target: {fileID: 6303549317676988455, guid: 98a1d295c88f5934dbb65ece7ef357b3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.422
+      value: 12.600828
       objectReference: {fileID: 0}
-    - target: {fileID: 6303549317676988455, guid: c4bd4a95964ada344a615293c9a7a277, type: 3}
+    - target: {fileID: 6303549317676988455, guid: 98a1d295c88f5934dbb65ece7ef357b3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.1180001
+      value: -1.1520677
       objectReference: {fileID: 0}
-    - target: {fileID: 6303549317676988455, guid: c4bd4a95964ada344a615293c9a7a277, type: 3}
+    - target: {fileID: 6303549317676988455, guid: 98a1d295c88f5934dbb65ece7ef357b3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.00003497302
+      value: -0.000034987926
       objectReference: {fileID: 0}
-    - target: {fileID: 6303549317676988455, guid: c4bd4a95964ada344a615293c9a7a277, type: 3}
+    - target: {fileID: 6303549317676988455, guid: 98a1d295c88f5934dbb65ece7ef357b3, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 6303549317676988455, guid: c4bd4a95964ada344a615293c9a7a277, type: 3}
+    - target: {fileID: 6303549317676988455, guid: 98a1d295c88f5934dbb65ece7ef357b3, type: 3}
       propertyPath: m_LocalRotation.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6303549317676988455, guid: c4bd4a95964ada344a615293c9a7a277, type: 3}
+    - target: {fileID: 6303549317676988455, guid: 98a1d295c88f5934dbb65ece7ef357b3, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 6303549317676988455, guid: c4bd4a95964ada344a615293c9a7a277, type: 3}
+    - target: {fileID: 6303549317676988455, guid: 98a1d295c88f5934dbb65ece7ef357b3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6303549317676988455, guid: c4bd4a95964ada344a615293c9a7a277, type: 3}
+    - target: {fileID: 6303549317676988455, guid: 98a1d295c88f5934dbb65ece7ef357b3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180.004
       objectReference: {fileID: 0}
-    - target: {fileID: 6303549317676988455, guid: c4bd4a95964ada344a615293c9a7a277, type: 3}
+    - target: {fileID: 6303549317676988455, guid: 98a1d295c88f5934dbb65ece7ef357b3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8163933781088099541, guid: c4bd4a95964ada344a615293c9a7a277, type: 3}
-      propertyPath: sourceAsset
-      value: 
-      objectReference: {fileID: 9197481963319205126, guid: b49b88edaa0fe924a8644a4d67fe1a13, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c4bd4a95964ada344a615293c9a7a277, type: 3}
---- !u!4 &8286124216660695353 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 98a1d295c88f5934dbb65ece7ef357b3, type: 3}
+--- !u!4 &5355981712542595944 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6303549317676988455, guid: c4bd4a95964ada344a615293c9a7a277, type: 3}
-  m_PrefabInstance: {fileID: 2703442520793702686}
+  m_CorrespondingSourceObject: {fileID: 6303549317676988455, guid: 98a1d295c88f5934dbb65ece7ef357b3, type: 3}
+  m_PrefabInstance: {fileID: 2102882274362786639}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5123227710471522085
 PrefabInstance:
@@ -399,10 +436,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8480032684599599190, guid: 0c352d432b51cf244a2720fa01f36d43, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.11
+      objectReference: {fileID: 0}
     - target: {fileID: -5730679998217550150, guid: 0c352d432b51cf244a2720fa01f36d43, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5488c567d6eceb14f8a5d4cd3a127dbf, type: 2}
+      objectReference: {fileID: 2100000, guid: e296324c9d0e84b4994fd07c9f8226d2, type: 2}
     - target: {fileID: 919132149155446097, guid: 0c352d432b51cf244a2720fa01f36d43, type: 3}
       propertyPath: m_Name
       value: 3D_BG_StorageTank
@@ -490,7 +531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.LiquidLevelVisualizer
   _liquidContainer: {fileID: 3292554892588599780}
   _liquidVisual: {fileID: 4966022015705473244}
-  _fillRatePerSecond: 5
+  _fillRatePerSecond: 1
   _minimumHeight: 0.001
   _maximumHeight: 5.1
   _hideWhenEmpty: 1

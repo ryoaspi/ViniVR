@@ -8,7 +8,7 @@
                     <ui:Label text="2" name="1" class="title_1"/>
                     <ui:Label text="Pressurage" name="intro" class="title_intro" style="-unity-text-align: upper-left;"/>
                 </ui:VisualElement>
-                <ui:Label text="Le pressoir et la récolte du jus de presse" data-source-path="desc" name="desc" class="desc" style="height: 38px;"/>
+                <ui:Label text="Le pressoir et la récolte du jus de presse" data-source-path="desc" name="desc" class="desc" style="height: 38px; margin-top: 259px;"/>
                 <ui:Image name="separation_line" class="separation_line" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Images/separation_line.png?fileID=2800000&amp;guid=f971f82333425cf4bad5fc6570661032&amp;type=3#separation_line&quot;);"/>
                 <ui:VisualElement name="container-instructions" class="container-instruction">
                     <ui:VisualElement name="illustration" class="illustration" style="background-image: url(&quot;project://database/Assets/_/Project/Art/UI/Images/photo_presse.png?fileID=2800000&amp;guid=4fc99c795ffbcb44e8015682e589b1bc&amp;type=3#photo_presse&quot;);"/>

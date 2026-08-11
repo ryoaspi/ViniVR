@@ -636,7 +636,7 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_Space": 2,
+    "m_Space": 0,
     "m_PositionSource": 0
 }
 
@@ -1109,7 +1109,7 @@
     "m_PerRendererData": false,
     "m_customAttributes": [],
     "m_Value": 0.0,
-    "m_FloatType": 0,
+    "m_FloatType": 1,
     "m_LiteralFloatMode": false,
     "m_RangeValues": {
         "x": 0.0,
@@ -1218,8 +1218,8 @@
     "m_ObjectId": "44b7b7d7a1c442e68f55cc994c30e44d",
     "m_Title": "WOBBLE",
     "m_Position": {
-        "x": -1206.666748046875,
-        "y": -717.3333129882813
+        "x": -1206.0,
+        "y": -717.0
     }
 }
 
@@ -1774,10 +1774,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 590.0000610351563,
-            "y": 625.3333129882813,
-            "width": 91.33343505859375,
-            "height": 36.0
+            "x": 500.0,
+            "y": 607.0000610351563,
+            "width": 90.0,
+            "height": 34.0
         }
     },
     "m_Slots": [
@@ -2143,10 +2143,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 961.333251953125,
-            "y": 246.6665496826172,
-            "width": 209.3333740234375,
-            "height": 304.0001220703125
+            "x": 1031.0,
+            "y": 255.0,
+            "width": 208.0,
+            "height": 302.00006103515627
         }
     },
     "m_Slots": [
@@ -2326,7 +2326,7 @@
     "m_PerRendererData": false,
     "m_customAttributes": [],
     "m_Value": 0.0,
-    "m_FloatType": 0,
+    "m_FloatType": 1,
     "m_LiteralFloatMode": false,
     "m_RangeValues": {
         "x": 0.0,
@@ -2602,10 +2602,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 752.6666870117188,
-            "y": 216.66656494140626,
-            "width": 120.66680908203125,
-            "height": 150.66659545898438
+            "x": 590.0,
+            "y": 214.0,
+            "width": 120.00006103515625,
+            "height": 149.0
         }
     },
     "m_Slots": [
@@ -3377,8 +3377,8 @@
     "m_ShaderOutputName": "OutMinMax",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": -1.2000000476837159,
-        "y": 1.0
+        "x": 0.0010000000474974514,
+        "y": 0.3499999940395355
     },
     "m_DefaultValue": {
         "x": 0.0,
