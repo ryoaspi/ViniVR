@@ -1944,6 +1944,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b227cbad8e3fb6f40b4f5f656bb2c2d7, type: 3}
+--- !u!114 &494635178 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4948087790089538651, guid: f5155e27980eb914784ea7ceb6a30c97, type: 3}
+  m_PrefabInstance: {fileID: 738105806}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ae7f5209c4cbc49b1c0d3fc2e94b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.TireuseTriggerButton
 --- !u!1001 &501075427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3533,7 +3544,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7840488822175967252, guid: f5155e27980eb914784ea7ceb6a30c97, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2089498846}
+    - targetCorrespondingSourceObject: {fileID: 7795588222299764271, guid: f5155e27980eb914784ea7ceb6a30c97, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1120607855}
+    - targetCorrespondingSourceObject: {fileID: 4535224496208494184, guid: f5155e27980eb914784ea7ceb6a30c97, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1868486655}
   m_SourcePrefab: {fileID: 100100000, guid: f5155e27980eb914784ea7ceb6a30c97, type: 3}
 --- !u!1001 &739505407
 PrefabInstance:
@@ -5198,6 +5218,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
   m_PrefabInstance: {fileID: 667649808}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1120607851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7795588222299764271, guid: f5155e27980eb914784ea7ceb6a30c97, type: 3}
+  m_PrefabInstance: {fileID: 738105806}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1120607855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120607851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7993e5da2e1ef6842a4fb5fb5f73b154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.TireuseBottleSocket
+  _tireuse: {fileID: 494635178}
+  _socketIndex: 1
 --- !u!4 &1143002799 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8951370380894538136, guid: b227cbad8e3fb6f40b4f5f656bb2c2d7, type: 3}
@@ -6121,6 +6160,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 330503565}
     m_Modifications:
+    - target: {fileID: 7697374221298748587, guid: b227cbad8e3fb6f40b4f5f656bb2c2d7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7809001446635061175, guid: b227cbad8e3fb6f40b4f5f656bb2c2d7, type: 3}
       propertyPath: m_Name
       value: P_BottleWithWooble
@@ -7539,6 +7582,25 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b227cbad8e3fb6f40b4f5f656bb2c2d7, type: 3}
+--- !u!1 &1868486651 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4535224496208494184, guid: f5155e27980eb914784ea7ceb6a30c97, type: 3}
+  m_PrefabInstance: {fileID: 738105806}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1868486655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868486651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7993e5da2e1ef6842a4fb5fb5f73b154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.TireuseBottleSocket
+  _tireuse: {fileID: 494635178}
+  _socketIndex: 2
 --- !u!1001 &1913386005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7547,6 +7609,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 301838867625493426, guid: cd8a5074ace5b774d86cf8426b25c7a2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2888341832917624322, guid: cd8a5074ace5b774d86cf8426b25c7a2, type: 3}
       propertyPath: _inputSocket
       value: 
@@ -7587,6 +7653,10 @@ PrefabInstance:
       propertyPath: _availableHoses.Array.data[1].m_endB
       value: 
       objectReference: {fileID: 1999839382}
+    - target: {fileID: 5727859514573601879, guid: cd8a5074ace5b774d86cf8426b25c7a2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7871774259762860318, guid: cd8a5074ace5b774d86cf8426b25c7a2, type: 3}
       propertyPath: m_Name
       value: SCRIPTS
@@ -8070,6 +8140,25 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b227cbad8e3fb6f40b4f5f656bb2c2d7, type: 3}
+--- !u!1 &2089498842 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7840488822175967252, guid: f5155e27980eb914784ea7ceb6a30c97, type: 3}
+  m_PrefabInstance: {fileID: 738105806}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2089498846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089498842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7993e5da2e1ef6842a4fb5fb5f73b154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.TireuseBottleSocket
+  _tireuse: {fileID: 494635178}
+  _socketIndex: 0
 --- !u!1001 &2111632479
 PrefabInstance:
   m_ObjectHideFlags: 0

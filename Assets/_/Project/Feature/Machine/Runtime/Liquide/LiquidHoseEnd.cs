@@ -50,12 +50,6 @@ namespace Machine.Runtime
 
             _connectionPoint = connectionPoint;
 
-            Debug.Log(
-                $"[{nameof(LiquidHoseEnd)}] " +
-                $"{name} connecté à " +
-                $"{_connectionPoint.m_containerName}.",
-                this);
-
             m_onConnected?.Invoke();
         }
 
@@ -65,12 +59,6 @@ namespace Machine.Runtime
             {
                 return;
             }
-
-            Debug.Log(
-                $"[{nameof(LiquidHoseEnd)}] " +
-                $"{name} déconnecté de " +
-                $"{_connectionPoint.m_containerName}.",
-                this);
 
             _connectionPoint = null;
 
