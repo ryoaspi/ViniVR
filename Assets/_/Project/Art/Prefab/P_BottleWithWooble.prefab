@@ -10907,7 +10907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6399234604629198551, guid: bde1453626da594409176ff7573a212f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11063,6 +11063,10 @@ PrefabInstance:
     - target: {fileID: 153679576085020015, guid: bde1453626da594409176ff7573a212f, type: 3}
       propertyPath: InitialModule.startSpeed.minScalar
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 153679576085020015, guid: bde1453626da594409176ff7573a212f, type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 502
       objectReference: {fileID: 0}
     - target: {fileID: 153679576085020015, guid: bde1453626da594409176ff7573a212f, type: 3}
       propertyPath: CollisionModule.collidesWithDynamic

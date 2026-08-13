@@ -145,7 +145,7 @@ Transform:
   m_GameObject: {fileID: 8774872126353051583}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.493, y: -0.002, z: 0}
+  m_LocalPosition: {x: 0.493, y: -0.064, z: 0.236}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -209,7 +209,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_SnapZone_Pipe (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4008619420216488480, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
+    - {fileID: 6784091180318460411, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -337,7 +339,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_SnapZone_Pipe (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4008619420216488480, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
+    - {fileID: 6784091180318460411, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -465,7 +469,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_SnapZone_Pipe (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4008619420216488480, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
+    - {fileID: 6784091180318460411, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -527,7 +533,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_SnapZone_Pipe
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4008619420216488480, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
+    - {fileID: 6784091180318460411, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -589,7 +597,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_SnapZone_Pipe (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4008619420216488480, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
+    - {fileID: 6784091180318460411, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -651,7 +661,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_SnapZone_Pipe (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4008619420216488480, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
+    - {fileID: 6784091180318460411, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
