@@ -1,0 +1,10 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_/Project/Art/UI/uss/surprise-style.uss?fileID=7433441132597879392&amp;guid=dbf886d834c198a42a6b833e4ca8fa47&amp;type=3#surprise-style"/>
+    <ui:VisualElement class="main-container" style="flex-grow: 1; padding-top: 0%; padding-right: 10%; padding-bottom: 0%; padding-left: 10%; justify-content: center;">
+        <ui:Label text="Choisissez le bon mot de passe pour débloquer votre récompense :" class="h1" style="white-space: pre-wrap; -unity-text-align: middle-left; margin-bottom: 32px; font-size: 42px; -unity-font-style: bold; -unity-font-definition: url(&quot;project://database/Assets/_/Project/Art/UI/Fonts/Nunito/Nunito-Regular.ttf?fileID=12800000&amp;guid=8717c6b6b454c454dae0fd5e95d0defb&amp;type=3#Nunito-Regular&quot;);"/>
+        <ui:Button text="Apero" enable-rich-text="false" name="Button" class="btn-colors"/>
+        <ui:Button text="Opera" name="Button" class="btn-colors"/>
+        <ui:Button text="Aero" name="Button" class="btn-colors"/>
+        <ui:Button text="Europa" class="btn-colors"/>
+    </ui:VisualElement>
+</ui:UXML>
