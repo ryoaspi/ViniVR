@@ -1269,6 +1269,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1532742091}
     m_Modifications:
+    - target: {fileID: 1626240842250873565, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+      propertyPath: m_Name
+      value: p_Tutorial_Indicator-Bouchonnage
+      objectReference: {fileID: 0}
     - target: {fileID: 2942891367759582538, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.3
@@ -1315,7 +1319,7 @@ PrefabInstance:
       objectReference: {fileID: 9197481963319205126, guid: c2c740ed37120ce47851d9e1057be7ca, type: 3}
     - target: {fileID: 5819957400557949589, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
       propertyPath: m_Name
-      value: p_Tablet_TutorialPanel (8)
+      value: p_Tablet_TutorialPanel-Bouchonnage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1565,6 +1569,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1532742091}
     m_Modifications:
+    - target: {fileID: 1626240842250873565, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+      propertyPath: m_Name
+      value: p_Tutorial_Indicator-Fermentation
+      objectReference: {fileID: 0}
     - target: {fileID: 2942891367759582538, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.8316345
@@ -1611,7 +1619,7 @@ PrefabInstance:
       objectReference: {fileID: 9197481963319205126, guid: 84362a53153174344a112d1a4e7815a9, type: 3}
     - target: {fileID: 5819957400557949589, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
       propertyPath: m_Name
-      value: p_Tablet_TutorialPanel (4)
+      value: p_Tablet_TutorialPanel-Fermentation
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2898,6 +2906,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1532742091}
     m_Modifications:
+    - target: {fileID: 1626240842250873565, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+      propertyPath: m_Name
+      value: p_Tutorial_Indicator-Remuage
+      objectReference: {fileID: 0}
     - target: {fileID: 2942891367759582538, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.16286
@@ -2944,7 +2956,7 @@ PrefabInstance:
       objectReference: {fileID: 9197481963319205126, guid: e66fd28744ba7db4a9931db0e07cea68, type: 3}
     - target: {fileID: 5819957400557949589, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
       propertyPath: m_Name
-      value: p_Tablet_TutorialPanel (9)
+      value: p_Tablet_TutorialPanel-Remuage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3628,6 +3640,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1532742091}
     m_Modifications:
+    - target: {fileID: 1626240842250873565, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+      propertyPath: m_Name
+      value: p_Tutorial_Indicator-Degorgement
+      objectReference: {fileID: 0}
     - target: {fileID: 2942891367759582538, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.375
@@ -3674,7 +3690,7 @@ PrefabInstance:
       objectReference: {fileID: 9197481963319205126, guid: 4c5b12fba71bffc4f92ee618a19b286f, type: 3}
     - target: {fileID: 5819957400557949589, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
       propertyPath: m_Name
-      value: p_Tablet_TutorialPanel (7)
+      value: p_Tablet_TutorialPanel-Degorgement
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3816,6 +3832,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1532742091}
     m_Modifications:
+    - target: {fileID: 1626240842250873565, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+      propertyPath: m_Name
+      value: p_Tutorial_Indicator-Tirage
+      objectReference: {fileID: 0}
     - target: {fileID: 2942891367759582538, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.237
@@ -3862,7 +3882,7 @@ PrefabInstance:
       objectReference: {fileID: 9197481963319205126, guid: 404073028f3dabc48bb76a777438f6f8, type: 3}
     - target: {fileID: 5819957400557949589, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
       propertyPath: m_Name
-      value: p_Tablet_TutorialPanel (6)
+      value: p_Tablet_TutorialPanel-Tirage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4300,6 +4320,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1532742091}
     m_Modifications:
+    - target: {fileID: 1626240842250873565, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+      propertyPath: m_Name
+      value: p_Tutorial_Indicator-Pressurage
+      objectReference: {fileID: 0}
     - target: {fileID: 2942891367759582538, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.7836685
@@ -4346,7 +4370,7 @@ PrefabInstance:
       objectReference: {fileID: 9197481963319205126, guid: 28c9282500951e742ae7e51a65a76c39, type: 3}
     - target: {fileID: 5819957400557949589, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
       propertyPath: m_Name
-      value: p_Tablet_TutorialPanel (2)
+      value: p_Tablet_TutorialPanel-Pressurage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4553,6 +4577,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1532742091}
     m_Modifications:
+    - target: {fileID: 1626240842250873565, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+      propertyPath: m_Name
+      value: p_Tutorial_Indicator-Assemblage
+      objectReference: {fileID: 0}
     - target: {fileID: 2942891367759582538, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.24936867
@@ -4599,7 +4627,7 @@ PrefabInstance:
       objectReference: {fileID: 9197481963319205126, guid: 744fcad23e913ba4fba97e7ae01ffdb6, type: 3}
     - target: {fileID: 5819957400557949589, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
       propertyPath: m_Name
-      value: p_Tablet_TutorialPanel (3)
+      value: p_Tablet_TutorialPanel-Assemblage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5258,6 +5286,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1532742091}
     m_Modifications:
+    - target: {fileID: 1626240842250873565, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+      propertyPath: m_Name
+      value: p_Tutorial_Indicator-Introduction
+      objectReference: {fileID: 0}
     - target: {fileID: 2942891367759582538, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
       propertyPath: m_LocalPosition.x
       value: 28.307203
@@ -5300,7 +5332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5819957400557949589, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
       propertyPath: m_Name
-      value: p_Tablet_TutorialPanel (1)
+      value: p_Tablet_TutorialPanel-Introduction
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6148,16 +6180,16 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 980367107}
-  - {fileID: 394565138}
-  - {fileID: 2125920927}
   - {fileID: 1160329111}
   - {fileID: 893830179}
   - {fileID: 2119242708}
+  - {fileID: 2125920927}
+  - {fileID: 980367107}
+  - {fileID: 394565138}
   - {fileID: 795538108}
+  - {fileID: 620690865}
   - {fileID: 742429965}
   - {fileID: 280106618}
-  - {fileID: 620690865}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1535604467
@@ -8260,6 +8292,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1532742091}
     m_Modifications:
+    - target: {fileID: 1626240842250873565, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+      propertyPath: m_Name
+      value: p_Tutorial_Indicator-Transfert
+      objectReference: {fileID: 0}
     - target: {fileID: 2942891367759582538, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.821039
@@ -8306,7 +8342,7 @@ PrefabInstance:
       objectReference: {fileID: 9197481963319205126, guid: 683b71d53226f0949817214a9f5b387c, type: 3}
     - target: {fileID: 5819957400557949589, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
       propertyPath: m_Name
-      value: p_Tablet_TutorialPanel
+      value: p_Tablet_TutorialPanel-Transfert
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8329,6 +8365,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1532742091}
     m_Modifications:
+    - target: {fileID: 1626240842250873565, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+      propertyPath: m_Name
+      value: p_Tutorial_Indicator-Debourbaeg
+      objectReference: {fileID: 0}
     - target: {fileID: 2942891367759582538, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.492251
@@ -8375,7 +8415,7 @@ PrefabInstance:
       objectReference: {fileID: 9197481963319205126, guid: 630408fa3169d62478764cd66e2e2eb5, type: 3}
     - target: {fileID: 5819957400557949589, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
       propertyPath: m_Name
-      value: p_Tablet_TutorialPanel (5)
+      value: p_Tablet_TutorialPanel-Debourbage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
