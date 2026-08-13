@@ -8,12 +8,34 @@ public class MeshMaterialRemoveTrigger : MonoBehaviour
     {
         if (_hasTriggered)
             return;
-        
-        MeshFilter meshFilter = other.GetComponentInChildren<MeshFilter>();
-        MeshRenderer meshRenderer = other.GetComponentInChildren<MeshRenderer>();
+
+        Transform root = other.attachedRigidbody != null
+            ? other.attachedRigidbody.transform
+            : other.transform.root;
+
+        Transform bottle = FindChildRecursive(root, "Bottle");
+
+        if (bottle == null)
+        {
+            Debug.LogWarning(
+                $"[{nameof(MeshMaterialRemoveTrigger)}] Enfant 'Bottle' introuvable.",
+                other);
+
+            return;
+        }
+
+        MeshFilter meshFilter = bottle.GetComponent<MeshFilter>();
+        MeshRenderer meshRenderer = bottle.GetComponent<MeshRenderer>();
 
         if (meshFilter == null || meshRenderer == null)
+        {
+            Debug.LogWarning(
+                $"[{nameof(MeshMaterialRemoveTrigger)}] " +
+                $"MeshFilter ou MeshRenderer introuvable sur '{bottle.name}'.",
+                bottle);
+
             return;
+        }
 
         ChangeMeshAndRemoveSecondMaterial(meshFilter, meshRenderer);
 
@@ -35,9 +57,17 @@ public class MeshMaterialRemoveTrigger : MonoBehaviour
         Material[] currentMaterials = meshRenderer.materials;
 
         if (currentMaterials.Length < 2)
-            return;
+        {
+            Debug.LogWarning(
+                $"[{nameof(MeshMaterialRemoveTrigger)}] " +
+                "Le MeshRenderer possède moins de deux Materials.",
+                meshRenderer);
 
-        Material[] newMaterials = new Material[currentMaterials.Length - 1];
+            return;
+        }
+
+        Material[] newMaterials =
+            new Material[currentMaterials.Length - 1];
 
         newMaterials[0] = currentMaterials[0];
 
@@ -49,11 +79,30 @@ public class MeshMaterialRemoveTrigger : MonoBehaviour
         meshRenderer.materials = newMaterials;
     }
 
+    private Transform FindChildRecursive(
+        Transform parent,
+        string childName)
+    {
+        if (parent.name == childName)
+            return parent;
+
+        foreach (Transform child in parent)
+        {
+            Transform result =
+                FindChildRecursive(child, childName);
+
+            if (result != null)
+                return result;
+        }
+
+        return null;
+    }
+
     #endregion
 
 
     #region Private and Protected
-    
+
     [Header("Visual Change")]
     [SerializeField] private Mesh _newMesh;
 
