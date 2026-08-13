@@ -79,11 +79,7 @@ namespace Machine.Runtime
             }
 
             _connectedHoseEnd = hoseEnd;
-
-            Debug.Log(
-                $"[{nameof(PumpSocketConnection)}] " +
-                $"{hoseEnd.name} connecté à {name}.",
-                this);
+            
         }
 
         private void HandleSelectExited(
@@ -101,11 +97,6 @@ namespace Machine.Runtime
             {
                 return;
             }
-
-            Debug.Log(
-                $"[{nameof(PumpSocketConnection)}] " +
-                $"{hoseEnd.name} déconnecté de {name}.",
-                this);
 
             _connectedHoseEnd = null;
         }

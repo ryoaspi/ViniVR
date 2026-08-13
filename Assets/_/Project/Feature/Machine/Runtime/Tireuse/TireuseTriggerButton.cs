@@ -78,10 +78,7 @@ namespace Machine.Runtime
         {
             if (index >= 0 && index < _bottles.Length)
                 return true;
-
-            Debug.LogWarning(
-                $"[TireuseTriggerButton] Index bouteille invalide : {index}.",
-                this);
+            
 
             return false;
         }

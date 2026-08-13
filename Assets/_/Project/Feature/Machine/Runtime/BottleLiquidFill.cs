@@ -145,7 +145,7 @@ public class BottleLiquidFill : MonoBehaviour
 
     private void ApplyFill()
     {
-        if (_liquidRenderer == null)
+        if (!_liquidRenderer)
             return;
 
         _liquidRenderer.material.SetFloat(
