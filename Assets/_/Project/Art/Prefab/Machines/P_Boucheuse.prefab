@@ -170,6 +170,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8394881076130249712, guid: e53a0a46ffe16ea4aab70dc44dec3e8b, type: 3}
+      propertyPath: m_Name
+      value: Geo_Button_Muselet
+      objectReference: {fileID: 0}
     - target: {fileID: -5082194061760189591, guid: e53a0a46ffe16ea4aab70dc44dec3e8b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -186,6 +190,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e296324c9d0e84b4994fd07c9f8226d2, type: 2}
+    - target: {fileID: -764842204947763423, guid: e53a0a46ffe16ea4aab70dc44dec3e8b, type: 3}
+      propertyPath: m_Name
+      value: Geo_Button_Bouchon
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e53a0a46ffe16ea4aab70dc44dec3e8b, type: 3}
       propertyPath: m_Name
       value: 3D_Boucheuse
@@ -206,6 +214,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e296324c9d0e84b4994fd07c9f8226d2, type: 2}
+    - target: {fileID: 5835927778579557549, guid: e53a0a46ffe16ea4aab70dc44dec3e8b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6513756
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: e53a0a46ffe16ea4aab70dc44dec3e8b, type: 3}
       propertyPath: m_Controller
       value: 
