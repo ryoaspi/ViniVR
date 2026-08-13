@@ -216,11 +216,6 @@ public class DayNightCycle : MonoBehaviour
         _remainingAcceleratedCycles = cycleCount;
         _temporaryCycleProgress = 0f;
         _isTemporaryAccelerationActive = true;
-
-        Debug.Log(
-            $"[DayNightCycle] Accélération activée pour {cycleCount} cycle(s). " +
-            $"Durée d'un cycle : {acceleratedDayDuration:F1} seconde(s).",
-            this);
     }
 
     public void StopTemporaryAcceleration()
@@ -232,10 +227,7 @@ public class DayNightCycle : MonoBehaviour
         _remainingAcceleratedCycles = 0;
         _temporaryCycleProgress = 0f;
         _temporaryDayDuration = 0f;
-
-        Debug.Log(
-            "[DayNightCycle] Accélération terminée. Retour au cycle normal.",
-            this);
+        
     }
 
     #endregion
@@ -282,11 +274,7 @@ public class DayNightCycle : MonoBehaviour
             _temporaryCycleProgress -= 1f;
 
             _remainingAcceleratedCycles--;
-
-            Debug.Log(
-                $"[DayNightCycle] Cycle accéléré terminé. " +
-                $"Cycles restants : {_remainingAcceleratedCycles}.",
-                this);
+            
         }
 
         if (_remainingAcceleratedCycles <= 0)

@@ -53,16 +53,24 @@ namespace Machine.Runtime
 
             GameObject bottle =
                 args.interactableObject.transform.gameObject;
+            
+            Debug.Log(
+                $"[TireuseBottleSocket] Entrée slot {_socketIndex} : {bottle.name}",
+                bottle);
 
             _tireuse.SetBottle(
                 _socketIndex,
-                bottle);
+                bottle);    
         }
 
         private void OnBottleExited(SelectExitEventArgs args)
         {
             if (_tireuse == null)
                 return;
+            
+            Debug.Log(
+                $"[TireuseBottleSocket] Sortie slot {_socketIndex}.",
+                this);
 
             _tireuse.ClearBottle(_socketIndex);
         }
@@ -83,6 +91,7 @@ namespace Machine.Runtime
         private int _socketIndex;
 
         private XRSocketInteractor _socketInteractor;
+        
 
         #endregion
     }
