@@ -6,9 +6,6 @@ public class MeshMaterialRemoveTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (_hasTriggered)
-            return;
-
         Transform root = other.attachedRigidbody != null
             ? other.attachedRigidbody.transform
             : other.transform.root;
@@ -37,9 +34,12 @@ public class MeshMaterialRemoveTrigger : MonoBehaviour
             return;
         }
 
-        ChangeMeshAndRemoveSecondMaterial(meshFilter, meshRenderer);
+        ChangeMeshAndRemoveSecondMaterial(
+            meshFilter,
+            meshRenderer);
 
-        _hasTriggered = true;
+        PlayParticle(root);
+        PlaySound();
     }
 
     #endregion
@@ -79,6 +79,47 @@ public class MeshMaterialRemoveTrigger : MonoBehaviour
         meshRenderer.materials = newMaterials;
     }
 
+    private void PlayParticle(Transform root)
+    {
+        Transform particleObject =
+            FindChildRecursive(root, "Particle_System_Pshiiit");
+
+        if (particleObject == null)
+        {
+            Debug.LogWarning(
+                $"[{nameof(MeshMaterialRemoveTrigger)}] " +
+                "Particle_System_Pshiiit introuvable.",
+                root);
+
+            return;
+        }
+
+        particleObject.gameObject.SetActive(true);
+
+        ParticleSystem particleSystem =
+            particleObject.GetComponent<ParticleSystem>();
+
+        if (particleSystem == null)
+        {
+            Debug.LogWarning(
+                $"[{nameof(MeshMaterialRemoveTrigger)}] " +
+                "Aucun ParticleSystem trouvé sur Particle_System_Pshiiit.",
+                particleObject);
+
+            return;
+        }
+
+        particleSystem.Play();
+    }
+
+    private void PlaySound()
+    {
+        if (_audioSource == null)
+            return;
+
+        _audioSource.Play();
+    }
+
     private Transform FindChildRecursive(
         Transform parent,
         string childName)
@@ -106,7 +147,8 @@ public class MeshMaterialRemoveTrigger : MonoBehaviour
     [Header("Visual Change")]
     [SerializeField] private Mesh _newMesh;
 
-    private bool _hasTriggered;
+    [Header("Audio")]
+    [SerializeField] private AudioSource _audioSource;
 
     #endregion
 }
