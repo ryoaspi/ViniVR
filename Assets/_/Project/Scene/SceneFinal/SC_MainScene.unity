@@ -657,6 +657,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 672123628}
+  - {fileID: 1716858812}
   - {fileID: 1248189606}
   - {fileID: 1855387750}
   - {fileID: 609171017}
@@ -674,8 +676,6 @@ Transform:
   - {fileID: 1090479679}
   - {fileID: 384941722}
   - {fileID: 1841090924}
-  - {fileID: 1716858812}
-  - {fileID: 672123628}
   - {fileID: 1767005330}
   - {fileID: 434257931}
   - {fileID: 1089592486}
@@ -1321,6 +1321,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_Tablet_TutorialPanel-Bouchonnage
       objectReference: {fileID: 0}
+    - target: {fileID: 7678287391217791836, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+      propertyPath: m_Name
+      value: p_UITutorial-Bouchonnage
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1334,6 +1338,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2942891367759582538, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
   m_PrefabInstance: {fileID: 280106617}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &280106619 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3484685070570761375, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+  m_PrefabInstance: {fileID: 280106617}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
 --- !u!4 &316085861 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5571107942874284500, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
@@ -1621,6 +1636,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_Tablet_TutorialPanel-Fermentation
       objectReference: {fileID: 0}
+    - target: {fileID: 7678287391217791836, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+      propertyPath: m_Name
+      value: p_UITutorial-Fermentation
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1634,6 +1653,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2942891367759582538, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
   m_PrefabInstance: {fileID: 394565137}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &394565139 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3484685070570761375, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+  m_PrefabInstance: {fileID: 394565137}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
 --- !u!4 &400391984 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8951370380894538136, guid: b227cbad8e3fb6f40b4f5f656bb2c2d7, type: 3}
@@ -2958,6 +2988,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_Tablet_TutorialPanel-Remuage
       objectReference: {fileID: 0}
+    - target: {fileID: 7678287391217791836, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+      propertyPath: m_Name
+      value: p_UITutorial-Remuage
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2971,6 +3005,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2942891367759582538, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
   m_PrefabInstance: {fileID: 620690864}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &620690866 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3484685070570761375, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+  m_PrefabInstance: {fileID: 620690864}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
 --- !u!1001 &661762888
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3692,6 +3737,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_Tablet_TutorialPanel-Degorgement
       objectReference: {fileID: 0}
+    - target: {fileID: 7678287391217791836, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+      propertyPath: m_Name
+      value: p_UITutorial-Degorgement
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3705,6 +3754,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2942891367759582538, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
   m_PrefabInstance: {fileID: 742429964}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &742429966 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3484685070570761375, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+  m_PrefabInstance: {fileID: 742429964}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
 --- !u!4 &744379830 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8951370380894538136, guid: b227cbad8e3fb6f40b4f5f656bb2c2d7, type: 3}
@@ -3884,6 +3944,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_Tablet_TutorialPanel-Tirage
       objectReference: {fileID: 0}
+    - target: {fileID: 7678287391217791836, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+      propertyPath: m_Name
+      value: p_UITutorial-Tirage
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3897,6 +3961,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2942891367759582538, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
   m_PrefabInstance: {fileID: 795538107}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &795538109 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3484685070570761375, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+  m_PrefabInstance: {fileID: 795538107}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
 --- !u!4 &797771245 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8951370380894538136, guid: b227cbad8e3fb6f40b4f5f656bb2c2d7, type: 3}
@@ -4372,6 +4447,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_Tablet_TutorialPanel-Pressurage
       objectReference: {fileID: 0}
+    - target: {fileID: 7678287391217791836, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+      propertyPath: m_Name
+      value: p_UITutorial-Pressurage
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4385,6 +4464,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2942891367759582538, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
   m_PrefabInstance: {fileID: 893830178}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &893830180 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3484685070570761375, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+  m_PrefabInstance: {fileID: 893830178}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
 --- !u!1001 &919504827
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4629,6 +4719,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_Tablet_TutorialPanel-Assemblage
       objectReference: {fileID: 0}
+    - target: {fileID: 7678287391217791836, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+      propertyPath: m_Name
+      value: p_UITutorial-Assemblage
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4642,6 +4736,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2942891367759582538, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
   m_PrefabInstance: {fileID: 980367106}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &980367108 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3484685070570761375, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+  m_PrefabInstance: {fileID: 980367106}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
 --- !u!1 &1030671813
 GameObject:
   m_ObjectHideFlags: 0
@@ -5334,6 +5439,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_Tablet_TutorialPanel-Introduction
       objectReference: {fileID: 0}
+    - target: {fileID: 7678287391217791836, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+      propertyPath: m_Name
+      value: p_UITutorial-Introduction
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5347,6 +5456,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2942891367759582538, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
   m_PrefabInstance: {fileID: 1160329110}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1160329112 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3484685070570761375, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+  m_PrefabInstance: {fileID: 1160329110}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
 --- !u!1001 &1201149125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7653,6 +7773,46 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 995813119659565487, guid: cd8a5074ace5b774d86cf8426b25c7a2, type: 3}
+      propertyPath: '_uiDocuments.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1160329112}
+    - target: {fileID: 995813119659565487, guid: cd8a5074ace5b774d86cf8426b25c7a2, type: 3}
+      propertyPath: '_uiDocuments.Array.data[1]'
+      value: 
+      objectReference: {fileID: 893830180}
+    - target: {fileID: 995813119659565487, guid: cd8a5074ace5b774d86cf8426b25c7a2, type: 3}
+      propertyPath: '_uiDocuments.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2119242709}
+    - target: {fileID: 995813119659565487, guid: cd8a5074ace5b774d86cf8426b25c7a2, type: 3}
+      propertyPath: '_uiDocuments.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2125920928}
+    - target: {fileID: 995813119659565487, guid: cd8a5074ace5b774d86cf8426b25c7a2, type: 3}
+      propertyPath: '_uiDocuments.Array.data[4]'
+      value: 
+      objectReference: {fileID: 980367108}
+    - target: {fileID: 995813119659565487, guid: cd8a5074ace5b774d86cf8426b25c7a2, type: 3}
+      propertyPath: '_uiDocuments.Array.data[5]'
+      value: 
+      objectReference: {fileID: 394565139}
+    - target: {fileID: 995813119659565487, guid: cd8a5074ace5b774d86cf8426b25c7a2, type: 3}
+      propertyPath: '_uiDocuments.Array.data[6]'
+      value: 
+      objectReference: {fileID: 795538109}
+    - target: {fileID: 995813119659565487, guid: cd8a5074ace5b774d86cf8426b25c7a2, type: 3}
+      propertyPath: '_uiDocuments.Array.data[7]'
+      value: 
+      objectReference: {fileID: 620690866}
+    - target: {fileID: 995813119659565487, guid: cd8a5074ace5b774d86cf8426b25c7a2, type: 3}
+      propertyPath: '_uiDocuments.Array.data[8]'
+      value: 
+      objectReference: {fileID: 742429966}
+    - target: {fileID: 995813119659565487, guid: cd8a5074ace5b774d86cf8426b25c7a2, type: 3}
+      propertyPath: '_uiDocuments.Array.data[9]'
+      value: 
+      objectReference: {fileID: 280106619}
     - target: {fileID: 2888341832917624322, guid: cd8a5074ace5b774d86cf8426b25c7a2, type: 3}
       propertyPath: _inputSocket
       value: 
@@ -8344,6 +8504,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_Tablet_TutorialPanel-Transfert
       objectReference: {fileID: 0}
+    - target: {fileID: 7678287391217791836, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+      propertyPath: m_Name
+      value: p_UITutorial-Transfert
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8357,6 +8521,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2942891367759582538, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
   m_PrefabInstance: {fileID: 2119242707}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2119242709 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3484685070570761375, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+  m_PrefabInstance: {fileID: 2119242707}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
 --- !u!1001 &2125920926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8367,7 +8542,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1626240842250873565, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
       propertyPath: m_Name
-      value: p_Tutorial_Indicator-Debourbaeg
+      value: p_Tutorial_Indicator-Debourbage
       objectReference: {fileID: 0}
     - target: {fileID: 2942891367759582538, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8417,6 +8592,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_Tablet_TutorialPanel-Debourbage
       objectReference: {fileID: 0}
+    - target: {fileID: 7678287391217791836, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+      propertyPath: m_Name
+      value: p_UITutorial-Debourbage
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8430,6 +8609,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2942891367759582538, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
   m_PrefabInstance: {fileID: 2125920926}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2125920928 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3484685070570761375, guid: c9efda907649e734e9b24d72ee7edc44, type: 3}
+  m_PrefabInstance: {fileID: 2125920926}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
 --- !u!1001 &2126348891
 PrefabInstance:
   m_ObjectHideFlags: 0
