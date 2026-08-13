@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_Pump_fix_ReserveToAssemblage Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2150158250282398416, guid: 90f07b2059fba084497f923e9c869f8a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.105
+      objectReference: {fileID: 0}
     - target: {fileID: 3326030035099036233, guid: 90f07b2059fba084497f923e9c869f8a, type: 3}
       propertyPath: m_onValveClosed.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -106,15 +110,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3521383602057198839, guid: 90f07b2059fba084497f923e9c869f8a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.945
+      value: -24.576
       objectReference: {fileID: 0}
     - target: {fileID: 3521383602057198839, guid: 90f07b2059fba084497f923e9c869f8a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.4344
+      value: -0.9616623
       objectReference: {fileID: 0}
     - target: {fileID: 3521383602057198839, guid: 90f07b2059fba084497f923e9c869f8a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.956
+      value: 6.511
       objectReference: {fileID: 0}
     - target: {fileID: 3521383602057198839, guid: 90f07b2059fba084497f923e9c869f8a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -143,6 +147,14 @@ PrefabInstance:
     - target: {fileID: 3521383602057198839, guid: 90f07b2059fba084497f923e9c869f8a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7805302482365645606, guid: 90f07b2059fba084497f923e9c869f8a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.64442897
+      objectReference: {fileID: 0}
+    - target: {fileID: 7900784847499449725, guid: 90f07b2059fba084497f923e9c869f8a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6592
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

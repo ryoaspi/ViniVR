@@ -11006,7 +11006,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7974058682855117808, guid: ce3487ad4dd57604ea4f98d9200cca0e, type: 3}
       propertyPath: m_Name
-      value: P_Muselet_Close (1)
+      value: P_Muselet_Close
       objectReference: {fileID: 0}
     - target: {fileID: 7974058682855117808, guid: ce3487ad4dd57604ea4f98d9200cca0e, type: 3}
       propertyPath: m_IsActive
