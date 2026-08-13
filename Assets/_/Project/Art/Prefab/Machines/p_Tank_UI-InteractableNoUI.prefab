@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 5634772052487294961}
   - component: {fileID: 7632701404801369830}
   m_Layer: 0
-  m_Name: p_Tank_UI-ThermoNoFill
+  m_Name: p_Tank_UI-InteractableNoUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

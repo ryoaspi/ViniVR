@@ -9,10 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4493105444746030475}
-  - component: {fileID: 8899094999690478196}
-  - component: {fileID: 6632682378241155780}
   m_Layer: 0
-  m_Name: p_Tank_NoUI
+  m_Name: p_Tank_NoInteractable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,95 +32,6 @@ Transform:
   - {fileID: 4916129309691939662}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 359.999, z: 0}
---- !u!114 &8899094999690478196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615871290777700363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cd9ff12dc6298f44922c4337a4eae44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.LiquidContainer
-  m_onVolumeChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8899094999690478196}
-        m_TargetAssemblyTypeName: Machine.Runtime.LiquidContainer, Machine.Runtime
-        m_MethodName: ChangedVolume
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_onContainerEmpty:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6632682378241155780}
-        m_TargetAssemblyTypeName: TankFillingIconAnimator, Assembly-CSharp
-        m_MethodName: ShowThermostatScreen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_onContainerFull:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TankFillingIconAnimator, Assembly-CSharp
-        m_MethodName: RefreshAssemblyState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DayNightCycle, Assembly-CSharp
-        m_MethodName: StartTemporaryAcceleration
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 10
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _containerName: Liquid Container
-  _containerType: 1
-  _maximumVolume: 100
-  _startingVolume: 0
-  _volumeTolerance: 4
---- !u!114 &6632682378241155780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615871290777700363}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ee3d7ebbeb682248ae98b464050a7b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TankFillingIconAnimator
-  _uiDocument: {fileID: 0}
-  _thermostatScreen: {fileID: 0}
-  _fillingScreen: {fileID: 0}
 --- !u!1 &4867058634059836461
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a01c854dcd5b088448769b75007363af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Machine.Runtime::Machine.Runtime.LiquidLevelVisualizer
-  _liquidContainer: {fileID: 8899094999690478196}
+  _liquidContainer: {fileID: 0}
   _liquidVisual: {fileID: 6825790921889138588}
   _fillRatePerSecond: 1
   _minimumHeight: 0.001
@@ -453,10 +362,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: p_SnapZone_Pipe
       objectReference: {fileID: 0}
-    - target: {fileID: 6784091180318460411, guid: ac23a2be560d667448f0fcb978e9fb8b, type: 3}
-      propertyPath: _liquidContainer
-      value: 
-      objectReference: {fileID: 8899094999690478196}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
