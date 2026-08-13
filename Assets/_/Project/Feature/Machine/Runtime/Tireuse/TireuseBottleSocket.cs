@@ -56,7 +56,7 @@ namespace Machine.Runtime
 
             _tireuse.SetBottle(
                 _socketIndex,
-                bottle);
+                bottle);    
         }
 
         private void OnBottleExited(SelectExitEventArgs args)
@@ -83,6 +83,7 @@ namespace Machine.Runtime
         private int _socketIndex;
 
         private XRSocketInteractor _socketInteractor;
+        
 
         #endregion
     }

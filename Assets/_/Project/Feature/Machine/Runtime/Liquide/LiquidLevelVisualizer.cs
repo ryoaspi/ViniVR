@@ -97,22 +97,12 @@ namespace Machine.Runtime
             }
 
             _isFilling = true;
-
-            Debug.Log(
-                $"[{nameof(LiquidLevelVisualizer)}] " +
-                $"Remplissage démarré pour " +
-                $"{_liquidContainer.m_containerName}.",
-                this);
+            
         }
 
         public void PauseLevel()
         {
             _isFilling = false;
-
-            Debug.Log(
-                $"[{nameof(LiquidLevelVisualizer)}] " +
-                "Remplissage arrêté.",
-                this);
         }
 
         public void RefreshVisual()
@@ -261,12 +251,7 @@ namespace Machine.Runtime
         private void HandleContainerFull()
         {
             _isFilling = false;
-
-            Debug.Log(
-                $"[{nameof(LiquidLevelVisualizer)}] " +
-                $"Le conteneur {_liquidContainer.m_containerName} " +
-                "est maintenant plein.",
-                this);
+            
         }
 
         private void ApplyLiquidLevel(

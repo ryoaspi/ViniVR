@@ -4846,7 +4846,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5971284639569267648}
   - component: {fileID: 3996728629105743797}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4902,6 +4902,7 @@ GameObject:
   - component: {fileID: 6580231023423874845}
   - component: {fileID: 1838066387693458122}
   - component: {fileID: 8529888228853929592}
+  - component: {fileID: 847030310557541086}
   m_Layer: 0
   m_Name: P_BottleWithWooble
   m_TagString: Untagged
@@ -5101,9 +5102,27 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.055150032
-  m_Height: 0.4182636
+  m_Height: 0.3692199
   m_Direction: 1
-  m_Center: {x: -0.0021939725, y: 0.15984312, z: -0.0017962456}
+  m_Center: {x: -0.0021939725, y: 0.18436497, z: -0.0017962456}
+--- !u!114 &847030310557541086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7809001446635061175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e77b81d869739f43bc5b9416ff8548b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Machine.Runtime::BottleLiquidFill
+  _liquidRenderer: {fileID: 6564595426392888490}
+  _fillProperty: _Fill
+  _startFill: 0
+  _targetFill: 1
+  _fillDuration: 1.5
+  _remplissageParticule: {fileID: 7697374221298748587}
 --- !u!1 &7916912460606815778
 GameObject:
   m_ObjectHideFlags: 0
@@ -10540,7 +10559,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 153679576085020015, guid: bde1453626da594409176ff7573a212f, type: 3}
       propertyPath: playOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 153679576085020015, guid: bde1453626da594409176ff7573a212f, type: 3}
       propertyPath: ShapeModule.type
@@ -10661,6 +10680,10 @@ PrefabInstance:
     - target: {fileID: 153679576085020015, guid: bde1453626da594409176ff7573a212f, type: 3}
       propertyPath: InitialModule.startSpeed.minScalar
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 153679576085020015, guid: bde1453626da594409176ff7573a212f, type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 502
       objectReference: {fileID: 0}
     - target: {fileID: 153679576085020015, guid: bde1453626da594409176ff7573a212f, type: 3}
       propertyPath: CollisionModule.collidesWithDynamic
@@ -10884,13 +10907,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6399234604629198551, guid: bde1453626da594409176ff7573a212f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bde1453626da594409176ff7573a212f, type: 3}
+--- !u!1 &7697374221298748587 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6399234604629198551, guid: bde1453626da594409176ff7573a212f, type: 3}
+  m_PrefabInstance: {fileID: 3610819161553193596}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9204553619114838441 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5593770191708029909, guid: bde1453626da594409176ff7573a212f, type: 3}
@@ -11398,7 +11426,8 @@ MonoBehaviour:
   _fillProperty: _Fill
   _startFill: 0
   _targetFill: 1
-  _fillDuration: 1
+  _fillDuration: 1.5
+  _remplissageParticule: {fileID: 7697374221298748587}
 --- !u!4 &5427132352576008133 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 978622b6e6e69864db42b45953f2fa27, type: 3}

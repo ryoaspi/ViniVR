@@ -80,12 +80,6 @@ namespace Machine.Runtime
             _attachTransform.localRotation =
                 _initialLocalRotation *
                 orientationOffset;
-
-            Debug.Log(
-                $"[{nameof(HoseSocketOrientation)}] " +
-                $"Orientation appliquée pour {hoseEnd.name} : " +
-                $"{hoseEnd.m_socketRotation}.",
-                this);
         }
 
         private void HandleSelectExited(

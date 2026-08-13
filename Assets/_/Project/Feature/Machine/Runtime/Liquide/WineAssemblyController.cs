@@ -174,13 +174,7 @@ namespace Machine.Runtime
 
             _activeSource = source;
             _isRunning = true;
-
-            Debug.Log(
-                $"[{nameof(WineAssemblyController)}] " +
-                $"Pompe démarrée. Source : " +
-                $"{_activeSource.m_containerName} | " +
-                $"Destination : {_assemblyContainer.m_containerName}.",
-                this);
+            
         }
 
         /// <summary>
@@ -195,11 +189,7 @@ namespace Machine.Runtime
 
             _isRunning = false;
             _activeSource = null;
-
-            Debug.Log(
-                $"[{nameof(WineAssemblyController)}] " +
-                "Pompe arrêtée.",
-                this);
+            
         }
 
         /// <summary>
@@ -236,12 +226,7 @@ namespace Machine.Runtime
             {
                 return;
             }
-
-            Debug.Log(
-                $"[{nameof(WineAssemblyController)}] " +
-                $"Source connectée : {source.m_containerName} | " +
-                $"Destination connectée : {destination.m_containerName}.",
-                this);
+            
         }
 
         #endregion
@@ -307,19 +292,6 @@ namespace Machine.Runtime
             _activeSource = null;
             _isRunning = false;
             _hasRaisedInvalidEvent = false;
-
-            Debug.Log(
-                $"[{nameof(WineAssemblyController)}] " +
-                "Suivi de l'assemblage initialisé. " +
-                $"Débourbage initial : " +
-                $"{_initialDebourbageVolume:F2}. " +
-                $"Débourbage attendu : " +
-                $"{_requiredDebourbageAmount:F2}. " +
-                $"Réserve initiale : " +
-                $"{_initialReserveVolume:F2}. " +
-                $"Réserve attendue : " +
-                $"{_requiredReserveAmount:F2}.",
-                this);
 
             EvaluateAssembly();
         }
@@ -450,8 +422,8 @@ namespace Machine.Runtime
             source = null;
             destination = null;
 
-            if (_inputSocket == null ||
-                _outputSocket == null)
+            if (!_inputSocket ||
+                !_outputSocket)
             {
                 Debug.LogError(
                     $"[{nameof(WineAssemblyController)}] " +
@@ -478,8 +450,8 @@ namespace Machine.Runtime
             LiquidHoseEnd outputPumpEnd =
                 _outputSocket.m_connectedHoseEnd;
 
-            if (inputPumpEnd == null ||
-                outputPumpEnd == null)
+            if (!inputPumpEnd ||
+                !outputPumpEnd)
             {
                 Debug.LogWarning(
                     $"[{nameof(WineAssemblyController)}] " +
@@ -511,7 +483,7 @@ namespace Machine.Runtime
                 ResolveOppositeHoseEnd(
                     outputPumpEnd);
 
-            if (inputTankEnd == null)
+            if (!inputTankEnd)
             {
                 Debug.LogWarning(
                     $"[{nameof(WineAssemblyController)}] " +
@@ -522,7 +494,7 @@ namespace Machine.Runtime
                 return false;
             }
 
-            if (outputTankEnd == null)
+            if (!outputTankEnd)
             {
                 Debug.LogWarning(
                     $"[{nameof(WineAssemblyController)}] " +
@@ -539,7 +511,7 @@ namespace Machine.Runtime
             destination =
                 outputTankEnd.m_connectedContainer;
 
-            if (source == null)
+            if (!source)
             {
                 Debug.LogWarning(
                     $"[{nameof(WineAssemblyController)}] " +
@@ -550,7 +522,7 @@ namespace Machine.Runtime
                 return false;
             }
 
-            if (destination == null)
+            if (!destination)
             {
                 Debug.LogWarning(
                     $"[{nameof(WineAssemblyController)}] " +
@@ -574,7 +546,7 @@ namespace Machine.Runtime
         private LiquidHoseEnd ResolveOppositeHoseEnd(
             LiquidHoseEnd connectedPumpEnd)
         {
-            if (connectedPumpEnd == null)
+            if (!connectedPumpEnd)
             {
                 return null;
             }
@@ -592,8 +564,8 @@ namespace Machine.Runtime
 
             foreach (HoseEndPair hose in _availableHoses)
             {
-                if (hose.m_endA == null ||
-                    hose.m_endB == null)
+                if (!hose.m_endA ||
+                    !hose.m_endB)
                 {
                     continue;
                 }
@@ -622,8 +594,8 @@ namespace Machine.Runtime
             LiquidHoseEnd firstEnd,
             LiquidHoseEnd secondEnd)
         {
-            if (firstEnd == null ||
-                secondEnd == null ||
+            if (!firstEnd ||
+                !secondEnd ||
                 _availableHoses == null)
             {
                 return false;
@@ -653,8 +625,8 @@ namespace Machine.Runtime
             LiquidContainer source,
             LiquidContainer destination)
         {
-            if (source == null ||
-                destination == null)
+            if (!source ||
+                !destination)
             {
                 return false;
             }
@@ -878,12 +850,6 @@ namespace Machine.Runtime
             _currentStep =
                 AssemblyStep.Reserve;
 
-            Debug.Log(
-                $"[{nameof(WineAssemblyController)}] " +
-                "Étape de débourbage terminée. " +
-                "Branche maintenant la cuve de réserve sur IN.",
-                this);
-
             m_onDebourbageStepCompleted?.Invoke();
         }
 
@@ -951,13 +917,6 @@ namespace Machine.Runtime
 
             _currentStep =
                 AssemblyStep.Completed;
-
-            Debug.Log(
-                $"[{nameof(WineAssemblyController)}] " +
-                "Assemblage terminé avec succès : " +
-                $"{_debourbagePercentage * 100f:F0} % de débourbage et " +
-                $"{_reservePercentage * 100f:F0} % de réserve.",
-                this);
 
             m_onAssemblyCompleted?.Invoke();
         }

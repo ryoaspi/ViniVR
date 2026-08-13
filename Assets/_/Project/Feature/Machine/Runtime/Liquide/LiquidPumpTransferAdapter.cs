@@ -57,11 +57,6 @@ namespace Machine.Runtime
 
             _isRunning = true;
 
-            Debug.Log(
-                $"[{nameof(LiquidPumpTransferAdapter)}] " +
-                $"Pompe démarrée sur {name}.",
-                this);
-
             LogCurrentConnections();
         }
 
@@ -73,11 +68,7 @@ namespace Machine.Runtime
             }
 
             _isRunning = false;
-
-            Debug.Log(
-                $"[{nameof(LiquidPumpTransferAdapter)}] " +
-                $"Pompe arrêtée sur {name}.",
-                this);
+            
         }
 
         public void LogCurrentConnections()
@@ -97,12 +88,7 @@ namespace Machine.Runtime
                 destination != null
                     ? destination.m_containerName
                     : "NULL";
-
-            Debug.Log(
-                $"[{nameof(LiquidPumpTransferAdapter)}] " +
-                $"Source : {sourceName} | " +
-                $"Destination : {destinationName}.",
-                this);
+            
         }
 
         #endregion
@@ -204,7 +190,7 @@ namespace Machine.Runtime
         private LiquidContainer ResolveConnectedContainer(
             PumpSocketConnection pumpSocket)
         {
-            if (pumpSocket == null ||
+            if (!pumpSocket ||
                 !pumpSocket.m_isConnected)
             {
                 return null;
@@ -213,7 +199,7 @@ namespace Machine.Runtime
             LiquidHoseEnd pumpSideEnd =
                 pumpSocket.m_connectedHoseEnd;
 
-            if (pumpSideEnd == null)
+            if (!pumpSideEnd)
             {
                 return null;
             }
@@ -226,13 +212,13 @@ namespace Machine.Runtime
             LiquidHose hose =
                 pumpSideEnd.GetComponentInParent<LiquidHose>();
 
-            if (hose == null)
+            if (!hose)
             {
                 hose =
                     pumpSideEnd.GetComponentInChildren<LiquidHose>();
             }
 
-            if (hose == null)
+            if (!hose)
             {
                 LogMissingHose(pumpSideEnd);
                 return null;
@@ -272,13 +258,13 @@ namespace Machine.Runtime
             }
 
             string inputState =
-                _inputSocket != null &&
+                _inputSocket &&
                 _inputSocket.m_isConnected
                     ? "connecté"
                     : "déconnecté";
 
             string outputState =
-                _outputSocket != null &&
+                _outputSocket &&
                 _outputSocket.m_isConnected
                     ? "connecté"
                     : "déconnecté";
@@ -301,12 +287,12 @@ namespace Machine.Runtime
             }
 
             string sourceName =
-                source != null
+                source
                     ? source.m_containerName
                     : "NULL";
 
             string destinationName =
-                destination != null
+                destination
                     ? destination.m_containerName
                     : "NULL";
 

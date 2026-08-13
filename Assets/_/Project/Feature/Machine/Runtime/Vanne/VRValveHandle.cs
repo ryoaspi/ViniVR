@@ -337,11 +337,6 @@ public class VRValveHandle : MonoBehaviour
         _hasAuthorizedPumpStart =
             true;
 
-        Debug.Log(
-            $"[{nameof(VRValveHandle)}] " +
-            "Vanne ouverte et raccords de pompe validés.",
-            this);
-
         m_onValveOpened?.Invoke();
     }
 
@@ -369,12 +364,6 @@ public class VRValveHandle : MonoBehaviour
 
         _hasAuthorizedPumpStart =
             false;
-
-        Debug.LogWarning(
-            $"[{nameof(VRValveHandle)}] " +
-            "Un raccord de pompe a été retiré pendant le transfert. " +
-            "La pompe est arrêtée automatiquement.",
-            this);
 
         m_onValveClosed?.Invoke();
         m_onPumpConnectionMissing?.Invoke();

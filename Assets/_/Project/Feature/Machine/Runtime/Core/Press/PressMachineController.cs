@@ -79,9 +79,6 @@ namespace Machine.Runtime
         /// </summary>
         public void ToggleMachinePower()
         {
-            Debug.Log(
-                $"[{nameof(PressMachineController)}] ToggleMachinePower appelé.",
-                this);
 
             if (_isMachinePoweredOn)
             {
@@ -94,10 +91,6 @@ namespace Machine.Runtime
 
         public void PowerOnMachine()
         {
-            
-            Debug.Log(
-                $"[{nameof(PressMachineController)}] PowerOnMachine appelé.",
-                this);
             
             if (_isMachinePoweredOn)
             {
@@ -198,46 +191,20 @@ namespace Machine.Runtime
         /// </summary>
         public void NotifyDoorsClosed()
         {
-            Debug.Log(
-                $"[{nameof(PressMachineController)}] " +
-                $"NotifyDoorsClosed reçu. État : {_currentState}.",
-                this);
 
             if (_currentState != PressMachineState.ClosingDoors)
             {
-                Debug.LogWarning(
-                    $"[{nameof(PressMachineController)}] " +
-                    $"La fermeture a été signalée depuis l'état {_currentState}.",
-                    this);
-
                 return;
             }
 
             if (_animator == null)
             {
-                Debug.LogError(
-                    $"[{nameof(PressMachineController)}] " +
-                    "Impossible de lancer la rotation : Animator manquant.",
-                    this);
-
                 return;
             }
 
             _currentState = PressMachineState.Pressing;
 
-            Debug.Log(
-                $"[{nameof(PressMachineController)}] " +
-                $"Animator piloté : '{_animator.gameObject.name}'. " +
-                $"Paramètre demandé : '{_pressRotatingParameter}'.",
-                _animator);
-
             _animator.SetBool(_pressRotatingParameter, true);
-
-            Debug.Log(
-                $"[{nameof(PressMachineController)}] " +
-                $"Valeur après SetBool : " +
-                $"{_animator.GetBool(_pressRotatingParameter)}.",
-                _animator);
 
             m_onDoorsClosed?.Invoke();
             m_onPressStarted?.Invoke();
@@ -255,11 +222,6 @@ namespace Machine.Runtime
             }
 
             _currentRotationCount++;
-            
-            Debug.Log(
-                $"[{nameof(PressMachineController)}] " +
-                $"Rotation {_currentRotationCount}/{_requiredRotationCount}.",
-                this);
 
             if (_currentRotationCount < _requiredRotationCount)
             {
@@ -275,18 +237,9 @@ namespace Machine.Runtime
         /// </summary>
         public void NotifyDoorsOpened()
         {
-            Debug.Log(
-                $"[{nameof(PressMachineController)}] " +
-                $"NotifyDoorsOpened reçu. État : {_currentState}.",
-                this);
 
             if (_currentState != PressMachineState.OpeningDoors)
             {
-                Debug.LogWarning(
-                    $"[{nameof(PressMachineController)}] " +
-                    $"L'ouverture a été signalée depuis l'état {_currentState}.",
-                    this);
-
                 return;
             }
 
@@ -294,11 +247,6 @@ namespace Machine.Runtime
 
             m_onDoorsOpened?.Invoke();
             m_onMachineReady?.Invoke();
-
-            Debug.Log(
-                $"[{nameof(PressMachineController)}] " +
-                "Les portes sont ouvertes. La machine est prête.",
-                this);
         }
         
         public void NotifyDoorAnimationEndpoint()
@@ -314,11 +262,6 @@ namespace Machine.Runtime
                     break;
 
                 default:
-                    Debug.LogWarning(
-                        $"[{nameof(PressMachineController)}] " +
-                        $"Une fin d'animation de porte a été reçue depuis l'état " +
-                        $"'{_currentState}'.",
-                        this);
                     break;
             }
         }

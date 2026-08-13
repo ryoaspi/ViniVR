@@ -64,12 +64,7 @@ namespace Machine.Runtime
             {
                 return;
             }
-
-            Debug.LogError(
-                $"[{nameof(LiquidConnectionPoint)}] " +
-                $"Aucun {nameof(LiquidContainer)} trouvé " +
-                $"pour le point {name}.",
-                this);
+            
         }
 
         #endregion

@@ -50,9 +50,6 @@ namespace Machine.Runtime
 
         public void StartSequence()
         {
-            Debug.Log(
-                $"[{nameof(EmissiveLightSequence)}] StartSequence appelé.",
-                this);
             
             if (_currentState != LightSequenceState.Off)
             {
@@ -167,7 +164,7 @@ namespace Machine.Runtime
             float intensity,
             bool isActive)
         {
-            if (targetRenderer == null || propertyBlock == null)
+            if (!targetRenderer || propertyBlock == null)
             {
                 return;
             }

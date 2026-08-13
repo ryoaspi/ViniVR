@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class BottleLiquidFill : MonoBehaviour
@@ -16,6 +15,7 @@ public class BottleLiquidFill : MonoBehaviour
     {
         Initialize();
         SetFillImmediate(_startFill);
+        SetFillingParticles(false);
     }
 
     private void Update()
@@ -33,7 +33,6 @@ public class BottleLiquidFill : MonoBehaviour
 
     /// <summary>
     /// Lance le remplissage jusqu'à la valeur cible configurée.
-    /// Peut être appelée depuis un Animation Event.
     /// </summary>
     public void FillBottle()
     {
@@ -49,6 +48,7 @@ public class BottleLiquidFill : MonoBehaviour
         _isFilling = false;
 
         ApplyFill();
+        SetFillingParticles(false);
     }
 
     /// <summary>
@@ -58,7 +58,6 @@ public class BottleLiquidFill : MonoBehaviour
     {
         SetFillImmediate(0f);
     }
-    
 
     #endregion
 
@@ -97,7 +96,6 @@ public class BottleLiquidFill : MonoBehaviour
                 this);
 
             enabled = false;
-            return;
         }
     }
 
@@ -116,6 +114,8 @@ public class BottleLiquidFill : MonoBehaviour
 
         _fillTimer = 0f;
         _isFilling = true;
+
+        SetFillingParticles(true);
     }
 
     private void UpdateFill()
@@ -139,16 +139,26 @@ public class BottleLiquidFill : MonoBehaviour
         _isFilling = false;
 
         ApplyFill();
+
+        SetFillingParticles(false);
     }
 
     private void ApplyFill()
     {
-        if (_liquidRenderer == null)
+        if (!_liquidRenderer)
             return;
 
         _liquidRenderer.material.SetFloat(
             _fillProperty,
             _currentFill);
+    }
+
+    private void SetFillingParticles(bool active)
+    {
+        if (!_remplissageParticule)
+            return;
+
+        _remplissageParticule.SetActive(active);
     }
 
     #endregion
@@ -179,11 +189,13 @@ public class BottleLiquidFill : MonoBehaviour
     [SerializeField]
     private float _fillDuration = 1f;
 
-    private float _currentFill;
+    [Header("Particules")]
+    [SerializeField]
+    private GameObject _remplissageParticule;
 
+    private float _currentFill;
     private float _startValue;
     private float _targetValue;
-
     private float _fillTimer;
 
     private bool _isFilling;
