@@ -173,7 +173,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: f627daab0d4dcf045b057bcfc402ce18, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: 204e5a1799966874d9bd0d95eca7c880, type: 2}
+      objectReference: {fileID: 2100000, guid: eec1a222875852148aef56355c21c598, type: 2}
     - target: {fileID: 919132149155446097, guid: f627daab0d4dcf045b057bcfc402ce18, type: 3}
       propertyPath: m_Name
       value: 3D_Pallette
