@@ -14,17 +14,12 @@ public class UIThermostat : MonoBehaviour
     void Start()
     {
         wishedTemperatureSlider = uiDocumentReference.rootVisualElement.Q<Slider>("wished-temperature-slider");
-
         wishedTemperatureValue = uiDocumentReference.rootVisualElement.Q<Label>("wished-temperature-value");
-
         tankStartButton = uiDocumentReference.rootVisualElement.Q<Button>("tank-start-button");
-
         currentTemperatureValue = uiDocumentReference.rootVisualElement.Q<Label>("Temperature_value");
-
         thermoregulationStatusIcon = uiDocumentReference.rootVisualElement.Q<Image>("thermoregulation-status-icon");
-
         thermoregulationStatusText = uiDocumentReference.rootVisualElement.Q<Label>("thermoregulation-status-text");
-
+        
         wishedTemperatureSlider.lowValue = 10f;
         wishedTemperatureSlider.highValue = 32f;
 
@@ -77,7 +72,7 @@ public class UIThermostat : MonoBehaviour
     #region Utils
     private void OnWishedTemperatureChanged(ChangeEvent<float> evt)
     {
-        //Force a round or .5 value each slider step
+        //Force a round .5 value each slider step
         float roundedValue = Mathf.Round(evt.newValue * 2f) / 2f;
         wishedTemperatureSlider.SetValueWithoutNotify(roundedValue);
         wishedTemperatureValue.text = $"{roundedValue:0.#}°C";

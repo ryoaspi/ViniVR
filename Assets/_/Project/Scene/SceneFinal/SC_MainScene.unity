@@ -1622,6 +1622,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1516439245}
     m_Modifications:
+    - target: {fileID: 1817629609376000716, guid: 8eb8c7f08b3e0534ba75d14526df0875, type: 3}
+      propertyPath: m_Name
+      value: p_UITankPanel-Assemablage
+      objectReference: {fileID: 0}
     - target: {fileID: 2039378876696865086, guid: 8eb8c7f08b3e0534ba75d14526df0875, type: 3}
       propertyPath: m_Name
       value: p_Tank_UI-Assemblage
@@ -1666,10 +1670,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6332198465024471127, guid: 8eb8c7f08b3e0534ba75d14526df0875, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2039378876696865086, guid: 8eb8c7f08b3e0534ba75d14526df0875, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3849063556391411103}
     - targetCorrespondingSourceObject: {fileID: 6332198465024471127, guid: 8eb8c7f08b3e0534ba75d14526df0875, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -1677,6 +1688,22 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 8eb8c7f08b3e0534ba75d14526df0875, type: 3}
+--- !u!114 &432140733 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2831723129178411390, guid: 8eb8c7f08b3e0534ba75d14526df0875, type: 3}
+  m_PrefabInstance: {fileID: 432140732}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+--- !u!1 &432140734 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2039378876696865086, guid: 8eb8c7f08b3e0534ba75d14526df0875, type: 3}
+  m_PrefabInstance: {fileID: 432140732}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &449539700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7089,6 +7116,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 995813119659565487, guid: cd8a5074ace5b774d86cf8426b25c7a2, type: 3}
+      propertyPath: _uiDocuments.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 995813119659565487, guid: cd8a5074ace5b774d86cf8426b25c7a2, type: 3}
       propertyPath: '_uiDocuments.Array.data[0]'
       value: 
       objectReference: {fileID: 1160329112}
@@ -7128,6 +7159,14 @@ PrefabInstance:
       propertyPath: '_uiDocuments.Array.data[9]'
       value: 
       objectReference: {fileID: 280106619}
+    - target: {fileID: 995813119659565487, guid: cd8a5074ace5b774d86cf8426b25c7a2, type: 3}
+      propertyPath: '_uiDocuments.Array.data[10]'
+      value: 
+      objectReference: {fileID: 316792403679700518}
+    - target: {fileID: 995813119659565487, guid: cd8a5074ace5b774d86cf8426b25c7a2, type: 3}
+      propertyPath: '_uiDocuments.Array.data[11]'
+      value: 
+      objectReference: {fileID: 432140733}
     - target: {fileID: 2888341832917624322, guid: cd8a5074ace5b774d86cf8426b25c7a2, type: 3}
       propertyPath: _inputSocket
       value: 
@@ -7217,7 +7256,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5727859514573601879, guid: cd8a5074ace5b774d86cf8426b25c7a2, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd8a5074ace5b774d86cf8426b25c7a2, type: 3}
@@ -8042,6 +8082,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1516439245}
     m_Modifications:
+    - target: {fileID: 1817629609376000716, guid: 8eb8c7f08b3e0534ba75d14526df0875, type: 3}
+      propertyPath: m_Name
+      value: p_UITankPanel-Debourbage
+      objectReference: {fileID: 0}
     - target: {fileID: 2039378876696865086, guid: 8eb8c7f08b3e0534ba75d14526df0875, type: 3}
       propertyPath: m_Name
       value: p_Tank_UI-Debourbage
@@ -8086,6 +8130,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6332198465024471127, guid: 8eb8c7f08b3e0534ba75d14526df0875, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7904021298782951343, guid: 8eb8c7f08b3e0534ba75d14526df0875, type: 3}
       propertyPath: m_onContainerFull.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -8094,6 +8142,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2039378876696865086, guid: 8eb8c7f08b3e0534ba75d14526df0875, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3849063556097483722}
     - targetCorrespondingSourceObject: {fileID: 6332198465024471127, guid: 8eb8c7f08b3e0534ba75d14526df0875, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -8101,6 +8152,22 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 8eb8c7f08b3e0534ba75d14526df0875, type: 3}
+--- !u!114 &316792403679700518 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2831723129178411390, guid: 8eb8c7f08b3e0534ba75d14526df0875, type: 3}
+  m_PrefabInstance: {fileID: 316792403679700517}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+--- !u!1 &316792403679700519 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2039378876696865086, guid: 8eb8c7f08b3e0534ba75d14526df0875, type: 3}
+  m_PrefabInstance: {fileID: 316792403679700517}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &926970180085807136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8236,7 +8303,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7904021298782951343, guid: 8eb8c7f08b3e0534ba75d14526df0875, type: 3}
   m_PrefabInstance: {fileID: 432140732}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 432140734}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cd9ff12dc6298f44922c4337a4eae44, type: 3}
@@ -8247,7 +8314,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7904021298782951343, guid: 8eb8c7f08b3e0534ba75d14526df0875, type: 3}
   m_PrefabInstance: {fileID: 316792403679700517}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 316792403679700519}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cd9ff12dc6298f44922c4337a4eae44, type: 3}
@@ -8328,6 +8395,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3238498398557000023, guid: 8eb8c7f08b3e0534ba75d14526df0875, type: 3}
   m_PrefabInstance: {fileID: 316792403679700517}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3849063556097483722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316792403679700519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a1aa0f8cdedac34a96b19fcd205284c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIThermostat
+  uiDocumentReference: {fileID: 316792403679700518}
+  currentTemperature: 18.5
+  heatingIcon: {fileID: 7388822144124034973, guid: 1b8c89b858468f5409bfbc0abc56392f, type: 3}
+  coolingIcon: {fileID: 7388822144124034973, guid: 9e07d203c93ad764f80412050e6ace21, type: 3}
+  stableIcon: {fileID: 7388822144124034973, guid: ea30eb4fe6854814a8389a2353f709be, type: 3}
 --- !u!4 &3849063556098258522 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4493105444746030475, guid: fc2e532012839f341b6fbcaaaabdabc7, type: 3}
@@ -8343,6 +8427,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3238498398557000023, guid: 8eb8c7f08b3e0534ba75d14526df0875, type: 3}
   m_PrefabInstance: {fileID: 432140732}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3849063556391411103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432140734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a1aa0f8cdedac34a96b19fcd205284c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIThermostat
+  uiDocumentReference: {fileID: 432140733}
+  currentTemperature: 18.5
+  heatingIcon: {fileID: 7388822144124034973, guid: 1b8c89b858468f5409bfbc0abc56392f, type: 3}
+  coolingIcon: {fileID: 7388822144124034973, guid: 9e07d203c93ad764f80412050e6ace21, type: 3}
+  stableIcon: {fileID: 7388822144124034973, guid: ea30eb4fe6854814a8389a2353f709be, type: 3}
 --- !u!4 &3849063556513730332 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4493105444746030475, guid: fc2e532012839f341b6fbcaaaabdabc7, type: 3}
