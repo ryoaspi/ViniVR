@@ -11,9 +11,14 @@ public class BonusScripts : MonoBehaviour
 
     public void BonusEnable()
     {
-        _bonus.SetActive(true);
+        if (_firstCall = false)
+        {
+            _bonus.SetActive(true);
+            _firstCall = true;
+        }
     }
 
 
     [SerializeField] private GameObject _bonus;
+    private bool _firstCall;
 }
