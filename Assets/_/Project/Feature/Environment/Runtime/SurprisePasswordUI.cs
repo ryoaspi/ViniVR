@@ -12,18 +12,21 @@ public class SurprisePasswordUI : MonoBehaviour
     public GameObject m_rewardObject;
 
     [Header("Password")]
-    public string m_correctAnswer = "Europa";
+    public string m_correctAnswer = "Opera";
 
     #endregion
 
 
     #region API Unity
 
-    private void Awake()
+    private void Start()
     {
         if (m_uiDocument == null)
         {
-            Debug.LogError("[SurprisePasswordUI] UIDocument non assigné.", this);
+            Debug.LogError(
+                "[SurprisePasswordUI] UIDocument non assigné.",
+                this);
+
             return;
         }
 
@@ -33,12 +36,41 @@ public class SurprisePasswordUI : MonoBehaviour
     #endregion
 
 
-    #region Utils (méthodes publiques)
+    #region Public Methods
 
-    public void HandleButtonClick(ClickEvent m_event)
+    public void ShowPanel()
     {
-        if (m_event.currentTarget is not Button button)
+        if (_hasAnswered)
+        {
             return;
+        }
+
+        m_uiDocument.gameObject.SetActive(true);
+    }
+
+    #endregion
+
+
+    #region Main Methods
+
+    private void RegisterButtons()
+    {
+        VisualElement root = m_uiDocument.rootVisualElement;
+
+        root.Query<Button>().ForEach(button =>
+        {
+            button.clicked += () => HandleButtonClick(button);
+        });
+    }
+
+    private void HandleButtonClick(Button button)
+    {
+        if (_hasAnswered)
+        {
+            return;
+        }
+
+        _hasAnswered = true;
 
         if (button.text == m_correctAnswer)
         {
@@ -46,23 +78,6 @@ public class SurprisePasswordUI : MonoBehaviour
         }
 
         DisablePanel();
-    }
-
-    #endregion
-
-
-    #region Main Methods (méthodes private)
-
-    private void RegisterButtons()
-    {
-        VisualElement root = m_uiDocument.rootVisualElement;
-
-        var buttons = root.Query<Button>().ToList();
-
-        foreach (Button button in buttons)
-        {
-            button.RegisterCallback<ClickEvent>(HandleButtonClick);
-        }
     }
 
     private void ActivateReward()
@@ -83,6 +98,13 @@ public class SurprisePasswordUI : MonoBehaviour
     {
         m_uiDocument.gameObject.SetActive(false);
     }
+
+    #endregion
+
+
+    #region Private
+
+    private bool _hasAnswered = false;
 
     #endregion
 }

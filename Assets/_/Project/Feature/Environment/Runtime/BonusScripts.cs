@@ -11,7 +11,7 @@ public class BonusScripts : MonoBehaviour
 
     public void BonusEnable()
     {
-        if (_firstCall = false)
+        if (_firstCall == false)
         {
             _bonus.SetActive(true);
             _firstCall = true;
