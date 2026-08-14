@@ -31,7 +31,7 @@
 }
 
 .btn-colors:active {
-    color: #000000;
-    background-color: #b8b7b7;
-    border-color: #ffffff;
+    color: #ffffff;
+    background-color: #DA495D;
+    border-color: #DA495D;
 }

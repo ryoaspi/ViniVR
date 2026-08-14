@@ -5524,7 +5524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SurprisePasswordUI
   m_uiDocument: {fileID: 1506481664}
   m_rewardObject: {fileID: 1687704958}
-  m_correctAnswer: Apero
+  m_correctAnswer: Opera
 --- !u!1 &1516439244
 GameObject:
   m_ObjectHideFlags: 0
@@ -8242,14 +8242,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 262347428}
     m_Modifications:
+    - target: {fileID: 879817155180957474, guid: 69a4402786359064f816bbf321d022ea, type: 3}
+      propertyPath: m_PivotReferenceSize
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4394021597496240246, guid: 69a4402786359064f816bbf321d022ea, type: 3}
       propertyPath: m_Name
       value: p_UI-Surprise
       objectReference: {fileID: 0}
     - target: {fileID: 4394021597496240246, guid: 69a4402786359064f816bbf321d022ea, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4394021597496240246, guid: 69a4402786359064f816bbf321d022ea, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8036043767285952959, guid: 69a4402786359064f816bbf321d022ea, type: 3}
+      propertyPath: m_Colliders.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8036043767285952959, guid: 69a4402786359064f816bbf321d022ea, type: 3}
+      propertyPath: 'm_Colliders.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2405687360110816507}
     - target: {fileID: 8268990089464156850, guid: 69a4402786359064f816bbf321d022ea, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.20000002
@@ -8305,7 +8321,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4394021597496240246, guid: 69a4402786359064f816bbf321d022ea, type: 3}
       insertIndex: 1
       addedObject: {fileID: 1506481665}
+    - targetCorrespondingSourceObject: {fileID: 4394021597496240246, guid: 69a4402786359064f816bbf321d022ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 69a4402786359064f816bbf321d022ea, type: 3}
+--- !u!65 &2405687360110816507 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 6435879794889231159, guid: 69a4402786359064f816bbf321d022ea, type: 3}
+  m_PrefabInstance: {fileID: 2405687360110816506}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2779767373214412819
 PrefabInstance:
   m_ObjectHideFlags: 0
