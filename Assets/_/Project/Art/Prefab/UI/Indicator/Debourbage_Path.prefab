@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 358147282198707379}
   m_Layer: 0
-  m_Name: "D\xE9bourbage_Path"
+  m_Name: Debourbage_Path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

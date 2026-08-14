@@ -16,6 +16,12 @@ namespace Machine.Runtime
                 _indicators[i].SetActive(i == 0);
             }
             
+            
+            for (int i = 0; i < _tutorialPaths.Length; i++)
+            {
+                _tutorialPaths[i].SetActive(i == 0);
+            }
+            
             _introductionButton = _introductionUIDocument.rootVisualElement.Q<Button>("button_introduction");
             _introductionButton.clicked += GoToNextStep;
             
@@ -67,6 +73,8 @@ namespace Machine.Runtime
         {
             _uiTutorialButtons[_currentStepIndex].SetEnabled(false);
             _indicators[_currentStepIndex].SetActive(false);
+            _tutorialPaths[_currentStepIndex].SetActive(false);
+
             
             if (_currentStepIndex >= _indicators.Length - 1)
             {
@@ -75,6 +83,7 @@ namespace Machine.Runtime
             
             _currentStepIndex++;
             _indicators[_currentStepIndex].SetActive(true);
+            _tutorialPaths[_currentStepIndex].SetActive(true);
         }
         #endregion
         
@@ -83,6 +92,7 @@ namespace Machine.Runtime
         
         #region private
         [SerializeField] private GameObject[] _indicators;
+        [SerializeField] private GameObject[] _tutorialPaths;
         [SerializeField] private UIDocument _introductionUIDocument;
         [SerializeField] private UIDocument _presseUIDocument;
         [SerializeField] private UIDocument _transfertUIDocument;
